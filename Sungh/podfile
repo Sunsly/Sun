@@ -1,0 +1,14 @@
+platform :ios, '8.0'
+
+target :Sungh  do
+
+pod 'AFNetworking'
+pod 'SVProgressHUD'
+pod 'MJExtension'
+pod 'YYCategories'
+pod 'IQKeyboardManager'
+pod 'SDWebImage'
+pod 'FMDB'
+pod 'Masonry'
+pod 'MJRefresh'
+end
