@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    /*sun*/
     //测试
 //    [[UIScreen mainScreen].bounds.size.width];
     // Do any additional setup after loading the view, typically from a nib.
