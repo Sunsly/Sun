@@ -146,6 +146,7 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				A423AC3D213853250028BAEC /* 类别 */,
 				9F60A7AE212A939E00D2C487 /* 文件存储 */,
 				9FE7A2C52112A6200048776E /* Tools */,
 				9FE7A2B82111B1880048776E /* SDK */,
@@ -233,6 +234,13 @@
 				9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		A423AC3D213853250028BAEC /* 类别 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "类别";
 			sourceTree = "<group>";
 		};
 		E397F875BD179A9770AC0336 /* Pods */ = {
