@@ -22,6 +22,8 @@
     }else if (Dev == 2){
         NSLog(@" ---- sungh_dev");
     }
+/*
+ 测试一下分支*/    
     return YES;
 }
 
