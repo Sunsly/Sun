@@ -45,6 +45,8 @@
 		9FEEFE3321354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
 		9FEEFE3721354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
+		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
+		A423AC41213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
 		DC9365C9EF0934A30878FCF6 /* libPods-Sungh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		9FEEFE3421354DF200736430 /* BundleSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleSdk.h; sourceTree = "<group>"; };
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
 		A1224607F71412690A88684D /* Pods-Sungh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.release.xcconfig"; sourceTree = "<group>"; };
+		A423AC3E213854420028BAEC /* AppDelegate+config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+config.h"; sourceTree = "<group>"; };
+		A423AC3F213854420028BAEC /* AppDelegate+config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+config.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,8 @@
 		A423AC3D213853250028BAEC /* 类别 */ = {
 			isa = PBXGroup;
 			children = (
+				A423AC3E213854420028BAEC /* AppDelegate+config.h */,
+				A423AC3F213854420028BAEC /* AppDelegate+config.m */,
 			);
 			path = "类别";
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
+				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
@@ -427,6 +434,7 @@
 				9F53D21220FDB79300D327D0 /* ViewController.m in Sources */,
 				9F53D21320FDB79300D327D0 /* main.m in Sources */,
 				9FEEFE3721354DF200736430 /* BundleSdk.m in Sources */,
+				A423AC41213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C92112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FE7A2BF2111B1B50048776E /* File.m in Sources */,
 				9F53D21420FDB79300D327D0 /* AppDelegate.m in Sources */,
