@@ -22,6 +22,19 @@
     }else if (Dev == 2){
         NSLog(@" ---- sungh_dev");
     }
+    
+    NSString *a = @"hellowwwwwww";
+    NSString *b = @"hellowwwwwww";
+    
+    
+    if (a == b) {
+        
+        NSLog(@"ad ---- %p  %p     -%p --%p",a,b,&a,&b);
+    }else{
+        NSLog(@"ac");
+
+    }
+
 /*
  测试一下分支*/    
     return YES;
