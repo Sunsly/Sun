@@ -31,6 +31,8 @@
 		9F53D23221006B9900D327D0 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D23021006B9900D327D0 /* BaseModel.m */; };
 		9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
 		9F60A7B2212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
+		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
+		9F7957E5214F92BD00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
 		9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
@@ -76,6 +78,8 @@
 		9F53D23021006B9900D327D0 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		9F60A7AF212A93CA00D2C487 /* NSFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileTool.h; sourceTree = "<group>"; };
 		9F60A7B0212A93CA00D2C487 /* NSFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileTool.m; sourceTree = "<group>"; };
+		9F7957E2214F92BC00BC6BB1 /* STool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STool.h; sourceTree = "<group>"; };
+		9F7957E3214F92BC00BC6BB1 /* STool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STool.m; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
 		9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewMessageHandler.html; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 			children = (
 				9FE7A2C72112A6530048776E /* UIScrollView+UITouch.h */,
 				9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */,
+				9F7957E2214F92BC00BC6BB1 /* STool.h */,
+				9F7957E3214F92BC00BC6BB1 /* STool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
+				9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */,
 				9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
@@ -430,6 +437,7 @@
 				9F53D23221006B9900D327D0 /* BaseModel.m in Sources */,
 				9F53D22A20FDE55400D327D0 /* DBManager.m in Sources */,
 				9F60A7B2212A93CA00D2C487 /* NSFileTool.m in Sources */,
+				9F7957E5214F92BD00BC6BB1 /* STool.m in Sources */,
 				9F53D22520FDDCC400D327D0 /* SQLViewController.m in Sources */,
 				9F53D21220FDB79300D327D0 /* ViewController.m in Sources */,
 				9F53D21320FDB79300D327D0 /* main.m in Sources */,

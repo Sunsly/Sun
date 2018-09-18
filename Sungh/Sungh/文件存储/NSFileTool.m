@@ -99,5 +99,13 @@
     tmp：保存应用程序的临时文件夹，使用完毕后，将相应的文件从这个目录中删除，如果空间不够，系统也可能会删除这个目录下的文件，iTunes不会同步这个文件夹，在iPhone重启的时候，该目录下的文件会被删除。
  NSString *temPath = NSTemporaryDirectory();
  */
+//+(NSString *)URLEncodedString:(NSString *)str{
+//
+//}
 
++(NSString *)URLDecodedString:(NSString *)str{
+    NSString *decodedString=(__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)str, CFSTR(), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    return decodedString;
+    
+}
 @end

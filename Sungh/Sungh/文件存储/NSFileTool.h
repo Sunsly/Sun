@@ -58,4 +58,20 @@
  @return bool 是否删除成功
  */
 + (BOOL)clearCacheWithFilePath:(NSString *)path;
+
+/**
+ 解码 URLDecodedString
+
+ @param str <#str description#>
+ @return <#return value description#>
+ */
++(NSString *)URLDecodedString:(NSString *)str;
+
+/**
+ 编码 URLEncodedString
+
+ @param str <#str description#>
+ @return <#return value description#>
+ */
++(NSString *)URLEncodedString:(NSString *)str;
 @end

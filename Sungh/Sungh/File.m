@@ -66,4 +66,150 @@
  <string>App需要您的同意,才能访问相册</string>
  
  */
+
+/*
+ 模态推出透明界面
+ 
+ UIViewController *vc = [[UIViewController alloc] init];
+ UINavigationController *na = [[UINavigationController alloc] initWithRootViewController:vc];
+ 
+ if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+ {
+ na.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+ }
+ else
+ {
+ self.modalPresentationStyle=UIModalPresentationCurrentContext;
+ }
+ 
+ [self presentViewController:na animated:YES completion:nil];
+ */
+
+/*
+ iOS跳转到App Store下载应用评分
+ 
+ [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=APPID"]];
+
+ */
+/*
+ 判断当前ViewController是push还是present的方式显示的
+ 
+ NSArray *viewcontrollers=self.navigationController.viewControllers;
+ 
+ if (viewcontrollers.count > 1)
+ {
+ if ([viewcontrollers objectAtIndex:viewcontrollers.count - 1] == self)
+ {
+ //push方式
+ [self.navigationController popViewControllerAnimated:YES];
+ }
+ }
+ else
+ {
+ //present方式
+ [self dismissViewControllerAnimated:YES completion:nil];
+ }
+ */
+
+/*
+ 修改UITextField中Placeholder的文字颜色
+ 
+ [textField setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+ */
+/*
+ 关于NSDateFormatter的格式
+ 
+ G: 公元时代，例如AD公元
+ yy: 年的后2位
+ yyyy: 完整年
+ MM: 月，显示为1-12
+ MMM: 月，显示为英文月份简写,如 Jan
+ MMMM: 月，显示为英文月份全称，如 Janualy
+ dd: 日，2位数表示，如02
+ d: 日，1-2位显示，如 2
+ EEE: 简写星期几，如Sun
+ EEEE: 全写星期几，如Sunday
+ aa: 上下午，AM/PM
+ H: 时，24小时制，0-23
+ K：时，12小时制，0-11
+ m: 分，1-2位
+ mm: 分，2位
+ s: 秒，1-2位
+ ss: 秒，2位
+ S: 毫秒
+ */
+/*
+ Base64编码与NSString对象或NSData对象的转换
+ // Create NSData object
+ NSData *nsdata = [@"iOS Developer Tips encoded in Base64"
+ dataUsingEncoding:NSUTF8StringEncoding];
+ 
+ // Get NSString from NSData object in Base64
+ NSString *base64Encoded = [nsdata base64EncodedStringWithOptions:0];
+ 
+ // Print the Base64 encoded string
+ NSLog(@"Encoded: %@", base64Encoded);
+ 
+ // Let's go the other way...
+ 
+ // NSData from the Base64 encoded str
+ NSData *nsdataFromBase64String = [[NSData alloc]
+ initWithBase64EncodedString:base64Encoded options:0];
+ 
+ // Decoded NSString from the NSData
+ NSString *base64Decoded = [[NSString alloc]
+ initWithData:nsdataFromBase64String encoding:NSUTF8StringEncoding];
+ NSLog(@"Decoded: %@", base64Decoded);
+ */
+/*
+ 给UIView设置图片
+ 
+ UIImage *image = [UIImage imageNamed:@"image"];
+ self.MYView.layer.contents = (__bridge id _Nullable)(image.CGImage);
+ self.MYView.layer.contentsRect = CGRectMake(0, 0, 0.5, 0.5);
+ */
+/*
+ dispatch_group的使用
+ 
+ dispatch_group_t dispatchGroup = dispatch_group_create();
+ dispatch_group_enter(dispatchGroup);
+ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ NSLog(@"第一个请求完成");
+ dispatch_group_leave(dispatchGroup);
+ });
+ 
+ dispatch_group_enter(dispatchGroup);
+ 
+ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ NSLog(@"第二个请求完成");
+ dispatch_group_leave(dispatchGroup);
+ });
+ 
+ dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), ^(){
+ NSLog(@"请求完成");
+ });*/
+
+/*
+ - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+ {
+ // 四位加一个空格
+ if ([string isEqualToString:@""])
+ {
+ // 删除字符
+ if ((textField.text.length - 2) % 5 == 0)
+ {
+ textField.text = [textField.text substringToIndex:textField.text.length - 1];
+ }
+ return YES;
+ }
+ else
+ {
+ if (textField.text.length % 5 == 0)
+ {
+ textField.text = [NSString stringWithFormat:@"%@ ", textField.text];
+ }
+ }
+ return YES;
+ }
+ */
 @end
