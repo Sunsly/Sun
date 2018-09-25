@@ -13,42 +13,26 @@
 		9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51F20E0BE720014E9FC /* Assets.xcassets */; };
 		9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */; };
 		9F1DB52620E0BE720014E9FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB52520E0BE720014E9FC /* main.m */; };
-		9F53D21220FDB79300D327D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51A20E0BE6F0014E9FC /* ViewController.m */; };
-		9F53D21320FDB79300D327D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB52520E0BE720014E9FC /* main.m */; };
-		9F53D21420FDB79300D327D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */; };
-		9F53D21520FDB79300D327D0 /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
-		9F53D21820FDB79300D327D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */; };
-		9F53D21920FDB79300D327D0 /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
-		9F53D21A20FDB79300D327D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51F20E0BE720014E9FC /* Assets.xcassets */; };
-		9F53D21B20FDB79300D327D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */; };
+		9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524B52159D9F800999B07 /* CheckRegularTool.m */; };
+		9F4524FC215A32B600999B07 /* system2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4524FB215A32B600999B07 /* system2@2x.png */; };
+		9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524FE215A3BC300999B07 /* UIButton+Position.m */; };
 		9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22320FDDCC400D327D0 /* SQLViewController.m */; };
-		9F53D22520FDDCC400D327D0 /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22320FDDCC400D327D0 /* SQLViewController.m */; };
 		9F53D22920FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
-		9F53D22A20FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
 		9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22C20FF0BC100D327D0 /* DBUserModel.m */; };
-		9F53D22E20FF0BC100D327D0 /* DBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22C20FF0BC100D327D0 /* DBUserModel.m */; };
 		9F53D23121006B9900D327D0 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D23021006B9900D327D0 /* BaseModel.m */; };
-		9F53D23221006B9900D327D0 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D23021006B9900D327D0 /* BaseModel.m */; };
 		9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
-		9F60A7B2212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
-		9F7957E5214F92BD00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
+		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
+		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
 		9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
-		9FE7A2BC2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
 		9FE7A2BE2111B1B50048776E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2BD2111B1B50048776E /* File.m */; };
-		9FE7A2BF2111B1B50048776E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2BD2111B1B50048776E /* File.m */; };
 		9FE7A2C32111B66A0048776E /* SdkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C22111B66A0048776E /* SdkView.m */; };
-		9FE7A2C42111B66A0048776E /* SdkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C22111B66A0048776E /* SdkView.m */; };
 		9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */; };
-		9FE7A2C92112A6530048776E /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */; };
 		9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
-		9FEEFE3321354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
-		9FEEFE3721354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
 		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
-		A423AC41213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
 		DC9365C9EF0934A30878FCF6 /* libPods-Sungh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +50,11 @@
 		9F1DB52420E0BE720014E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1DB52520E0BE720014E9FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F1DB52C20E0C3E10014E9FC /* sungh.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sungh.pch; sourceTree = "<group>"; };
-		9F53D20E20FDB72100D327D0 /* Sungh_dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sungh_dev-Info.plist"; path = "/Users/yonyouqiche/Desktop/Sungh/Sungh_dev-Info.plist"; sourceTree = "<absolute>"; };
-		9F53D21F20FDB79300D327D0 /* Sungh_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sungh_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4524B42159D9F800999B07 /* CheckRegularTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckRegularTool.h; sourceTree = "<group>"; };
+		9F4524B52159D9F800999B07 /* CheckRegularTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckRegularTool.m; sourceTree = "<group>"; };
+		9F4524FB215A32B600999B07 /* system2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system2@2x.png"; path = "SUNLbundle.bundle/system2@2x.png"; sourceTree = SOURCE_ROOT; };
+		9F4524FD215A3BC300999B07 /* UIButton+Position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Position.h"; sourceTree = "<group>"; };
+		9F4524FE215A3BC300999B07 /* UIButton+Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Position.m"; sourceTree = "<group>"; };
 		9F53D22220FDDCC400D327D0 /* SQLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLViewController.h; sourceTree = "<group>"; };
 		9F53D22320FDDCC400D327D0 /* SQLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLViewController.m; sourceTree = "<group>"; };
 		9F53D22720FDE55400D327D0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -80,6 +67,8 @@
 		9F60A7B0212A93CA00D2C487 /* NSFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileTool.m; sourceTree = "<group>"; };
 		9F7957E2214F92BC00BC6BB1 /* STool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STool.h; sourceTree = "<group>"; };
 		9F7957E3214F92BC00BC6BB1 /* STool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STool.m; sourceTree = "<group>"; };
+		9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.beat.xcconfig"; sourceTree = "<group>"; };
+		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
 		9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewMessageHandler.html; sourceTree = "<group>"; };
@@ -108,13 +97,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F53D21620FDB79300D327D0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -132,7 +114,6 @@
 				9FEEFE3121354CC000736430 /* SUNLbundle.bundle */,
 				9F1DB51520E0BE6F0014E9FC /* Sungh */,
 				9F1DB51420E0BE6F0014E9FC /* Products */,
-				9F53D20E20FDB72100D327D0 /* Sungh_dev-Info.plist */,
 				E397F875BD179A9770AC0336 /* Pods */,
 				1D1304BF9CF3784FCBF8EE49 /* Frameworks */,
 			);
@@ -142,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				9F1DB51320E0BE6F0014E9FC /* Sungh.app */,
-				9F53D21F20FDB79300D327D0 /* Sungh_dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,6 +141,7 @@
 				9F53D22120FDDCA600D327D0 /* sql */,
 				9FD0BBAA20EE11AB00ACF2BD /* js&&oc */,
 				9F1DB52C20E0C3E10014E9FC /* sungh.pch */,
+				9F4524FB215A32B600999B07 /* system2@2x.png */,
 				9FE7A2C02111B1FF0048776E /* File.h */,
 				9FE7A2BD2111B1B50048776E /* File.m */,
 				9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */,
@@ -242,6 +223,8 @@
 				9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */,
 				9F7957E2214F92BC00BC6BB1 /* STool.h */,
 				9F7957E3214F92BC00BC6BB1 /* STool.m */,
+				9F4524B42159D9F800999B07 /* CheckRegularTool.h */,
+				9F4524B52159D9F800999B07 /* CheckRegularTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -251,6 +234,8 @@
 			children = (
 				A423AC3E213854420028BAEC /* AppDelegate+config.h */,
 				A423AC3F213854420028BAEC /* AppDelegate+config.m */,
+				9F4524FD215A3BC300999B07 /* UIButton+Position.h */,
+				9F4524FE215A3BC300999B07 /* UIButton+Position.m */,
 			);
 			path = "类别";
 			sourceTree = "<group>";
@@ -260,6 +245,8 @@
 			children = (
 				391D30E298205130E0E46C68 /* Pods-Sungh.debug.xcconfig */,
 				A1224607F71412690A88684D /* Pods-Sungh.release.xcconfig */,
+				9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */,
+				9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -284,23 +271,6 @@
 			name = Sungh;
 			productName = Sungh;
 			productReference = 9F1DB51320E0BE6F0014E9FC /* Sungh.app */;
-			productType = "com.apple.product-type.application";
-		};
-		9F53D20F20FDB79300D327D0 /* Sungh_dev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9F53D21C20FDB79300D327D0 /* Build configuration list for PBXNativeTarget "Sungh_dev" */;
-			buildPhases = (
-				9F53D21020FDB79300D327D0 /* Sources */,
-				9F53D21620FDB79300D327D0 /* Frameworks */,
-				9F53D21720FDB79300D327D0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Sungh_dev;
-			productName = Sungh;
-			productReference = 9F53D21F20FDB79300D327D0 /* Sungh_dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -331,7 +301,6 @@
 			projectRoot = "";
 			targets = (
 				9F1DB51220E0BE6F0014E9FC /* Sungh */,
-				9F53D20F20FDB79300D327D0 /* Sungh_dev */,
 			);
 		};
 /* End PBXProject section */
@@ -342,22 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */,
+				9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */,
 				9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */,
+				9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */,
 				9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */,
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9F53D21720FDB79300D327D0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9FEEFE3321354CC000736430 /* SUNLbundle.bundle in Resources */,
-				9F53D21820FDB79300D327D0 /* LaunchScreen.storyboard in Resources */,
-				9F53D21920FDB79300D327D0 /* WKWebViewMessageHandler.html in Resources */,
-				9F53D21A20FDB79300D327D0 /* Assets.xcassets in Resources */,
-				9F53D21B20FDB79300D327D0 /* Main.storyboard in Resources */,
+				9F4524FC215A32B600999B07 /* system2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +376,7 @@
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
 				9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */,
 				9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */,
+				9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
@@ -424,32 +385,10 @@
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
 				9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */,
+				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9F53D21020FDB79300D327D0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9F53D23221006B9900D327D0 /* BaseModel.m in Sources */,
-				9F53D22A20FDE55400D327D0 /* DBManager.m in Sources */,
-				9F60A7B2212A93CA00D2C487 /* NSFileTool.m in Sources */,
-				9F7957E5214F92BD00BC6BB1 /* STool.m in Sources */,
-				9F53D22520FDDCC400D327D0 /* SQLViewController.m in Sources */,
-				9F53D21220FDB79300D327D0 /* ViewController.m in Sources */,
-				9F53D21320FDB79300D327D0 /* main.m in Sources */,
-				9FEEFE3721354DF200736430 /* BundleSdk.m in Sources */,
-				A423AC41213854420028BAEC /* AppDelegate+config.m in Sources */,
-				9FE7A2C92112A6530048776E /* UIScrollView+UITouch.m in Sources */,
-				9FE7A2BF2111B1B50048776E /* File.m in Sources */,
-				9F53D21420FDB79300D327D0 /* AppDelegate.m in Sources */,
-				9FE7A2BC2111B1880048776E /* SDKViewController.m in Sources */,
-				9FE7A2C42111B66A0048776E /* SdkView.m in Sources */,
-				9F53D22E20FF0BC100D327D0 /* DBUserModel.m in Sources */,
-				9F53D21520FDB79300D327D0 /* JSAndOCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,7 +532,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"Dev=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -615,48 +553,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "Dev=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Sungh/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = yongyou.com.Sungh;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		9F53D21D20FDB79300D327D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"Dev=2",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Sungh_dev-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = yongyou.com.Sungh;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9F53D21E20FDB79300D327D0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "Dev=2";
-				INFOPLIST_FILE = "$(SRCROOT)/Sungh_dev-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,15 +582,6 @@
 			buildConfigurations = (
 				9F1DB52A20E0BE720014E9FC /* Debug */,
 				9F1DB52B20E0BE720014E9FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9F53D21C20FDB79300D327D0 /* Build configuration list for PBXNativeTarget "Sungh_dev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9F53D21D20FDB79300D327D0 /* Debug */,
-				9F53D21E20FDB79300D327D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

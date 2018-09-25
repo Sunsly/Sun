@@ -10,6 +10,8 @@
 #import "JSAndOCViewController.h"
 #import "SQLViewController.h"
 #import "NSFileTool.h"
+#import "CheckRegularTool.h"
+#import "UIButton+Position.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -20,16 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    BOOL is = [CheckRegularTool isPhoneNumber:@"111"];
+    
     /*sun*/
     //测试
 //    [[UIScreen mainScreen].bounds.size.width];
     // Do any additional setup after loading the view, typically from a nib.
     self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql", nil];
-    
+
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
-    
+
     [self.view addSubview:self.tableview];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

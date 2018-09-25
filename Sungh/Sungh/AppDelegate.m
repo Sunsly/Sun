@@ -17,12 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    if (Dev == 1) {
-        NSLog(@"---sungh----------");
-    }else if (Dev == 2){
-        NSLog(@" ---- sungh_dev");
-    }
-    
+
     NSString *a = @"hellowwwwwww";
     NSString *b = @"hellowwwwwww";
     
