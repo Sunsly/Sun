@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     BOOL is = [CheckRegularTool isPhoneNumber:@"111"];
-    
+    //按钮 图片 位置  类别
     /*sun*/
     //测试
 //    [[UIScreen mainScreen].bounds.size.width];
