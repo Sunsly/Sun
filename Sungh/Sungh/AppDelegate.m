@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -18,9 +18,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
+//    [AppDelegate ]
     NSString *a = @"hellowwwwwww";
     NSString *b = @"hellowwwwwww";
     
+    ViewController *vcs = [[ViewController alloc]init];
     
     if (a == b) {
         

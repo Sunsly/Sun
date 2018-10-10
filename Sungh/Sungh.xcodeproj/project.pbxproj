@@ -24,6 +24,7 @@
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
+		9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD894C216C8F7C00982652 /* iphoneSize.jpg */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
 		9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
@@ -69,6 +70,7 @@
 		9F7957E3214F92BC00BC6BB1 /* STool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STool.m; sourceTree = "<group>"; };
 		9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.beat.xcconfig"; sourceTree = "<group>"; };
 		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
+		9FCD894C216C8F7C00982652 /* iphoneSize.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphoneSize.jpg; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
 		9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewMessageHandler.html; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				9F53D22120FDDCA600D327D0 /* sql */,
 				9FD0BBAA20EE11AB00ACF2BD /* js&&oc */,
 				9F1DB52C20E0C3E10014E9FC /* sungh.pch */,
+				9FCD894C216C8F7C00982652 /* iphoneSize.jpg */,
 				9F4524FB215A32B600999B07 /* system2@2x.png */,
 				9FE7A2C02111B1FF0048776E /* File.h */,
 				9FE7A2BD2111B1B50048776E /* File.m */,
@@ -318,6 +321,7 @@
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
 				9F4524FC215A32B600999B07 /* system2@2x.png in Resources */,
+				9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

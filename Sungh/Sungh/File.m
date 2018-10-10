@@ -8,6 +8,21 @@
 
 #import "File.h"
 
+//定义通用枚举 NSWritingDirectionNatural
+
+typedef NS_ENUM(NSUInteger, LookingType) {
+    LookTypeDefault,
+    LookTypeDown,
+    LookTypeUp
+};
+
+//定义  位移枚举 位移枚举即是在你需要的地方可以同时存在多个枚举值
+//UISwipeGestureRecognizerDirectionDown
+typedef NS_OPTIONS(NSUInteger, SeeingType) {
+    SeeingTypeDefaule = 1 << 0,
+    SeeingTypeDown = 1 << 1,
+    SeeingTypeUp = 1 << 2,
+};
 @implementation File
 /*
  NSLineBreakByWordWrapping = 0 //以空格为界，保留整个单词。

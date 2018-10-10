@@ -18,13 +18,39 @@
 @end
 
 @implementation ViewController
+- (void)drawBackViewWithView:(UIView *)view BackColor:(UIColor *) color LabelText:(NSString *)string{
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    UIBezierPath *bezier = [UIBezierPath bezierPath];
+        [bezier moveToPoint:CGPointMake(25, 0)];
+        [bezier addLineToPoint:CGPointMake(55, 0)];
+        [bezier addLineToPoint:CGPointMake(80, 25)];
+        [bezier addLineToPoint:CGPointMake(0, 25)];
+        [bezier addLineToPoint:CGPointMake(25, 0)];
+    layer.path = bezier.CGPath;
+    layer.fillColor = color.CGColor;
+    [view.layer addSublayer:layer];
+    UILabel *labe = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 80, 25)];
+    labe.text = string;
+    labe.textColor = [UIColor whiteColor];
+    labe.textAlignment = NSTextAlignmentCenter;
+    labe.font = [UIFont systemFontOfSize:14];
+    [view addSubview:labe];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UIView *vc = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 80, 25)];
+    vc.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:vc];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 80, 25)];// 坐标可以自行修改
+    view.transform = CGAffineTransformMakeRotation(M_PI_4);
+    view.backgroundColor = [UIColor purpleColor];
+
+    [self.view addSubview:view];
     BOOL is = [CheckRegularTool isPhoneNumber:@"111"];
-    //按钮 图片 位置  类别
-    /*sun*/
+
+//
     //测试
 //    [[UIScreen mainScreen].bounds.size.width];
     // Do any additional setup after loading the view, typically from a nib.
