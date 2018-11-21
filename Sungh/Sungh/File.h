@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface File : NSObject
-
+/*
+ 埋点  -- https://www.infoq.cn/article/suning-user-behavior111
+ 组件化 --
+ */
 @end

@@ -12,6 +12,8 @@
 #import "NSFileTool.h"
 #import "CheckRegularTool.h"
 #import "UIButton+Position.h"
+#import "TextFieldViewController.h"
+#import "STool.h"
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -35,11 +37,17 @@
     labe.textAlignment = NSTextAlignmentCenter;
     labe.font = [UIFont systemFontOfSize:14];
     [view addSubview:labe];
+
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    BOOL isbools = [STool isWiFiEnabled];
+    if (isbools) {
+        
+        NSLog(@" -------  -sju");
+    }
     UIView *vc = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 80, 25)];
     vc.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:vc];
@@ -54,7 +62,7 @@
     //测试
 //    [[UIScreen mainScreen].bounds.size.width];
     // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql", nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -86,6 +94,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row==1){
         SQLViewController *vc = [SQLViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 2){
+        TextFieldViewController *vc = [TextFieldViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

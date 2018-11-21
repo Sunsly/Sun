@@ -18,4 +18,10 @@
  */
 + (BOOL)checkIsChinese:(NSString *)string;
 
+/**
+ 检测 Wifi 的开关是否打开的
+
+ @return <#return value description#>
+ */
++ (BOOL) isWiFiEnabled;
 @end

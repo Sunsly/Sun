@@ -49,6 +49,9 @@ typedef NS_OPTIONS(NSUInteger, SeeingType) {
  
  pop到跟视图
  
+ 
+ 
+ 
  UIViewController *target = nil;
  for (UIViewController * controller in self.navigationController.viewControllers) { //遍历
  if ([controller isKindOfClass:[YYOUUserInfoEditController class]]) { //这里判断是否为你想要跳转的页面
@@ -84,6 +87,17 @@ typedef NS_OPTIONS(NSUInteger, SeeingType) {
 
 /*
  模态推出透明界面
+ 
+ UIModalPresentationFullScreen =0,//由下到上,全屏覆盖
+ UIModalPresentationPageSheet,//在portrait时是FullScreen，在landscape时和FormSheet模式一样。
+ UIModalPresentationFormSheet,// 会将窗口缩小，使之居于屏幕中间。在portrait和landscape下都一样，但要注意landscape下如果软键盘出现，窗口位置会调整。
+ UIModalPresentationCurrentContext,//这种模式下，presented VC的弹出方式和presenting VC的父VC的方式相同。
+ UIModalPresentationCustom,//自定义视图展示风格,由一个自定义演示控制器和一个或多个自定义动画对象组成。符合UIViewControllerTransitioningDelegate协议。使用视图控制器的transitioningDelegate设定您的自定义转换。
+ UIModalPresentationOverFullScreen,//如果视图没有被填满,底层视图可以透过
+ UIModalPresentationOverCurrentContext,//视图全部被透过
+ UIModalPresentationPopover,
+ UIModalPresentationNone ,
+ 
  
  UIViewController *vc = [[UIViewController alloc] init];
  UINavigationController *na = [[UINavigationController alloc] initWithRootViewController:vc];

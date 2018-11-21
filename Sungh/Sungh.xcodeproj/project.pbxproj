@@ -13,6 +13,9 @@
 		9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51F20E0BE720014E9FC /* Assets.xcassets */; };
 		9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */; };
 		9F1DB52620E0BE720014E9FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB52520E0BE720014E9FC /* main.m */; };
+		9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */; };
+		9F42E2292192BE4C003A6F38 /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */; };
+		9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */; };
 		9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524B52159D9F800999B07 /* CheckRegularTool.m */; };
 		9F4524FC215A32B600999B07 /* system2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4524FB215A32B600999B07 /* system2@2x.png */; };
 		9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524FE215A3BC300999B07 /* UIButton+Position.m */; };
@@ -24,6 +27,7 @@
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
+		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD894C216C8F7C00982652 /* iphoneSize.jpg */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
@@ -51,6 +55,11 @@
 		9F1DB52420E0BE720014E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1DB52520E0BE720014E9FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F1DB52C20E0C3E10014E9FC /* sungh.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sungh.pch; sourceTree = "<group>"; };
+		9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
+		9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
+		9F42E2272192BE4C003A6F38 /* TextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldViewController.h; sourceTree = "<group>"; };
+		9F42E22A2192BE6F003A6F38 /* UITextView+placeHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeHolder.h"; sourceTree = "<group>"; };
+		9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+placeHolder.m"; sourceTree = "<group>"; };
 		9F4524B42159D9F800999B07 /* CheckRegularTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckRegularTool.h; sourceTree = "<group>"; };
 		9F4524B52159D9F800999B07 /* CheckRegularTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckRegularTool.m; sourceTree = "<group>"; };
 		9F4524FB215A32B600999B07 /* system2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system2@2x.png"; path = "SUNLbundle.bundle/system2@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -70,6 +79,8 @@
 		9F7957E3214F92BC00BC6BB1 /* STool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STool.m; sourceTree = "<group>"; };
 		9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.beat.xcconfig"; sourceTree = "<group>"; };
 		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
+		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
+		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FCD894C216C8F7C00982652 /* iphoneSize.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphoneSize.jpg; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
@@ -136,6 +147,7 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F42E2242192BE34003A6F38 /* textf&&textv */,
 				A423AC3D213853250028BAEC /* 类别 */,
 				9F60A7AE212A939E00D2C487 /* 文件存储 */,
 				9FE7A2C52112A6200048776E /* Tools */,
@@ -147,6 +159,8 @@
 				9F4524FB215A32B600999B07 /* system2@2x.png */,
 				9FE7A2C02111B1FF0048776E /* File.h */,
 				9FE7A2BD2111B1B50048776E /* File.m */,
+				9FA60033219DB6CE0031B90F /* NetWorkViewController.h */,
+				9FA60034219DB6CE0031B90F /* NetWorkViewController.m */,
 				9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */,
 				9F1DB51F20E0BE720014E9FC /* Assets.xcassets */,
 				9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */,
@@ -154,6 +168,18 @@
 				9F1DB52520E0BE720014E9FC /* main.m */,
 			);
 			path = Sungh;
+			sourceTree = "<group>";
+		};
+		9F42E2242192BE34003A6F38 /* textf&&textv */ = {
+			isa = PBXGroup;
+			children = (
+				9F42E2272192BE4C003A6F38 /* TextFieldViewController.h */,
+				9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */,
+				9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */,
+				9F42E22A2192BE6F003A6F38 /* UITextView+placeHolder.h */,
+				9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */,
+			);
+			path = "textf&&textv";
 			sourceTree = "<group>";
 		};
 		9F53D22120FDDCA600D327D0 /* sql */ = {
@@ -317,6 +343,7 @@
 				9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */,
 				9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */,
 				9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */,
+				9F42E2292192BE4C003A6F38 /* TextFieldViewController.xib in Resources */,
 				9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */,
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
@@ -383,7 +410,9 @@
 				9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
+				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
+				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
@@ -393,6 +422,7 @@
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
+				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

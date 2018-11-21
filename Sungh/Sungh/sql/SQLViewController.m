@@ -16,6 +16,10 @@
 
 @implementation SQLViewController
 
+//-(BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
