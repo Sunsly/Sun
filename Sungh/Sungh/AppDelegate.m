@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
+//    [AppDelegate ] kasndasdnalsdnlasdnasndkadsn
     NSString *a = @"hellowwwwwww";
     NSString *b = @"hellowwwwwww";
     
