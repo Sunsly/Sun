@@ -23,6 +23,9 @@
 		9F53D22920FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
 		9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22C20FF0BC100D327D0 /* DBUserModel.m */; };
 		9F53D23121006B9900D327D0 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D23021006B9900D327D0 /* BaseModel.m */; };
+		9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464ED21ABF84A00A7BCFF /* BXTextField.m */; };
+		9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464EE21ABF84A00A7BCFF /* UITextField+BXExtension.m */; };
+		9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464F021ABF84A00A7BCFF /* UIView+BXExtension.m */; };
 		9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
@@ -73,6 +76,12 @@
 		9F53D22C20FF0BC100D327D0 /* DBUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBUserModel.m; sourceTree = "<group>"; };
 		9F53D22F21006B9900D327D0 /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		9F53D23021006B9900D327D0 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		9F5464EB21ABF84A00A7BCFF /* BXTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXTextField.h; sourceTree = "<group>"; };
+		9F5464EC21ABF84A00A7BCFF /* UITextField+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+BXExtension.h"; sourceTree = "<group>"; };
+		9F5464ED21ABF84A00A7BCFF /* BXTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BXTextField.m; sourceTree = "<group>"; };
+		9F5464EE21ABF84A00A7BCFF /* UITextField+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BXExtension.m"; sourceTree = "<group>"; };
+		9F5464EF21ABF84A00A7BCFF /* UIView+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BXExtension.h"; sourceTree = "<group>"; };
+		9F5464F021ABF84A00A7BCFF /* UIView+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BXExtension.m"; sourceTree = "<group>"; };
 		9F60A7AF212A93CA00D2C487 /* NSFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileTool.h; sourceTree = "<group>"; };
 		9F60A7B0212A93CA00D2C487 /* NSFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileTool.m; sourceTree = "<group>"; };
 		9F7957E2214F92BC00BC6BB1 /* STool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STool.h; sourceTree = "<group>"; };
@@ -205,6 +214,19 @@
 			path = db;
 			sourceTree = "<group>";
 		};
+		9F5464EA21ABF84000A7BCFF /* 身份证键盘 */ = {
+			isa = PBXGroup;
+			children = (
+				9F5464EB21ABF84A00A7BCFF /* BXTextField.h */,
+				9F5464ED21ABF84A00A7BCFF /* BXTextField.m */,
+				9F5464EC21ABF84A00A7BCFF /* UITextField+BXExtension.h */,
+				9F5464EE21ABF84A00A7BCFF /* UITextField+BXExtension.m */,
+				9F5464EF21ABF84A00A7BCFF /* UIView+BXExtension.h */,
+				9F5464F021ABF84A00A7BCFF /* UIView+BXExtension.m */,
+			);
+			path = "身份证键盘";
+			sourceTree = "<group>";
+		};
 		9F60A7AE212A939E00D2C487 /* 文件存储 */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +270,7 @@
 		9FE7A2C52112A6200048776E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				9F5464EA21ABF84000A7BCFF /* 身份证键盘 */,
 				9FE7A2C72112A6530048776E /* UIScrollView+UITouch.h */,
 				9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */,
 				9F7957E2214F92BC00BC6BB1 /* STool.h */,
@@ -404,6 +427,7 @@
 			files = (
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
+				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
 				9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */,
 				9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */,
@@ -413,6 +437,7 @@
 				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
 				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
+				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
@@ -421,6 +446,7 @@
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
+				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
 			);

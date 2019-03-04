@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface STool : NSObject
 
@@ -24,4 +25,12 @@
  @return <#return value description#>
  */
 + (BOOL) isWiFiEnabled;
+
+/**
+ 计算文字高度
+
+ @param text 文本
+ @return a返回高度
+ */
+- (CGFloat)getTextHeight:(NSString *)text;
 @end
