@@ -9,7 +9,7 @@
 #ifndef sungh_pch
 #define sungh_pch
 //$(SRCROOT)/Sungh/sungh.pch
-
+#import "Sungh-Bridging-Header.h"
 
 // 判断是否是ipad
 #define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -42,5 +42,5 @@
 #define kScrHei [UIScreen mainScreen].bounds.size.height
 
 #define USERID @"121111"
-
+#import "AFNetworking.h"
 #endif /* sungh_pch */

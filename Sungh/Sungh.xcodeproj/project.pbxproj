@@ -31,6 +31,8 @@
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
+		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
+		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
 		9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD894C216C8F7C00982652 /* iphoneSize.jpg */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
@@ -40,6 +42,7 @@
 		9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */; };
 		9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
+		9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF373A9223660770012ADF1 /* VideoViewController.m */; };
 		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
 		DC9365C9EF0934A30878FCF6 /* libPods-Sungh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,7 @@
 		9F1DB52420E0BE720014E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1DB52520E0BE720014E9FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F1DB52C20E0C3E10014E9FC /* sungh.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sungh.pch; sourceTree = "<group>"; };
+		9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sungh-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
 		9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
 		9F42E2272192BE4C003A6F38 /* TextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldViewController.h; sourceTree = "<group>"; };
@@ -90,6 +94,9 @@
 		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
+		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
+		9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadingsViewController.m; sourceTree = "<group>"; };
+		9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownLoadingsViewController.xib; sourceTree = "<group>"; };
 		9FCD894C216C8F7C00982652 /* iphoneSize.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphoneSize.jpg; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
@@ -105,6 +112,8 @@
 		9FEEFE3121354CC000736430 /* SUNLbundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SUNLbundle.bundle; sourceTree = "<group>"; };
 		9FEEFE3421354DF200736430 /* BundleSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleSdk.h; sourceTree = "<group>"; };
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
+		9FF373A8223660770012ADF1 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		9FF373A9223660770012ADF1 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		A1224607F71412690A88684D /* Pods-Sungh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.release.xcconfig"; sourceTree = "<group>"; };
 		A423AC3E213854420028BAEC /* AppDelegate+config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+config.h"; sourceTree = "<group>"; };
 		A423AC3F213854420028BAEC /* AppDelegate+config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+config.m"; sourceTree = "<group>"; };
@@ -156,6 +165,8 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9FA8B915225CA0B70013B388 /* 下载 */,
+				9FF373A7223660490012ADF1 /* 小视频 */,
 				9F42E2242192BE34003A6F38 /* textf&&textv */,
 				A423AC3D213853250028BAEC /* 类别 */,
 				9F60A7AE212A939E00D2C487 /* 文件存储 */,
@@ -175,6 +186,7 @@
 				9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */,
 				9F1DB52420E0BE720014E9FC /* Info.plist */,
 				9F1DB52520E0BE720014E9FC /* main.m */,
+				9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */,
 			);
 			path = Sungh;
 			sourceTree = "<group>";
@@ -236,6 +248,16 @@
 			path = "文件存储";
 			sourceTree = "<group>";
 		};
+		9FA8B915225CA0B70013B388 /* 下载 */ = {
+			isa = PBXGroup;
+			children = (
+				9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */,
+				9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */,
+				9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */,
+			);
+			path = "下载";
+			sourceTree = "<group>";
+		};
 		9FD0BBAA20EE11AB00ACF2BD /* js&&oc */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +301,15 @@
 				9F4524B52159D9F800999B07 /* CheckRegularTool.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		9FF373A7223660490012ADF1 /* 小视频 */ = {
+			isa = PBXGroup;
+			children = (
+				9FF373A8223660770012ADF1 /* VideoViewController.h */,
+				9FF373A9223660770012ADF1 /* VideoViewController.m */,
+			);
+			path = "小视频";
 			sourceTree = "<group>";
 		};
 		A423AC3D213853250028BAEC /* 类别 */ = {
@@ -336,6 +367,7 @@
 				TargetAttributes = {
 					9F1DB51220E0BE6F0014E9FC = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -371,6 +403,7 @@
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
 				9F4524FC215A32B600999B07 /* system2@2x.png in Resources */,
+				9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */,
 				9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
+				9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
 				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
@@ -440,6 +474,7 @@
 				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
+				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
 				9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */,
@@ -589,6 +624,7 @@
 			baseConfigurationReference = 391D30E298205130E0E46C68 /* Pods-Sungh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -602,6 +638,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yongyou.com.Sungh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sungh/Sungh-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -611,6 +650,7 @@
 			baseConfigurationReference = A1224607F71412690A88684D /* Pods-Sungh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -621,6 +661,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = yongyou.com.Sungh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sungh/Sungh-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
