@@ -16,8 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-
 
     NSString *a = @"hellowwwwwww";
     NSString *b = @"hellowwwwwww";
@@ -31,7 +29,7 @@
         NSLog(@"ac");
 
     }
-    
+    //ces
 
 /*
  测试一下分支*/    
