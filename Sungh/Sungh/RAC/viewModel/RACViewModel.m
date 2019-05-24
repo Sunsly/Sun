@@ -10,10 +10,6 @@
 
 @implementation RACViewModel
 
-<<<<<<< Updated upstream
-
-
-
 
 -(RACSignal *)requestSignal{
     if (_requestSignal==nil) {
@@ -25,7 +21,4 @@
 }
 
 
-
-=======
->>>>>>> Stashed changes
 @end

@@ -11,11 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RACView : UIView
-<<<<<<< Updated upstream
 @property (nonatomic,strong)RACSignal *signal;
 - (void)start;
-=======
->>>>>>> Stashed changes
+
 
 @end
 

@@ -10,7 +10,6 @@
 
 @implementation RACView
 
-<<<<<<< Updated upstream
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -42,14 +41,6 @@
     }
     return _signal;
 }
-=======
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
->>>>>>> Stashed changes
+
 
 @end

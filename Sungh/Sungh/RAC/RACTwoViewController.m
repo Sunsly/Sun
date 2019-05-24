@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< Updated upstream
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
@@ -27,11 +26,8 @@
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
-=======
     // Do any additional setup after loading the view.
-}
 
->>>>>>> Stashed changes
 /*
 #pragma mark - Navigation
 

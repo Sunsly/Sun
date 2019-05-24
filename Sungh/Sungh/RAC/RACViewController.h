@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-//
 //  RACViewController.h
 //  Sungh
 //

@@ -11,11 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RACTwoViewController : UIViewController
-<<<<<<< Updated upstream
 @property (nonatomic,strong)RACSubject *delegateSub;
-=======
 
->>>>>>> Stashed changes
 @end
 
 NS_ASSUME_NONNULL_END

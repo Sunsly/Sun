@@ -11,10 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RACViewModel : NSObject
-<<<<<<< Updated upstream
+
 @property (strong, nonatomic) RACSignal *requestSignal; ///< 网络请求信号量
-=======
->>>>>>> Stashed changes
+
 
 @end
 
