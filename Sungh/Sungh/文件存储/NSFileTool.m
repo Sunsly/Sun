@@ -7,7 +7,7 @@
 //
 
 #import "NSFileTool.h"
-#import <SDImageCache.h>
+#import "SDImageCache.h"
 @implementation NSFileTool
 
 +(NSString *)documentPathFile:(NSString *)path

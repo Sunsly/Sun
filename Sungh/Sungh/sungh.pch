@@ -40,7 +40,14 @@
  */
 #define kScrWid [UIScreen mainScreen].bounds.size.width
 #define kScrHei [UIScreen mainScreen].bounds.size.height
+#if defined (__i386__) || defined (__x86_64__)
 
+//模拟器下执行
+#else
+
+//真机下执行
+#endif
 #define USERID @"121111"
 #import "AFNetworking.h"
+#import "ReactiveObjC.h"
 #endif /* sungh_pch */

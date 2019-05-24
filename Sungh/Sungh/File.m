@@ -241,4 +241,11 @@ typedef NS_OPTIONS(NSUInteger, SeeingType) {
  return YES;
  }
  */
+/*
+ 
+ find . "(" -name "*.m" -or -name "*.mm" -or -name "*.cpp" -or -name "*.h" -or -name "*.rss" ")" -print | xargs wc -l
+ 
+ 查询代码行数
+ 
+ */
 @end

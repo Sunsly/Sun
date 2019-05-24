@@ -21,6 +21,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.0.15)
   - MJRefresh (3.1.15.3)
+  - ReactiveObjC (3.1.0)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - ReactiveObjC
   - SDWebImage
   - SVProgressHUD
   - YYCategories
@@ -48,6 +50,7 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - ReactiveObjC
     - SDWebImage
     - SVProgressHUD
     - YYCategories
@@ -59,10 +62,11 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 3f039575db1b135a20699ad298713b26acec1528
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: ac99c5799e7d3c8a7a260b1fe0663adc090701a9
+PODFILE CHECKSUM: c78a47e43d7c6c43ec04e588bb8576d7b0dd4cf9
 
 COCOAPODS: 1.5.0

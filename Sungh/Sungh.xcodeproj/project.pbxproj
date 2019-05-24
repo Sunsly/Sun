@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02FADAC2EBE2C74D8DCFDD32 /* Pods_Sungh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00926150950CC2D2E11B2169 /* Pods_Sungh.framework */; };
+		9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB22268773600091FA7 /* RACViewModel.m */; };
+		9F13FEB622696DF000091FA7 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB522696DF000091FA7 /* RACView.m */; };
+		9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB82269794300091FA7 /* RACTwoViewController.m */; };
 		9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */; };
 		9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51A20E0BE6F0014E9FC /* ViewController.m */; };
 		9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */; };
@@ -30,9 +34,11 @@
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
+		9F7A60A02266D384002E26ED /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A609F2266D384002E26ED /* RACViewController.m */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
+		9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B925225D8EBF0013B388 /* ArithmeticViewController.m */; };
 		9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD894C216C8F7C00982652 /* iphoneSize.jpg */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
@@ -44,12 +50,17 @@
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
 		9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF373A9223660770012ADF1 /* VideoViewController.m */; };
 		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
-		DC9365C9EF0934A30878FCF6 /* libPods-Sungh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sungh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00926150950CC2D2E11B2169 /* Pods_Sungh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sungh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		391D30E298205130E0E46C68 /* Pods-Sungh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.debug.xcconfig"; sourceTree = "<group>"; };
+		9F13FEB12268773600091FA7 /* RACViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewModel.h; sourceTree = "<group>"; };
+		9F13FEB22268773600091FA7 /* RACViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewModel.m; sourceTree = "<group>"; };
+		9F13FEB422696DF000091FA7 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
+		9F13FEB522696DF000091FA7 /* RACView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACView.m; sourceTree = "<group>"; };
+		9F13FEB72269794300091FA7 /* RACTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACTwoViewController.h; sourceTree = "<group>"; };
+		9F13FEB82269794300091FA7 /* RACTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACTwoViewController.m; sourceTree = "<group>"; };
 		9F1DB51320E0BE6F0014E9FC /* Sungh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sungh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1DB51620E0BE6F0014E9FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,11 +103,15 @@
 		9F7957E3214F92BC00BC6BB1 /* STool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STool.m; sourceTree = "<group>"; };
 		9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.beat.xcconfig"; sourceTree = "<group>"; };
 		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
+		9F7A609E2266D384002E26ED /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
+		9F7A609F2266D384002E26ED /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
 		9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadingsViewController.m; sourceTree = "<group>"; };
 		9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownLoadingsViewController.xib; sourceTree = "<group>"; };
+		9FA8B924225D8EBF0013B388 /* ArithmeticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArithmeticViewController.h; sourceTree = "<group>"; };
+		9FA8B925225D8EBF0013B388 /* ArithmeticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArithmeticViewController.m; sourceTree = "<group>"; };
 		9FCD894C216C8F7C00982652 /* iphoneSize.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iphoneSize.jpg; sourceTree = "<group>"; };
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
@@ -124,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC9365C9EF0934A30878FCF6 /* libPods-Sungh.a in Frameworks */,
+				02FADAC2EBE2C74D8DCFDD32 /* Pods_Sungh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +149,7 @@
 		1D1304BF9CF3784FCBF8EE49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0CAE2610263CF9394B0697D3 /* libPods-Sungh.a */,
+				00926150950CC2D2E11B2169 /* Pods_Sungh.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +180,8 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F7A609D2266D371002E26ED /* RAC */,
+				9FA8B923225D8CF20013B388 /* 算法 */,
 				9FA8B915225CA0B70013B388 /* 下载 */,
 				9FF373A7223660490012ADF1 /* 小视频 */,
 				9F42E2242192BE34003A6F38 /* textf&&textv */,
@@ -248,6 +265,45 @@
 			path = "文件存储";
 			sourceTree = "<group>";
 		};
+		9F7A609D2266D371002E26ED /* RAC */ = {
+			isa = PBXGroup;
+			children = (
+				9F7A609E2266D384002E26ED /* RACViewController.h */,
+				9F7A609F2266D384002E26ED /* RACViewController.m */,
+				9F13FEB72269794300091FA7 /* RACTwoViewController.h */,
+				9F13FEB82269794300091FA7 /* RACTwoViewController.m */,
+				9F7A60A32266FD1A002E26ED /* viewModel */,
+				9F7A60A22266FD0D002E26ED /* view */,
+				9F7A60A12266FD04002E26ED /* model */,
+			);
+			path = RAC;
+			sourceTree = "<group>";
+		};
+		9F7A60A12266FD04002E26ED /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9F7A60A22266FD0D002E26ED /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9F13FEB422696DF000091FA7 /* RACView.h */,
+				9F13FEB522696DF000091FA7 /* RACView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		9F7A60A32266FD1A002E26ED /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9F13FEB12268773600091FA7 /* RACViewModel.h */,
+				9F13FEB22268773600091FA7 /* RACViewModel.m */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		9FA8B915225CA0B70013B388 /* 下载 */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +312,15 @@
 				9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */,
 			);
 			path = "下载";
+			sourceTree = "<group>";
+		};
+		9FA8B923225D8CF20013B388 /* 算法 */ = {
+			isa = PBXGroup;
+			children = (
+				9FA8B924225D8EBF0013B388 /* ArithmeticViewController.h */,
+				9FA8B925225D8EBF0013B388 /* ArithmeticViewController.m */,
+			);
+			path = "算法";
 			sourceTree = "<group>";
 		};
 		9FD0BBAA20EE11AB00ACF2BD /* js&&oc */ = {
@@ -345,7 +410,7 @@
 				9F1DB50F20E0BE6F0014E9FC /* Sources */,
 				9F1DB51020E0BE6F0014E9FC /* Frameworks */,
 				9F1DB51120E0BE6F0014E9FC /* Resources */,
-				A3C7AC45E6848B14ED143EAF /* [CP] Copy Pods Resources */,
+				DA0A2E5539075DD362D98B79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,26 +476,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A3C7AC45E6848B14ED143EAF /* [CP] Copy Pods Resources */ = {
+		DA0A2E5539075DD362D98B79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED560E8B77F164BBC25E5573 /* [CP] Check Pods Manifest.lock */ = {
@@ -461,10 +540,13 @@
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
 				9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
+				9F7A60A02266D384002E26ED /* RACViewController.m in Sources */,
+				9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */,
 				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
 				9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */,
 				9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */,
+				9F13FEB622696DF000091FA7 /* RACView.m in Sources */,
 				9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
@@ -477,6 +559,7 @@
 				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
+				9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */,
 				9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */,
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
@@ -484,6 +567,7 @@
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
+				9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
