@@ -23,7 +23,7 @@
     NSString *b = @"hellowwwwwww";
     
     ViewController *vcs = [[ViewController alloc]init];
-    
+    //孙光辉
     if (a == b) {
         
         NSLog(@"ad ---- %p  %p     -%p --%p",a,b,&a,&b);
