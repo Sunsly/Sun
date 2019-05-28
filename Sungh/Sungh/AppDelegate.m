@@ -17,10 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-
-//sun
-//孙光辉孙光辉
     NSString *a = @"hellowwwwwww";
     NSString *b = @"hellowwwwwww";
     
