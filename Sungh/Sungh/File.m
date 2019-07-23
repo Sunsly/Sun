@@ -248,4 +248,39 @@ typedef NS_OPTIONS(NSUInteger, SeeingType) {
  查询代码行数
  
  */
+
+#pragma mark  数组去重
+/*
+ 
+ 开辟新的内存空间
+ NSArray *originalArr = @[@1, @2, @3, @1, @3];
+ NSMutableArray *resultArrM = [NSMutableArray array];
+ 
+ for (NSString *item in originalArr) {
+ if (![resultArrM containsObject:item]) {
+ [resultArrM addObject:item];
+ }
+ }
+ NSLog(@"result : %@", resultArrM);
+ 
+ 
+ 
+ 利用NSDictionary的AllKeys（AllValues）方法
+ 
+ NSArray *originalArr = @[@1, @2, @3, @1, @3];
+ NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+ for (NSNumber *n in originalArr) {
+ [dict setObject:n forKey:n];
+ }
+ NSLog(@"%@",[dictM allValues]);
+ 
+ 利用NSSet特性, 放入集合自动去重
+ NSArray *originalArr = @[@1, @2, @3, @1, @3];
+ NSSet *set = [NSSet setWithArray:originalArr];
+ NSLog(@"result: %@", [set allObjects]);
+ 
+ 通过valueForKeyPath, 去重只需一行代码
+ NSArray *originalArr = @[@1, @2, @3, @1, @3];
+ NSArray *result = [originalArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
+ */
 @end

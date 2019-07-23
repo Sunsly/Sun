@@ -155,6 +155,7 @@
 		9FEEFE3121354CC000736430 /* SUNLbundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SUNLbundle.bundle; sourceTree = "<group>"; };
 		9FEEFE3421354DF200736430 /* BundleSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleSdk.h; sourceTree = "<group>"; };
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
+		9FF347EB22E714FA006D5B72 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9FF373A8223660770012ADF1 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		9FF373A9223660770012ADF1 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		A1224607F71412690A88684D /* Pods-Sungh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 		9F1DB50A20E0BE6F0014E9FC = {
 			isa = PBXGroup;
 			children = (
+				9FF347EB22E714FA006D5B72 /* README.md */,
 				9FEEFE3121354CC000736430 /* SUNLbundle.bundle */,
 				9F1DB51520E0BE6F0014E9FC /* Sungh */,
 				9FE3557122AF4F2F00B886E0 /* SunghTests */,
