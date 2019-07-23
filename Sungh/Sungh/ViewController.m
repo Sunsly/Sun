@@ -18,6 +18,7 @@
 #import "DownLoadingsViewController.h"
 #import "ArithmeticViewController.h"
 #import "RACViewController.h"
+#import "SynchronizedViewController.h"
 #define     TICK  NSDate *startTime = [NSDate date]
 #define     TOCK  NSLog(@"Time: %f",-[startTime timeIntervalSinceNow])
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -30,26 +31,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    BOOL isbools = [STool isWiFiEnabled];
-    TICK;
-    if (isbools) {
-        
-        NSLog(@" -------  -sju");
-    }
-    TOCK;
-
+//    BOOL isbools = [STool isWiFiEnabled];
+//    TICK;
+//    if (isbools) {
 //
-    //测试
-//    [[UIScreen mainScreen].bounds.size.width];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",nil];
-
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
-    self.tableview.dataSource = self;
-    self.tableview.delegate = self;
-
-    [self.view addSubview:self.tableview];
-    
+//        NSLog(@" -------  -sju");
+//    }
+//    TOCK;
+//
+////
+//    //测试
+////    [[UIScreen mainScreen].bounds.size.width];
+//    // Do any additional setup after loading the view, typically from a nib.
+//    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",nil];
+//
+//    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
+//    self.tableview.dataSource = self;
+//    self.tableview.delegate = self;
+//
+//    [self.view addSubview:self.tableview];
+//
     
     
 }
@@ -74,6 +75,7 @@
 {
     if (indexPath.row == 0) {
         JSAndOCViewController *vc = [JSAndOCViewController new];
+        vc.type = WebUrlTypeNet;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row==1){
         SQLViewController *vc = [SQLViewController new];
@@ -90,6 +92,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 5){
         RACViewController *vc = [RACViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 6){
+        SynchronizedViewController *vc = [SynchronizedViewController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

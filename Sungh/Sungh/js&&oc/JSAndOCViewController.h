@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    WebUrlTypeLocation,//本地
+    WebUrlTypeNet//网络
+} WebUrlType;
 @interface JSAndOCViewController : UIViewController
+
+@property (nonatomic,assign)WebUrlType type;
 
 @end
