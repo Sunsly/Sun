@@ -93,7 +93,13 @@
     });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self blockOperation];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    NSLog(@"%@",[NSRunLoop mainRunLoop]);
+}
+-(void)show
+{
+    NSLog(@"-------");
 }
 //如何实现两个线程交替执行？
 - (void)blockOperation{
@@ -164,11 +170,64 @@
 }
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+//123:asds
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
+/*
+ 讲讲 RunLoop，项目中有用到吗？
+ RunLoop内部实现逻辑？
+ Runloop和线程的关系？
+ timer 与 Runloop 的关系？
+ 程序中添加每3秒响应一次的NSTimer，当拖动tableview时timer可能无法响应要怎么解决？
+ Runloop 是怎么响应用户操作的， 具体流程是什么样的？
+ 说说RunLoop的几种状态？
+ Runloop的mode作用是什么？
+ */
+//FIXME: runloop
+- (void)runloopTest{
+    
+}
+/*
+ 程序一旦开启就会有一个主线程，主线程开启就会跑一个主线程对应的runloop
+  runloop 保证主线程不会n被销毁，也就保证了程序可持续的y运行
+ 节省cpu资源 提高性能 当程序跑起来，没有什么操作的时候，runloop就会告诉cpu
+ 将其资源释放 出来去做其他事情，当有事情做得时候就会立马处理事情
+ */
+/*
+ Foundation
+ [NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象
+ [NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象
+ 
+ Core Foundation
+ CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象
+ CFRunLoopGetMain(); // 获得主线程的RunLoop对象
+ 
+ **每一条线程y都有一个唯一的与之对应的runloop 对象
+ runloop保存到全局的dic 中， 线程作为key，runloop 作为value
+ 主线程runloop都是自动创建d好的，子线程的runloop 需要主动创建
+ runloop 在第一次获取时候创建，在线程结束时销毁
+ 
+ 
+ CFRunLoopRef - 获得当前RunLoop和主RunLoop
+ 
+CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式中做不同的操作
+ 
+ CFRunLoopSourceRef - 事件源，输入源
 
+ CFRunLoopTimerRef - 定时器时间
+
+ CFRunLoopObserverRef - 观察者
+
+ 
+ 1. kCFRunLoopDefaultMode：App的默认Mode，通常主线程是在这个Mode下运行
+ 2. UITrackingRunLoopMode：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+ 3. UIInitializationRunLoopMode: 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用，会切换到kCFRunLoopDefaultMode
+ 4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
+ 5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
+ 
+ 
+ */
 @end
