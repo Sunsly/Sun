@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,6 +36,7 @@
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
 		9F7A60A02266D384002E26ED /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A609F2266D384002E26ED /* RACViewController.m */; };
+		9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CCC022FBF76800D1A7EB /* InterViewController.m */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
@@ -127,6 +128,8 @@
 		9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-Sungh.enterprise.xcconfig"; sourceTree = "<group>"; };
 		9F7A609E2266D384002E26ED /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
 		9F7A609F2266D384002E26ED /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
+		9F91CCBF22FBF76800D1A7EB /* InterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterViewController.h; sourceTree = "<group>"; };
+		9F91CCC022FBF76800D1A7EB /* InterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterViewController.m; sourceTree = "<group>"; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F91CCBE22FBF73900D1A7EB /* 面试 */,
 				9F4AD7CD22A658BB00B99014 /* 多线程 */,
 				9F7A609D2266D371002E26ED /* RAC */,
 				9FA8B923225D8CF20013B388 /* 算法 */,
@@ -360,6 +364,15 @@
 				9F13FEB22268773600091FA7 /* RACViewModel.m */,
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		9F91CCBE22FBF73900D1A7EB /* 面试 */ = {
+			isa = PBXGroup;
+			children = (
+				9F91CCBF22FBF76800D1A7EB /* InterViewController.h */,
+				9F91CCC022FBF76800D1A7EB /* InterViewController.m */,
+			);
+			path = "面试";
 			sourceTree = "<group>";
 		};
 		9FA8B915225CA0B70013B388 /* 下载 */ = {
@@ -617,35 +630,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sungh/Pods-Sungh-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED560E8B77F164BBC25E5573 /* [CP] Check Pods Manifest.lock */ = {
@@ -701,6 +695,7 @@
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
+				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,

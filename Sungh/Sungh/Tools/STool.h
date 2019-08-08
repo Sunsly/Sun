@@ -33,4 +33,18 @@
  @return a返回高度
  */
 - (CGFloat)getTextHeight:(NSString *)text;
+
+/**
+ 获取可用内存
+
+ @return <#return value description#>
+ */
++ (double)availableMemory;
+
+/**
+ 获取当前占用内存
+
+ @return <#return value description#>
+ */
++(double)usedMemory;
 @end

@@ -8,6 +8,7 @@
 
 #import "NSFileTool.h"
 #import "SDImageCache.h"
+
 @implementation NSFileTool
 
 +(NSString *)documentPathFile:(NSString *)path
@@ -58,7 +59,7 @@
         long size = [[[NSFileManager defaultManager]attributesOfItemAtPath:filePath error:nil]fileSize];
         totleSize += size;
     }
-    long SDSize = [[SDImageCache sharedImageCache] getSize];
+    long SDSize = [[SDImageCache sharedImageCache]totalDiskSize];
     totleSize += SDSize;
     //将文件夹大小转化为M/KB/B
     NSString *totleStr = @"";
