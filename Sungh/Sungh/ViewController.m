@@ -19,8 +19,8 @@
 #import "ArithmeticViewController.h"
 #import "RACViewController.h"
 #import "SynchronizedViewController.h"
-#define     TICK  NSDate *startTime = [NSDate date]
-#define     TOCK  NSLog(@"Time: %f",-[startTime timeIntervalSinceNow])
+#import "InterViewController.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -43,12 +43,12 @@
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
-
+    
     [self.view addSubview:self.tableview];
 //
     
@@ -95,6 +95,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (indexPath.row == 6){
         SynchronizedViewController *vc = [SynchronizedViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 7){
+        
+        InterViewController *vc = [InterViewController new];
+        //vc.nameStr = @"12";//不可修改
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

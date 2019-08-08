@@ -10,7 +10,8 @@
 #define sungh_pch
 //$(SRCROOT)/Sungh/sungh.pch
 #import "Sungh-Bridging-Header.h"
-
+#define     TICK  NSDate *startTime = [NSDate date]
+#define     TOCK  NSLog(@"Time: %f",-[startTime timeIntervalSinceNow])
 // 判断是否是ipad
 #define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 // 判断iPhone4系列
