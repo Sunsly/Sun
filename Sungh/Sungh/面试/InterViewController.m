@@ -205,7 +205,7 @@ static const int kIterationCount = 10 * kStep;
      
      iOS 内存五大区
      
-     * 栈区<运行时分配>:
+     * 栈区<运行时分配>: 先进后出 (分为静态分配 和动态分配)
      特点:由编译器自动完成分配和释放,不需要程序员手动管理,主要存储了函数的参数和局部变量值
      存放:局部变量和方法实参
      
@@ -213,9 +213,12 @@ static const int kIterationCount = 10 * kStep;
      特点:需要程序员手动开辟并管理内存.(OC有ARC,OC对那个同城不需要程序员考虑释放,但是CF类还有C类型的需要考虑)
      存放:OC通过new alloc方法创建的对象;C通过malloc等
      
-     * BSS段(全局区)(静态区)<编译时分配>
+     * (全局区)(静态区)<编译时分配>
      特点:程序运行过程内存的数据一直存在,程序结束后由系统释放
      存放:未初始化的全局变量个静态变量
+     全局变量  一个全局变量在整个程序中是唯一的
+     静态变量  分为全局静态变量和局部静态变量，但是不论是局部的还是全局的静态变量，它的生命周期也是存在于整个程序中的，它会被存储在全局数据区（有些书上也叫静态数据区），只会被初始化一次；
+     
      
      * 常量区(数据段)<编译时分配>:
      特点:专门用于存放常量,程序结束后有系统释放
@@ -226,16 +229,63 @@ static const int kIterationCount = 10 * kStep;
      存放:程序的代码(被编译成二进制)
 
      
+ 
+     
      *
     */
 
     
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    dispatch_queue_t queue = dispatch_queue_create("sun_com", nil);
-    dispatch_async(queue, ^{
-    });
+//FIXME:7      OC语言中BOOL 和 bool 区别
+- (void)boolExample{
+    /*
+     OC语言中BOOL 和 bool 区别
+     1、类型不同
+     bool为布尔型；
+     BOOL为int型；
+     2、长度不同
+     bool只有一个字节；
+     BOOL长度视实际环境来定，一般可认为是4个字节；
+     3、bool是标准C++数据类型,可取值true和false。单独占一个字节,
+     如果数个bool对象列在一起,可能会各占一个bit,这取决于编译器。
+     BOOL是微软定义的typedef int BOOL。与bool不同,它是一个三值逻辑,
+     TRUE/FALSE/ERROR,返回值为>0的整数为TRUE,0为FALSE,-1为ERROR。
+     Win32 API中很多返回值为BOOL的函数都是三值逻辑。比如GetMessage().
+     4、取值不同
+     bool取值false和true，是0和1的区别；
+     BOOL取值FALSE和TRUE，是0和非0的区别；
+     
+     *******现在的bool 和BOOL好像z是一致的
+     */
+    BOOL b1 =3;
+    
+    bool b2 =3;
+    
+    BOOL b3 =256;
+    
+    bool b4 =256;
+    
+    NSLog(@"b1=%d",b1 );
+    
+    NSLog(@"b2=%d",b2 );
+    
+    NSLog(@"b3=%d",b3 );
+    
+    NSLog(@"b4=%d",b4 );
 }
+
+//FIXME: 8 数据库操作
+- (void)sqlExample{
+    
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self boolExample];
+}
+
+
+
+
 /*
  
  TODO: + 说明：
