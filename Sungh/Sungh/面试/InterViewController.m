@@ -8,7 +8,7 @@
 
 #import "InterViewController.h"
 #import "STool.h"
-@interface InterViewController ()
+@interface InterViewController  ()
 @property (nonatomic,copy,readwrite)NSString *nameStr;
 @end
 
