@@ -37,6 +37,9 @@
 		9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE62152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig */; };
 		9F7A60A02266D384002E26ED /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A609F2266D384002E26ED /* RACViewController.m */; };
 		9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CCC022FBF76800D1A7EB /* InterViewController.m */; };
+		9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD462301534600D1A7EB /* AppDelegate+Config.m */; };
+		9F91CD4B2301583600D1A7EB /* SServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD4A2301583600D1A7EB /* SServiceManager.m */; };
+		9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
@@ -130,6 +133,12 @@
 		9F7A609F2266D384002E26ED /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		9F91CCBF22FBF76800D1A7EB /* InterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterViewController.h; sourceTree = "<group>"; };
 		9F91CCC022FBF76800D1A7EB /* InterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterViewController.m; sourceTree = "<group>"; };
+		9F91CD452301534600D1A7EB /* AppDelegate+Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Config.h"; sourceTree = "<group>"; };
+		9F91CD462301534600D1A7EB /* AppDelegate+Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Config.m"; sourceTree = "<group>"; };
+		9F91CD492301583600D1A7EB /* SServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SServiceManager.h; sourceTree = "<group>"; };
+		9F91CD4A2301583600D1A7EB /* SServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SServiceManager.m; sourceTree = "<group>"; };
+		9F91CD4C2301590000D1A7EB /* SOAComponentAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SOAComponentAppDelegate.h; sourceTree = "<group>"; };
+		9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOAComponentAppDelegate.m; sourceTree = "<group>"; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
@@ -229,8 +238,11 @@
 			children = (
 				9F1DB51620E0BE6F0014E9FC /* AppDelegate.h */,
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
+				9F91CD452301534600D1A7EB /* AppDelegate+Config.h */,
+				9F91CD462301534600D1A7EB /* AppDelegate+Config.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F91CD48230157E300D1A7EB /* appddelagate瘦身 */,
 				9F91CCBE22FBF73900D1A7EB /* 面试 */,
 				9F4AD7CD22A658BB00B99014 /* 多线程 */,
 				9F7A609D2266D371002E26ED /* RAC */,
@@ -373,6 +385,17 @@
 				9F91CCC022FBF76800D1A7EB /* InterViewController.m */,
 			);
 			path = "面试";
+			sourceTree = "<group>";
+		};
+		9F91CD48230157E300D1A7EB /* appddelagate瘦身 */ = {
+			isa = PBXGroup;
+			children = (
+				9F91CD492301583600D1A7EB /* SServiceManager.h */,
+				9F91CD4A2301583600D1A7EB /* SServiceManager.m */,
+				9F91CD4C2301590000D1A7EB /* SOAComponentAppDelegate.h */,
+				9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */,
+			);
+			path = "appddelagate瘦身";
 			sourceTree = "<group>";
 		};
 		9FA8B915225CA0B70013B388 /* 下载 */ = {
@@ -678,6 +701,7 @@
 				9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */,
 				9F13FEB622696DF000091FA7 /* RACView.m in Sources */,
 				9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */,
+				9F91CD4B2301583600D1A7EB /* SServiceManager.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
@@ -687,6 +711,8 @@
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
+				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
+				9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
 				9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */,

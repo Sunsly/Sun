@@ -8,6 +8,7 @@
 
 #import "InterViewController.h"
 #import "STool.h"
+#import <CoreFoundation/CoreFoundation.h>
 @interface InterViewController  ()
 @property (nonatomic,copy,readwrite)NSString *nameStr;
 @end
@@ -20,6 +21,10 @@
     self.nameStr = @"背景";
     [self runloopExample];
     [self propertyExample];
+    UIScrollView *scro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    scro.contentSize = CGSizeMake(100, 200);
+    scro.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:scro];
     // Do any additional setup after loading the view.
 }
 //FIXME:1 autoreleasepool 自动释放池
@@ -38,15 +43,26 @@
      4.每一个主线程默认都会开启一个runloop 并且 创建autoreleasepool 进行 push pop 来进行内存管理
      
      使用： 循环创建临时变量的时候可以 用于释放
+     ***什么样的对象会加入到autoreleaseloop
+
      */
-    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
-    for (int i = 0; i < 111; i++) {
+    NSNumber *num = nil;
+    NSString *str = nil;
+    for (int i = 0; i < kIterationCount; i++) {
         @autoreleasepool {
-            NSString *str = @"1";
-            [arr addObject:str];
+            num = [NSNumber numberWithInt:i];
+            str = [NSString stringWithFormat:@"打哈萨克的哈克实打实的哈克时间的话大声疾呼多阿萨德爱仕达按时 "];
+            
+            //Use num and str...whatever...
+            [NSString stringWithFormat:@"%@%@", num, str];
+            
+            if (i % kStep == 0) {
+                double ff  =   [STool usedMemory];
+                NSLog(@"%f",ff);
+            }
         }
     }
-
+    
 }
 static const int kStep = 50000;
 static const int kIterationCount = 10 * kStep;
@@ -59,27 +75,146 @@ static const int kIterationCount = 10 * kStep;
      对与每一个runloop运行循环  都会隐式的创建一个autoreleasepool对象，
      当Runloop执行完一系列动作没有更多事情要它做时，它会进入休眠状态，避免一直占用大量系统资源，或者Runloop要退出时会触发执行_objc_autoreleasePoolPop()方法相当于让Autoreleasepool对象执行一次drain方法，Autoreleasepool对象会对自动释放池中所有的对象依次执行依次release操作
      
+     runloop保证线程不会被销毁 保证了程序的运行
+    用DefaultMode启动
+    void CFRunLoopRun(void) {
+    int32_t result;
+    do {
+        result = CFRunLoopRunSpecific(CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, 1.0e10, false);
+        CHECK_FOR_FORK();
+     } while (kCFRunLoopRunStopped != result && kCFRunLoopRunFinished != result);
+     }
+     **
+     Fundation框架 （基于CFRunLoopRef的封装）
+     NSRunLoop对象
      
-     ***什么样的对象会加入到autoreleaseloop
+     
+     每条线程都有唯一的一个与之对应的RunLoop对象
+     RunLoop保存在一个全局的Dictionary里，线程作为key,RunLoop作为value
+     主线程的RunLoop已经自动创建好了，子线程的RunLoop需要主动创建
+     RunLoop在第一次获取时创建，在线程结束时销毁
+     
+     
+     **    CFRunLoopGetMain();
+           CFRunLoopGetCurrent();
+     CFMutableSetRef _sources0;
+     CFMutableSetRef _sources1;
+     CFMutableArrayRef _observers;
+     CFMutableArrayRef _timers;
+     
+     CFRunLoopModeRef代表RunLoop的运行模式，一个RunLoop包含若干个Mode，每个Mode又包含若干个Source0/Source1/Timer/Observer，而RunLoop启动时只能选择其中一个Mode作为currentMode。
      */
-        NSNumber *num = nil;
-        NSString *str = nil;
-        for (int i = 0; i < kIterationCount; i++) {
-            @autoreleasepool {
-                num = [NSNumber numberWithInt:i];
-                str = [NSString stringWithFormat:@"打哈萨克的哈克实打实的哈克时间的话大声疾呼多阿萨德爱仕达按时 "];
-                
-                //Use num and str...whatever...
-                [NSString stringWithFormat:@"%@%@", num, str];
-                
-                if (i % kStep == 0) {
-                    double ff  =   [STool usedMemory];
-                    NSLog(@"%f",ff);
-                }
-            }
-        }
 
+    /*
+     Source1/Source0/Timers/Observer分别代表什么
+     
+        source1：基于port 的线程通信
+        source0：触摸事件 PerformSelectors
+        bt”指令打印完整的堆栈信息
+     
+      Observer : 监听器，用于监听RunLoop的状态
+     
+   一种Mode中可以有多个  Source(事件源，输入源，基于端口事件源例键盘触摸等) Observer(观察者，观察当前RunLoop运行状态) 和Timer(定时器事件源)。但是必须至少有一个Source或者Timer，因为如果Mode为空，RunLoop运行到空模式不会进行空转，就会立刻退出。
+     
+     1. kCFRunLoopDefaultMode：App的默认Mode，通常主线程是在这个Mode下运行
+     2. UITrackingRunLoopMode：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+     3. UIInitializationRunLoopMode: 在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用，会切换到kCFRunLoopDefaultMode
+     4. GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到
+     5. kCFRunLoopCommonModes: 这是一个占位用的Mode，作为标记kCFRunLoopDefaultMode和UITrackingRunLoopMode用，并不是一种真正的Mode
+     */
+//
+//    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+//        switch (activity) {
+//            case kCFRunLoopEntry:
+//                NSLog(@"RunLoop进入");
+//                break;
+//            case kCFRunLoopBeforeTimers:
+//                NSLog(@"RunLoop要处理Timers了");
+//                break;
+//            case kCFRunLoopBeforeSources:
+//                NSLog(@"RunLoop要处理Sources了");
+//                break;
+//            case kCFRunLoopBeforeWaiting:
+//                NSLog(@"RunLoop要休息了");
+//                break;
+//            case kCFRunLoopAfterWaiting:
+//                NSLog(@"RunLoop醒来了");
+//                break;
+//            case kCFRunLoopExit:
+//                NSLog(@"RunLoop退出了");
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    });
+    
+    // 给RunLoop添加监听者
+    /*
+     第一个参数 CFRunLoopRef rl：要监听哪个RunLoop,这里监听的是主线程的RunLoop
+     第二个参数 CFRunLoopObserverRef observer 监听者
+     第三个参数 CFStringRef mode 要监听RunLoop在哪种运行模式下的状态
+     */
+   // CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);
+    /*
+     CF的内存管理（Core Foundation）
+     凡是带有Create、Copy、Retain等字眼的函数，创建出来的对象，都需要在最后做一次release
+     GCD本来在iOS6.0之前也是需要我们释放的，6.0之后GCD已经纳入到了ARC中，所以我们不需要管了
+     */
+   // CFRelease(observer);
+    // 创建子线程并开启
+    NSThread *thread = [[NSThread alloc]initWithTarget:self selector:@selector(show) object:nil];
+    //    self.thread = thread;
+    [thread start];
 }
+-(void)show
+{
+    // 注意：打印方法一定要在RunLoop创建开始运行之前，如果在RunLoop跑起来之后打印，RunLoop先运行起来，已经在跑圈了就出不来了，进入死循环也就无法执行后面的操作了。
+    // 但是此时点击Button还是有操作的，因为Button是在RunLoop跑起来之后加入到子线程的，当Button加入到子线程RunLoop就会跑起来
+    NSLog(@"%s",__func__);
+    // 1.创建子线程相关的RunLoop，在子线程中创建即可，并且RunLoop中要至少有一个Timer 或 一个Source 保证RunLoop不会因为空转而退出，因此在创建的时候直接加入
+    // 添加Source [NSMachPort port] 添加一个端口
+    [[NSRunLoop currentRunLoop] addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+    // 添加一个Timer
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(test) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    //创建监听者
+    CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        switch (activity) {
+            case kCFRunLoopEntry:
+                NSLog(@"RunLoop进入");
+                break;
+            case kCFRunLoopBeforeTimers:
+                NSLog(@"RunLoop要处理Timers了");
+                break;
+            case kCFRunLoopBeforeSources:
+                NSLog(@"RunLoop要处理Sources了");
+                break;
+            case kCFRunLoopBeforeWaiting:
+                NSLog(@"RunLoop要休息了");
+                break;
+            case kCFRunLoopAfterWaiting:
+                NSLog(@"RunLoop醒来了");
+                break;
+            case kCFRunLoopExit:
+                NSLog(@"RunLoop退出了");
+                break;
+                
+            default:
+                break;
+        }
+    });
+    // 给RunLoop添加监听者
+    CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);
+    // 2.子线程需要开启RunLoop
+    [[NSRunLoop currentRunLoop]run];
+    CFRelease(observer);
+}
+-(void)test
+{
+    NSLog(@"%@",[NSThread currentThread]);
+}
+
 //FIXME:3 多线程
 - (void)xianchengExample{
     
@@ -279,10 +414,54 @@ static const int kIterationCount = 10 * kStep;
     
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self boolExample];
+//FIXME: 9 runtime 运行时
+- (void)runtimeExample{
+    
 }
 
+//FIXME: 反射机制
+- (void)fsExample{
+   // Class对象其实本质上就是一个结构体，这个结构体中的成员变量还是自己，这种设计方式非常像链表的数据结构。
+    /*
+     反射方法
+     
+     系统Foundation框架为我们提供了一些方法反射的API，我们可以通过这些API执行将字符串转为SEL等操作。由于OC语言的动态性，这些操作都是发生在运行时的。
+     // SEL和字符串转换
+     FOUNDATION_EXPORT NSString *NSStringFromSelector(SEL aSelector);
+     FOUNDATION_EXPORT SEL NSSelectorFromString(NSString *aSelectorName);
+     // Class和字符串转换
+     FOUNDATION_EXPORT NSString *NSStringFromClass(Class aClass);
+     FOUNDATION_EXPORT Class __nullable NSClassFromString(NSString *aClassName);
+     // Protocol和字符串转换
+     FOUNDATION_EXPORT NSString *NSStringFromProtocol(Protocol *proto) NS_AVAILABLE(10_5, 2_0);
+     FOUNDATION_EXPORT Protocol * __nullable NSProtocolFromString(NSString *namestr) NS_AVAILABLE(10_5, 2_0);
+     
+     // 当前对象是否这个类或其子类的实例
+     - (BOOL)isKindOfClass:(Class)aClass;
+     // 当前对象是否是这个类的实例
+     - (BOOL)isMemberOfClass:(Class)aClass;
+     // 当前对象是否遵守这个协议
+     - (BOOL)conformsToProtocol:(Protocol *)aProtocol;
+     // 当前对象是否实现这个方法
+     - (BOOL)respondsToSelector:(SEL)aSelector;
+     
+     遇到这样奇葩的需求，我们当然可以问产品都有哪些情况执行哪些方法，然后写一大堆if else判断或switch判断。
+     但是这种方法实现起来太low了，而且不够灵活，假设后续版本需求变了，还要往其他已有页面中跳转，这不就傻眼了吗....
+     这种情况反射机制就派上用场了，我们可以用反射机制动态的创建类并执行方法。当然也可以通过runtime来实现这个功能，但是我们当前需求反射机制已经足够满足需求了，如果遇到更加复杂的需求可以考虑用runtime来实现。
+     这时候就需要和后台配合了，我们首先需要和后台商量好返回的数据结构，以及数据格式、类型等，返回后我们按照和后台约定的格式，根据后台返回的信息，直接进行反射和调用即可。
+     */
+}
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//
+//    NSThread *thread = [[NSThread alloc]initWithBlock:^{
+//        NSLog(@" -- -- -%@",[NSThread currentThread]);
+//
+//    }];
+//    [thread start];
+
+}
 
 
 

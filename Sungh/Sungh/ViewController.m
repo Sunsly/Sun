@@ -98,8 +98,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 7){
         
-        InterViewController *vc = [InterViewController new];
+        Class class = NSClassFromString(@"InterViewController");
         //vc.nameStr = @"12";//不可修改
+        UIViewController *vc = [[class alloc]init];
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

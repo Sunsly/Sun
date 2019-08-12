@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "AppDelegate+Config.h"
+#import "SOAComponentAppDelegate.h"
+#import "SServiceManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,54 +20,79 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    NSString *a = @"hellowwwwwww";
-    NSString *b = @"hellowwwwwww";
     
-    ViewController *vcs = [[ViewController alloc]init];
-    
-    if (a == b) {
-        
-        NSLog(@"ad ---- %p  %p     -%p --%p",a,b,&a,&b);
-    }else{
-        NSLog(@"ac");
-
+    id<UIApplicationDelegate>service;
+    for (service in [SOAComponentAppDelegate instance].services) {
+        if ([service respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {
+            [service application:application didFinishLaunchingWithOptions:launchOptions];
+        }
     }
-   //第一次
-  //第二次
- //第三次
-     //第三次
-//测试一下回滚状态
-/*
- 测试一下分支*/    
     return YES;
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    id<UIApplicationDelegate>service;
+    for (service in [SOAComponentAppDelegate instance].services) {
+        if ([service respondsToSelector:@selector(applicationWillResignActive:)]) {
+            [service applicationWillResignActive:application];
+        }
+    }
+
+    
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    id<UIApplicationDelegate> service;
+    for(service in [[SOAComponentAppDelegate instance] services]){
+        if ([service respondsToSelector:@selector(applicationDidEnterBackground:)]){
+            [service applicationDidEnterBackground:application];
+        }
+    }
+    NSLog(@"appdelegate -- - -- -applicationDidEnterBackground -------- %ld",[SOAComponentAppDelegate instance].services.count);
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    id<UIApplicationDelegate> service;
+    for(service in [[SOAComponentAppDelegate instance] services]){
+        if ([service respondsToSelector:@selector(applicationWillEnterForeground:)]){
+            [service applicationWillEnterForeground:application];
+        }
+    }
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    id<UIApplicationDelegate> service;
+
+    for(service in [[SOAComponentAppDelegate instance] services]){
+        if ([service respondsToSelector:@selector(applicationDidBecomeActive:)]){
+            [service applicationDidBecomeActive:application];
+        }
+    }
+//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"nihao" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//    }];
+//    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"哈哈哈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//    }];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"u确定吗？" preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:action];
+//    [alert addAction:action2];
+//    [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+    id<UIApplicationDelegate> service;
+    for(service in [[SOAComponentAppDelegate instance] services]){
+        if ([service respondsToSelector:@selector(applicationWillTerminate:)]){
+            [service applicationWillTerminate:application];
+        }
+    }
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
