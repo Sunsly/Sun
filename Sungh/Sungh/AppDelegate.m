@@ -12,6 +12,7 @@
 #import "SOAComponentAppDelegate.h"
 #import "SServiceManager.h"
 
+extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()
 
 @end
@@ -27,6 +28,15 @@
             [service application:application didFinishLaunchingWithOptions:launchOptions];
         }
     }
+
+    dispatch_queue_t queue  = dispatch_queue_create("sun.com.dis", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"sun.com.dis");
+    });
+
+    //打印main（）耗时时间
+    double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
+    NSLog(@" -- - -- - -%f",launchTime);
     return YES;
 }
 

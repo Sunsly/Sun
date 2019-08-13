@@ -52,7 +52,9 @@
     [self.view addSubview:self.tableview];
 //
     
+    NSArray *arr = @[];
     
+    NSLog(@" -- - %@",arr[1]);
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

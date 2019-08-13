@@ -453,6 +453,51 @@ static const int kIterationCount = 10 * kStep;
 }
 
 
+//FIXME: 10 app启动优化
+- (void)appSatrtExample{
+    /*
+     Mach-O文件
+     
+     在优化之前，先来了解下什么是Mach-O文件。UNIX标准制定了一个通用的可移植的二进制格式文件，叫ELF，然而OSX却维护了一个自己独有的二进制格式：Mach-Object（Mach-O）
+     
+     Mach-O文件类型
+     对于OSX和iOS来说，Mach-O是其可执行文件的格式，主要包括以下几种文件类型：
+     
+     
+     Executable：应用的主要二进制
+     Dylib：动态链接库
+     Bundle：不能被链接，只能在运行时使用dlopen加载
+     Image：包含Executable、Dylib和Bundle
+     Framework：包含Dylib、资源文件和头文件的文件夹
+
+     iOS应用的启动可分为pre-main阶段和main两个阶段，所以App总启动时间 = pre-main耗时 + main耗时
+     ** pre-main   系统dylib(动态链接库)和自身App可执行文件的加载
+     启动的pre-main耗时测量
+    product -> Scheme >Arguments ->Enviroment Variables   添加DYLD_PRINT_STATISTICS选项
+     
+     ** main main方法执行之后到AppDelegate类中的didFinishLaunchingWithOptions方法执行结束前这段时间，主要是构建第一个界面，并完成渲染展示
+     
+     动态链接库dyld
+     动态链接库的加载过程主要由dyld来完成，dyld是苹果的动态链接器
+     动态链接库包括：iOS 中用到的所有系统 framework，加载OC runtime方法的libobjc，系统级别的libSystem，例如libdispatch(GCD)和libsystem_blocks (Block)。
+     什么是dyld？
+     动态链接库的加载过程主要由dyld来完成，dyld是苹果的动态链接器
+     系统先读取App的可执行文件（Mach-O文件），从里面获得dyld的路径，然后加载dyld，dyld去初始化运行环境，开启缓存策略，加载程序相关依赖库(其中也包含我们的可执行文件)，并对这些库进行链接，最后调用每个依赖库的初始化方法，在这一步，runtime被初始化。当所有依赖库的初始化后，轮到最后一位(程序可执行文件)进行初始化，在这时runtime会对项目中所有类进行类结构初始化，然后调用所有的load方法。最后dyld返回main函数地址，main函数被调用，我们便来到了熟悉的程序入口。
+     代码共用：很多程序都动态链接了这些 lib，但它们在内存和磁盘中中只有一份
+     易于维护：由于被依赖的 lib 是程序执行时才链接的，所以这些 lib 很容易做更新，比如libSystem.dylib 是 libSystem.B.dylib 的替身，哪天想升级直接换成libSystem.C.dylib 然后再替换替身就行了。 减少可执行文件体积：相比静态链接，动态链接在编译时不需要打进去，所以可执行文件的体积要小很多
+
+     dyld共享库缓存
+     当你构建一个真正的程序时，将会链接各种各样的库。它们又会依赖其他一些framework和动态库。需要加载的动态库会非常多。而对于相互依赖的符号就更多了。可能将会有上千个符号需要解析处理，这将花费很长的时间
+     为了缩短这个处理过程所花费时间，OS X 和 iOS 上的动态链接器使用了共享缓存，OS X的共享缓存位于/private/var/db/dyld/，iOS的则在/System/Library/Caches/com.apple.dyle/。
+     对于每一种架构，操作系统都有一个单独的文件，文件中包含了绝大多数的动态库，这些库都已经链接为一个文件，并且已经处理好了它们之间的符号关系。当加载一个 Mach-O 文件 (一个可执行文件或者一个库) 时，动态链接器首先会检查共享缓存看看是否存在其中，如果存在，那么就直接从共享缓存中拿出来使用。每一个进程都把这个共享缓存映射到了自己的地址空间中。这个方法大大优化了 OS X 和 iOS 上程序的启动时间
+
+     App总启动时间 = pre-main()之前的加载时间)（t1） + main()之后的加载时间 （t2）
+     t1 = 系统dylib(动态链接库)和自身App可执行文件的加载；
+     t2 = main方法执行之后到AppDelegate类中的- (BOOL)Application:(UIApplication *)Application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions方法执行结束前这段时间，主要是构建第一个界面，并完成渲染展示
+     
+     */
+}
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //
 //    NSThread *thread = [[NSThread alloc]initWithBlock:^{

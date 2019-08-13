@@ -7,10 +7,10 @@
 //
 
 #import "SynchronizedViewController.h"
-
+#import "SsOperation.h"
 @interface SynchronizedViewController ()
 @property (nonatomic, strong) NSThread *thread;//创建一个常驻线程
-
+@property (nonatomic,strong)NSOperationQueue *queueOprtations;
 @end
 
 @implementation SynchronizedViewController
@@ -19,22 +19,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     NSObject *obj = [[NSObject alloc]init];
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        @synchronized (obj) {
-//            NSLog(@" --- -- -- 111111111开始");
-//            sleep(3);
-//            NSLog(@" -----------222222222结束");
-//        }
-//    });
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        sleep(1);
-//        @synchronized (obj) {
-//            NSLog(@"-----------需要现场同步的操作2");
-//        }
-//    });
-  
-    //******
-    
     dispatch_semaphore_t signal = dispatch_semaphore_create(1);
     dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -93,9 +77,9 @@
     });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    NSLog(@"%@",[NSRunLoop mainRunLoop]);
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//    NSLog(@"%@",[NSRunLoop mainRunLoop]);
 }
 -(void)show
 {
@@ -301,4 +285,212 @@ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式�
 */
 //自动释放c池原理 一个压栈，一个出栈
 
+
+
+
+//FIXME: NSOperation
+- (void)operationExample{
+    /*
+     NSOperation是基于GCD更高一层的封装，但是比GCD更简单易用、代码可读性也更高
+     NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况下，NSOperation单独使用时系统同步执行操作，并没有开辟新线程的能力，只有配合NSOperationQueue才能实现异步执行
+     
+     1.创建任务：先将需要执行的操作封装到一个NSOperation对象中。
+     2 .创建队列：创建NSOperationQueue对象。
+     3 .将任务加入到队列中：然后将NSOperation对象添加到NSOperationQueue中。
+     之后呢，系统就会自动将NSOperationQueue中的NSOperation取出来，在新线程中执行操作
+     
+     
+     */
+    
+    //1.创建任务
+    /*
+     使用子类NSInvocationOperation
+     使用子类NSBlockOperation
+     定义继承自NSOperation的子类，通过实现内部相应的方法来封装任务。
+     */
+    NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(operationAction) object:nil];
+    [operation1 start];//没有使用队列的时候仍然是hi主线程，并没有开启新的线程
+    
+    NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        [self operationAction];
+    }];
+    [operation2 start];//没有开启新的线程
+    
+    
+    NSBlockOperation *operation3 = [NSBlockOperation blockOperationWithBlock:^{
+        [self operationAction];
+    }];
+    //为x任务添加子任务 在子线程执行
+    [operation3 addExecutionBlock:^{
+        [self operationAction];//开辟了子线程
+
+    }];
+    [operation3 addExecutionBlock:^{
+        [self operationAction];//开辟了子线程
+
+    }];
+    [operation3 addExecutionBlock:^{
+        [self operationAction];//开辟了子线程
+
+    }];
+    [operation3 start];
+    
+    //自定义
+    SsOperation *operation4 = [[SsOperation alloc]init];
+    [operation4 start]; //没有使用队列的情况下，没有开辟新的线程
+    
+    
+    //创建队列
+    /*
+     和GCD中的并发队列、串行队列略有不同的是
+     NSOperationQueue一共有两种队列：主队列、其他队列。其中其他队列同时包含了串行、并发功能。下边是主队列、其他队列的基本创建方法和特点
+     */
+    NSOperationQueue *queue1 = [NSOperationQueue mainQueue];//主队列
+    
+    NSOperationQueue *queue2 = [[NSOperationQueue alloc]init];//其他队列 包含了：串行、并发功能
+    NSInvocationOperation *operation5 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(operationAction2) object:nil];
+    
+    NSBlockOperation *operation6 = [NSBlockOperation blockOperationWithBlock:^{
+        [self operationAction2];
+    }];
+    //并发进行
+    [queue2 addOperation:operation5];
+    [queue2 addOperation:operation6];
+    [queue2 addOperationWithBlock:^{
+        [self operationAction2];   //addOperationWithBlock
+    }];
+    
+    /*
+     假溢出：顺序队列因多次入队列和出队列操作后出现的尚有存储空间但不
+     能再进行入队列操作的溢出
+     真溢出：顺序队列最大存储空间已经存满而又要求进行入队列操作所引起
+     的溢出
+     解决“假溢出”的办法就是后面满了，从头再开始，将头尾相接的顺序存
+     储队列称为循环队列
+     */
+    
+    //控制串行执行和并行执行的关键
+    /*先进先出(FIFO
+     这里有个关键参数maxConcurrentOperationCount，叫做最大并发数。
+     
+     最大并发数：maxConcurrentOperationCount
+     一定要在操作添加到队列之前设置操作之间的依赖，否则操作已经添加到队列中在设置依赖，依赖不会生效
+     maxConcurrentOperationCount默认为-1，代表不限制。
+     1 时候 是串行  按照添加顺序 执行
+     
+     */
+ 
+    
+    //操作依赖
+    
+    NSOperationQueue *queue3 = [[NSOperationQueue alloc]init];
+    
+    NSBlockOperation *operation7 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@" ----    operation7   --%@",[NSThread currentThread]);
+    }];
+    NSInvocationOperation *operation8 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(operationAction3) object:nil];
+    [operation7 addDependency:operation8];//operation7 u依赖于operation8 的执行之后
+    [queue3 addOperation:operation7];
+    [queue3 addOperation:operation8];
+    
+    /*
+     - (void)cancel;// NSOperation提供的方法，可取消单个操作
+     - (void)cancelAllOperations;// NSOperationQueue提供的方法，可以取消队列的所有操作
+     - (void)setSuspended:(BOOL)b;// 可设置任务的暂停和恢复，YES代表暂停队列，NO代表恢复队列
+     - (BOOL)isSuspended;// 判断暂停状态
+     */
+    self.queueOprtations = queue3;
+    
+    
+    
+    /* NSOperation优先级
+     GCD中，任务（block）是没有优先级的，而队列具有优先级。和GCD相反，我们一般考虑 NSOperation 的优先级
+     NSOperationQueue 也不能完全保证优先级高的任务一定先执行。
+     queuePriority默认值是NSOperationQueuePriorityNormal。根据实际需要我们可以通过调用queuePriority的setter方法修改某个操作的优先级
+     */
+    
+    
+    NSBlockOperation *blkop1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"执行blkop1");
+    }];
+    
+    NSBlockOperation *blkop2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"执行blkop2");
+    }];
+    
+    // 设置操作优先级
+    blkop1.queuePriority = NSOperationQueuePriorityLow;
+    blkop2.queuePriority = NSOperationQueuePriorityVeryHigh;
+    
+    NSLog(@"blkop1 == %@",blkop1);
+    NSLog(@"blkop2 == %@",blkop2);
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    // 操作添加到队列
+    [queue addOperation:blkop1];
+    [queue addOperation:blkop2];
+    
+    NSLog(@"%@",[queue operations]);
+    for (NSOperation *op in [queue operations]) {
+        NSLog(@"op == %@",op);
+    }
+    /*
+     u有时候先执行 blkop1  再执行 blkop2
+     u有时候先执行 blkop2  再执行 blkop1
+     所以 优先级高 并不是必须先执行
+
+     优先级高只代表先被执行。不代表操作先被执行完成。执行完成的早晚还取决于操作耗时长短。
+     */
+    
+}
+- (void)operationAction{
+    NSLog(@"%@",[NSThread currentThread]);//此时仍然是主线程main
+}
+- (void)operationAction2{
+    NSLog(@"2--------        %@",[NSThread currentThread]);//
+}
+- (void)operationAction3{
+    NSLog(@"3--------        %@",[NSThread currentThread]);//
+//    [self.queueOprtations cancelAllOperations];//执行完取消操作 ，这时候 不在执行operation7
+
+}
+
+
+//FIXME: 2 GCD  GCD和nsoperation对比一下
+- (void)gcdExample{
+    /*
+     GCD：
+     将任务（block）添加到队列(串行/并发/主队列)，并且指定任务执行的函数(同步/异步)
+     GCD是底层的C语言构成的API
+     iOS 4.0 推出的，针对多核处理器的并发技术
+     在队列中执行的是由 block 构成的任务，这是一个轻量级的数据结构
+     要停止已经加入 queue 的 block 需要写复杂的代码
+     需要通过 Barrier 或者同步任务设置任务之间的依赖关系
+     只能设置队列的优先级
+     高级功能：
+     一次性 once
+     延迟操作 after
+     调度组
+     
+     NSOperation：
+     核心概念：把操作(异步)添加到队列(全局的并发队列)
+     OC 框架，更加面向对象，是对 GCD 的封装
+     iOS 2.0 推出的，苹果推出 GCD 之后，对 NSOperation 的底层全部重写
+     Operation作为一个对象，为我们提供了更多的选择
+     可以随时取消已经设定要准备执行的任务，已经执行的除外
+     可以跨队列设置操作的依赖关系
+     可以设置队列中每一个操作的优先级
+     高级功能：
+     最大操作并发数(GCD不好做)
+     继续/暂停/全部取消
+     跨队列设置操作的依赖关系
+     
+     ** 总结  operation 可以设置最大并发数 可以暂停、取消、继续队列 可以简单的设置依赖关系 可以设置每一个任务的优先级  ，是对gcd的更高层的抽象
+     gcd 一次性once 可以简单的设置t串行并行等 执行和操作简单高效 可以通过dispatch_barrier_async设置依赖关系，
+     */
+}
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self operationExample];
+}
 @end
