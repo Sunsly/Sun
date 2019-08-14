@@ -498,6 +498,14 @@ static const int kIterationCount = 10 * kStep;
      */
 }
 
+//FIXME: 11 埋点  （代码埋点、可视化埋点、无痕埋点） App 无痕埋点的思路了解么？你认为理想的无痕埋点系统应该具备哪些特点？
+- (void)mdExample{
+    /*
+     */
+}
+
+
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //
 //    NSThread *thread = [[NSThread alloc]initWithBlock:^{

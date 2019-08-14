@@ -11,7 +11,7 @@
 #import "AppDelegate+Config.h"
 #import "SOAComponentAppDelegate.h"
 #import "SServiceManager.h"
-
+#import "UIViewController+MDHook.h"
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@ extern CFAbsoluteTime StartTime;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    [UIViewController hookUIViewController];
     id<UIApplicationDelegate>service;
     for (service in [SOAComponentAppDelegate instance].services) {
         if ([service respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {

@@ -8,6 +8,7 @@
 
 #import "SOAComponentAppDelegate.h"
 #import "SServiceManager.h"
+
 @implementation SOAComponentAppDelegate
 
 

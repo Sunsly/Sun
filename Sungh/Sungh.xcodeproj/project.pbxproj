@@ -41,6 +41,7 @@
 		9F91CD4B2301583600D1A7EB /* SServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD4A2301583600D1A7EB /* SServiceManager.m */; };
 		9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */; };
 		9F91CD5123025D8300D1A7EB /* SsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD5023025D8300D1A7EB /* SsOperation.m */; };
+		9F91CD572303B96500D1A7EB /* UIViewController+MDHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
@@ -142,6 +143,8 @@
 		9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOAComponentAppDelegate.m; sourceTree = "<group>"; };
 		9F91CD4F23025D8300D1A7EB /* SsOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SsOperation.h; sourceTree = "<group>"; };
 		9F91CD5023025D8300D1A7EB /* SsOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SsOperation.m; sourceTree = "<group>"; };
+		9F91CD552303B96500D1A7EB /* UIViewController+MDHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDHook.h"; sourceTree = "<group>"; };
+		9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDHook.m"; sourceTree = "<group>"; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */,
 				9F91CD452301534600D1A7EB /* AppDelegate+Config.h */,
 				9F91CD462301534600D1A7EB /* AppDelegate+Config.m */,
+				9F91CD552303B96500D1A7EB /* UIViewController+MDHook.h */,
+				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
 				9F91CD48230157E300D1A7EB /* appddelagate瘦身 */,
@@ -711,6 +716,7 @@
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
+				9F91CD572303B96500D1A7EB /* UIViewController+MDHook.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
 				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
 				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,

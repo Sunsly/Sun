@@ -50,11 +50,7 @@
     self.tableview.delegate = self;
     
     [self.view addSubview:self.tableview];
-//
-    
-    NSArray *arr = @[];
-    
-    NSLog(@" -- - %@",arr[1]);
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -107,6 +103,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
