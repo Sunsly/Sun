@@ -20,7 +20,7 @@
 #import "RACViewController.h"
 #import "SynchronizedViewController.h"
 #import "InterViewController.h"
-
+static NSString  * const kUserName = @"StrongX";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -31,6 +31,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    int a = 100;
+    NSLog(@"%p",&a);
+    
+
+    self.dataArray = [[NSMutableArray alloc]init];
+    NSLog(@" --- %p",self.dataArray);
 //    BOOL isbools = [STool isWiFiEnabled];
 //    TICK;
 //    if (isbools) {

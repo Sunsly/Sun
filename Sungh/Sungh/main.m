@@ -9,7 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 CFAbsoluteTime StartTime;
+
+int a = 10;//全局初始化区
+char *p ;//全局未初始化区
+
 int main(int argc, char * argv[]) {
+    
+    int b;//栈区
+    char s[] = "abc";//栈区
+    char *p1;//栈区
+    char *p2 = "12334";//12334 在常量区  p2在栈区
+    static int c = 0;//全局（静态） 初始化区
     
     @autoreleasepool {
         NSLog(@"开始");

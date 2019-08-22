@@ -9,6 +9,8 @@
 #import "InterViewController.h"
 #import "STool.h"
 #import <CoreFoundation/CoreFoundation.h>
+NSString  * const kUserName = @"StrongX";
+
 @interface InterViewController  ()
 @property (nonatomic,copy,readwrite)NSString *nameStr;
 @end
@@ -314,6 +316,7 @@ static const int kIterationCount = 10 * kStep;
      
 
      */
+    static NSString *strs = @"21122";
 }
 //FIXME:5 算法
 -(void)suanfaExample{
@@ -630,7 +633,7 @@ static const int kIterationCount = 10 * kStep;
 //
 //    }];
 //    [thread start];
-
+    
 }
 
 
