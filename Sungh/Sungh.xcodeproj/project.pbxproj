@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02FADAC2EBE2C74D8DCFDD32 /* Pods_Sungh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00926150950CC2D2E11B2169 /* Pods_Sungh.framework */; };
+		9F0240CB23152F2300DEE392 /* DefineInlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */; };
 		9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB22268773600091FA7 /* RACViewModel.m */; };
 		9F13FEB622696DF000091FA7 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB522696DF000091FA7 /* RACView.m */; };
 		9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB82269794300091FA7 /* RACTwoViewController.m */; };
@@ -81,6 +82,8 @@
 /* Begin PBXFileReference section */
 		00926150950CC2D2E11B2169 /* Pods_Sungh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sungh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		391D30E298205130E0E46C68 /* Pods-Sungh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.debug.xcconfig"; sourceTree = "<group>"; };
+		9F0240C923152F2300DEE392 /* DefineInlineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineInlineViewController.h; sourceTree = "<group>"; };
+		9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefineInlineViewController.m; sourceTree = "<group>"; };
 		9F13FEB12268773600091FA7 /* RACViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewModel.h; sourceTree = "<group>"; };
 		9F13FEB22268773600091FA7 /* RACViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewModel.m; sourceTree = "<group>"; };
 		9F13FEB422696DF000091FA7 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
@@ -215,6 +218,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9F0240C823152EFC00DEE392 /* 宏定义内联函数 */ = {
+			isa = PBXGroup;
+			children = (
+				9F0240C923152F2300DEE392 /* DefineInlineViewController.h */,
+				9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */,
+			);
+			path = "宏定义内联函数";
+			sourceTree = "<group>";
+		};
 		9F1DB50A20E0BE6F0014E9FC = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +262,7 @@
 				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F0240C823152EFC00DEE392 /* 宏定义内联函数 */,
 				9F91CD48230157E300D1A7EB /* appddelagate瘦身 */,
 				9F91CCBE22FBF73900D1A7EB /* 面试 */,
 				9F4AD7CD22A658BB00B99014 /* 多线程 */,
@@ -717,6 +730,7 @@
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
 				9F91CD572303B96500D1A7EB /* UIViewController+MDHook.m in Sources */,
+				9F0240CB23152F2300DEE392 /* DefineInlineViewController.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
 				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
 				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,

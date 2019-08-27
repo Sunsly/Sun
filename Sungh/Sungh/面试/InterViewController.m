@@ -626,6 +626,40 @@ static const int kIterationCount = 10 * kStep;
      常见的Hash算法有MD2、MD4、MD5、HAVAL、SHA
      */
 }
+
+//FIXME: 14 内联函数
+- (void)inlineExample{
+   /*
+    ** 内联函数
+    static inline int add(int a,int b){
+    return a+b;
+    }
+    ** t普通函数
+    int add(int a,int b){
+    return a+b;
+    }
+    */
+    /*
+     结论：在使用inline s修饰函数的恶化似乎，在编译的时候，会把代码直接直接嵌入调用代码中，
+     就相当于#define 宏定义来定义一个函数一样，
+     与define 的区别：
+     1，#define 定义的格式要有要求，而使用inline 就像平常函数一样，只要加上static inline
+     2.使用#define 宏定义的代码，编译器不会对s其进行参数j的有效检查，仅仅s只是h符号表的替换
+     3.#define j宏定义的代码， 其t返回值不能被强制转换
+     4.在inline 加上static 也就是说,在同一个工程中,就算在其他文件中出现同名,同参数也不会引起函数重复定义的错误
+     */
+    /*
+     
+     */
+   
+}
+
+static inline int add(int a,int b){
+  
+    return a+b;
+}
+
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //
 //    NSThread *thread = [[NSThread alloc]initWithBlock:^{
