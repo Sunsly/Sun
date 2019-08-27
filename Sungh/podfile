@@ -2,8 +2,8 @@
 platform :ios, '8.0'
 use_frameworks!
 target :Sungh  do
+  pod 'AFNetworking'
 
-pod 'AFNetworking'
 pod 'SVProgressHUD'
 pod 'MJExtension'
 pod 'YYCategories'
