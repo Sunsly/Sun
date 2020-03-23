@@ -9,7 +9,20 @@
 #import "InterViewController.h"
 #import "STool.h"
 #import <CoreFoundation/CoreFoundation.h>
+
 NSString  * const kUserName = @"StrongX";
+
+
+@interface MyObject : NSObject
+
+@property (nonatomic,copy)NSString *text;
+@end
+
+@implementation MyObject
+//-(NSString *)description{
+//    return <#expression#>
+//}
+@end
 
 @interface InterViewController  ()
 @property (nonatomic,copy,readwrite)NSString *nameStr;
@@ -21,12 +34,13 @@ NSString  * const kUserName = @"StrongX";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.nameStr = @"背景";
-    [self runloopExample];
-    [self propertyExample];
+//    [self runloopExample];
+//    [self propertyExample];
     UIScrollView *scro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
     scro.contentSize = CGSizeMake(100, 200);
     scro.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:scro];
+//    [self blockAndWeak];
     // Do any additional setup after loading the view.
 }
 //FIXME:1 autoreleasepool 自动释放池
@@ -68,8 +82,10 @@ NSString  * const kUserName = @"StrongX";
 }
 static const int kStep = 50000;
 static const int kIterationCount = 10 * kStep;
+
 //FIXME:2 runloop
 - (void)runloopExample{
+
     /*
      App 启动的时候 ,主线程的runloop 会注册两个e观察者 observer  其回调d都是 _wrapRunLoopWithAutoreleasePoolHandler()
      第一个 observer 监视的事件 是entry（即将进入loop）其回调内会调用 _objc_autoreleasePoolPush() 创建自动释放池
@@ -365,10 +381,6 @@ static const int kIterationCount = 10 * kStep;
      * 程序代码区<编译时分配>
      特点:用于存放程序运行时的代码,代码会被编译成二进制存进内存的程序代码区
      存放:程序的代码(被编译成二进制)
-
-     
- 
-     
      *
     */
 
@@ -660,17 +672,6 @@ static inline int add(int a,int b){
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//
-//    NSThread *thread = [[NSThread alloc]initWithBlock:^{
-//        NSLog(@" -- -- -%@",[NSThread currentThread]);
-//
-//    }];
-//    [thread start];
-    
-}
-
-
 
 /*
  
@@ -685,5 +686,182 @@ static inline int add(int a,int b){
 
  */
 
+
+//block weak
+- (void)blockAndWeak{
+    
+//    MyObject *obj = [[MyObject alloc]init];
+//    obj.text = @"my-object";
+//    LLog(@"obj", obj);
+//
+//    __weak MyObject *weakObj = obj;
+//    LLog(@"weakObj", weakObj);
+//
+//    void(^testBlock)(void) = ^(){
+//        LLog(@"weakObj - block", weakObj);
+//    };
+//    testBlock();
+//    obj = nil;
+//    testBlock();
+    
+/*
+ 019-11-27 16:04:12.549056+0800 Sungh[57890:550079] 变量内存地址：0x7ffedfe062a8, 变量值：0x60000065ef70, 指向对象值：<MyObject: 0x60000065ef70>, --> obj
+ 2019-11-27 16:04:12.549248+0800 Sungh[57890:550079] 变量内存地址：0x7ffedfe062a0, 变量值：0x60000065ef70, 指向对象值：<MyObject: 0x60000065ef70>, --> weakObj
+ 2019-11-27 16:04:12.549604+0800 Sungh[57890:550079] 变量内存地址：0x600000a15be0, 变量值：0x60000065ef70, 指向对象值：<MyObject: 0x60000065ef70>, --> weakObj - block
+ 2019-11-27 16:04:12.549697+0800 Sungh[57890:550079] 变量内存地址：0x600000a15be0, 变量值：0x0, 指向对象值：(null), --> weakObj - blo
+ */
+   
+    
+        MyObject *obj = [[MyObject alloc]init];
+        obj.text = @"my-object";
+        LLog(@"obj", obj);
+    
+        __weak MyObject *weakObj = obj;
+        LLog(@"weakObj", weakObj);
+    
+        void(^testBlock)(void) = ^(){
+            __strong MyObject *strongObj = weakObj;
+            LLog(@"weakObj - block", weakObj);
+            LLog(@"strongObj - block", strongObj);
+        };
+    LLog(@"weakObj-1", weakObj);
+    testBlock();
+    LLog(@"weakObj-2", weakObj);
+    obj = nil;
+    testBlock();
+    LLog(@"weakObj-3", weakObj);
+    
+}
+#pragma mark ---------栅栏函数
+- (void)barrier_method{
+   // dispatch_barrier_async（栅栏函数）的作用是什么？
+    /*
+     作用：只有当栅栏函数执行完毕后才能执行后面的函数
+     需求：使用栅栏函数规定线程执行顺序
+     
+     注意点：栅栏函数不能使用全局并发队列
+     再次强调：栅栏函数不能使用全局并发队列
+     再再次强调：栅栏函数不能使用全局并发队列
+     */
+    
+    
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+
+}
+//如何用GCD同步若干个异步调用？（如根据若干个url异步加载多张图片，然后在都下载完成后合成一张整图）
+- (void)gdc_dispatch_group_notify{
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    NSInteger a = 0;
+    NSInteger b = 0;
+    NSInteger c = 0;
+    __block NSInteger m = a;
+    __block NSInteger p = b;
+    __block NSInteger l = c;
+    
+    
+    dispatch_group_async(group, queue, ^{
+        /*加载图片1 */
+        for (int i = 0; i < 100; i++) {
+            m  = i+m;
+        }
+        
+    });
+    dispatch_group_async(group, queue, ^{
+        /*加载图片2 */
+        for (int i = 0; i < 1000000000; i++) {
+            p  = i+p;
+        }
+    });
+    dispatch_group_async(group, queue, ^{
+        /*加载图片3 */
+        for (int i = 0; i < 100; i++) {
+            l = i+l;
+        }
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        
+        NSLog(@" ---- %ld --- %ld ---%ld",l,m,p);
+        
+    });
+}
++ (void)load{
+    [super load];
+}
+//声明周期
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    
+    self = [super initWithCoder:aDecoder];
+    return self;
+}
+-(void)awakeFromNib{
+    [super awakeFromNib];
+}
+
+- (void)loadView{
+    [super loadView];
+}
+//- (void)viewDidLoad {
+//}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+- (void)updateViewConstraints{
+    [super updateViewConstraints];
+}
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+}
+
+//KVC的底层实现原理
+- (void)KVC_method{
+    
+    /*
+     底层的执行机制：
+     当调用setValue:属性值 forKey:@"name"代码时，底层的执行机制：
+     程序优先调用setKey:属性值方法，代码通过setter方法完成设置。注意，这里的key是指成员变量名，首字母大小写要符合KVC的命名规范，下同
+     如果没有找到setName:方法，KVC机制会检查+(BOOL)accessInstanceVariablesDirectly方法有没有返回YES，默认返回的是YES，如果你重写了该方法让其返回NO，那么在这一步KVC会执行setValue: forUndefineKey:方法，不过一般不会这么做。所以KVC机制会搜索该类里面有没有名为_key的成员变量，无论该变量是在.h，还是在.m文件里定义，也不论用什么样的访问修饰符，只要存在_key命名的变量，KVC都可以对该成员变量赋值。
+     如果该类既没有setKey:方法，也没有_key成员变量，KVC机制会搜索_isKey的成员变量。
+     同样道理，如果该类没有setKey：方法，也没有_key和_isKey成员变量，KVC还会继续搜索key和isKey的成员变量，再给他们赋值。
+     如果上面列出的方法或者成员变量都不存在，系统将会执行该对象的setValue：forUndefinedKey：方法，默认是抛出异常。
+例如：
+     [object setValue:@"13123" forKey:@"uuid"];
+     
+     就会被编译器处理成:
+     // 首先找到对应sel
+     SEL sel = sel_get_ uuid("setValue:forKey:");
+     // 根据object->isa找到sel对应的IMP实现指针
+     IMP method = objc_msg_lookup (object->isa,sel);
+     // 调用指针完成KVC赋值
+     method(object, sel, @"13123", @"uuid");
+     
+     
+     取值
+     
+     当调用valueForKey：@"name"时，KVC对key的搜索方式不同于setValue：属性值 forKey：@"name"，方式如下
+     
+     首先按getKey，key，isKey的顺序方法查找getter方法。找到的话就会直接调用。
+     如果是BOOL或者Int等值类型，会将其包装成一个NSNumber对象。
+     如果上面的getter没有找到，KVC则会查找countOfKey，objectInKeyAtIndex或keyAtIndexes格式的方法。如果找到countOfKey和另外两个方法中的一个，那么就会返回一个可以响应NSArray所有方法的代理集合（他是NSKeyValueArray，是NSArray的子类），调用这个代理集合的方法或者说给这个代理集合发送属于NSArray的方法，就会以countOfKey，objectInKeyAtIndex或keyAtIndexes这几个方法组合的形式调用，还有一个可选的getKey：range：方法。所以如果你想重新定义KVC的一些功能，你可以添加这些方法。注意的是方法名的命名规则要符合KVC的标准命名方法，包括方法签名。
+     如果上面的方法没有找到，那么会同时查找countOfKey，enumeratorOfKey，memberOfKey格式的方法。如果这三个方法都找到，那么就返回一个可以响应NSSet所有方法的代理集合，和上面一样，给这个代理集合发NSSet的消息，就会以countOfKey，enumeratorOfKey，memberOfKey组合的形式调用。
+
+     */
+}
+
+//@property 的本质是什么？
+//@property = ivar + getter + setter;
+//“属性” (property)有两大概念：ivar（实例变量）、getter+setter（存取方法）
+
+//block底层实现
+- (void)blocks{
+    /*
+     用来封装和保存代码，有点像函数，Block可以在任何时候执行。
+     
+
+     */
+}
 
 @end

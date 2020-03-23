@@ -50,6 +50,7 @@
 		9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD894C216C8F7C00982652 /* iphoneSize.jpg */; };
 		9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */; };
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
+		9FD36E4C2428AFD300F5917B /* UIScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD36E4B2428AFD300F5917B /* UIScreenViewController.m */; };
 		9FE3557322AF4F2F00B886E0 /* SunghTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE3557222AF4F2F00B886E0 /* SunghTests.m */; };
 		9FE3558122AF4F3700B886E0 /* SunghUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE3558022AF4F3700B886E0 /* SunghUITests.m */; };
 		9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
@@ -159,6 +160,8 @@
 		9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAndOCViewController.h; sourceTree = "<group>"; };
 		9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAndOCViewController.m; sourceTree = "<group>"; };
 		9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewMessageHandler.html; sourceTree = "<group>"; };
+		9FD36E4A2428AFD300F5917B /* UIScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIScreenViewController.h; sourceTree = "<group>"; };
+		9FD36E4B2428AFD300F5917B /* UIScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScreenViewController.m; sourceTree = "<group>"; };
 		9FE3557022AF4F2F00B886E0 /* SunghTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunghTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3557222AF4F2F00B886E0 /* SunghTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SunghTests.m; sourceTree = "<group>"; };
 		9FE3557422AF4F2F00B886E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9FD36E492428AFB300F5917B /* 二维码 */,
 				9F0240C823152EFC00DEE392 /* 宏定义内联函数 */,
 				9F91CD48230157E300D1A7EB /* appddelagate瘦身 */,
 				9F91CCBE22FBF73900D1A7EB /* 面试 */,
@@ -456,6 +460,15 @@
 				9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		9FD36E492428AFB300F5917B /* 二维码 */ = {
+			isa = PBXGroup;
+			children = (
+				9FD36E4A2428AFD300F5917B /* UIScreenViewController.h */,
+				9FD36E4B2428AFD300F5917B /* UIScreenViewController.m */,
+			);
+			path = "二维码";
 			sourceTree = "<group>";
 		};
 		9FE3557122AF4F2F00B886E0 /* SunghTests */ = {
@@ -713,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD36E4C2428AFD300F5917B /* UIScreenViewController.m in Sources */,
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
 				9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
@@ -857,7 +871,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -909,7 +923,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

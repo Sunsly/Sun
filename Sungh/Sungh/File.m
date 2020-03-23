@@ -283,4 +283,33 @@ typedef NS_OPTIONS(NSUInteger, SeeingType) {
  NSArray *originalArr = @[@1, @2, @3, @1, @3];
  NSArray *result = [originalArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
  */
+/*
+ 监听键盘
+ [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
+ [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+ 
+ #pragma mark --键盘弹出
+ - (void)keyboardWillChangeFrame:(NSNotification *)notification{
+ //取出键盘动画的时间(根据userInfo的key----UIKeyboardAnimationDurationUserInfoKey)
+ CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+ 
+ //取得键盘最后的frame(根据userInfo的key----UIKeyboardFrameEndUserInfoKey = "NSRect: {{0, 227}, {320, 253}}";)
+ CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+ 
+ //计算控制器的view需要平移的距离
+ CGFloat transformY = keyboardFrame.origin.y - self.view.frame.size.height;
+ 
+ //执行动画
+ [UIView animateWithDuration:duration animations:^{
+ 
+ }];
+ }
+ #pragma mark --键盘收回
+ - (void)keyboardDidHide:(NSNotification *)notification{
+ CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+ [UIView animateWithDuration:duration animations:^{
+ 
+ }];
+ }
+ */
 @end

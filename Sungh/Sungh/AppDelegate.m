@@ -16,7 +16,6 @@
 
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate

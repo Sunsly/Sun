@@ -113,7 +113,16 @@ static NSString  * const kUserName = @"StrongX";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
+#pragma mark ------> 水滴gif
+- (void)chargeAnimationImages{
+    UIImageView *iconImageView;
+    NSURL *gifImageUrl = [[NSBundle mainBundle] URLForResource:@"charge_shuidi_img" withExtension:@"gif"];
+    iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,187, 187)];;
+    
+    [self.view addSubview:iconImageView];
+    
+    iconImageView.image = [STool getGitImageWithData:[NSData dataWithContentsOfURL:gifImageUrl]];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

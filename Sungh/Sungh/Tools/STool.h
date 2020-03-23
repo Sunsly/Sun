@@ -47,4 +47,13 @@
  @return <#return value description#>
  */
 +(double)usedMemory;
+
+/// 移除当前controller
+/// @param controller controller
++ (void)removeCurrentController:(UIViewController *)controller;
+
+/// //加载gif
+/// @param data gif图数据
++ (UIImage *)getGitImageWithData:(NSData* )data;
+
 @end
