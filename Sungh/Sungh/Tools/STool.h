@@ -56,4 +56,9 @@
 /// @param data gif图数据
 + (UIImage *)getGitImageWithData:(NSData* )data;
 
+/// 几位一空格
+/// @param string str
+/// @param length 长度
++ (NSString *)formatterStringCardNum:(NSString *)string length:(NSInteger)length;
+
 @end

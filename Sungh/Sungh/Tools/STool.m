@@ -53,7 +53,6 @@
     }
     return ((vm_page_size * vmStats.free_count)/1024.0)/1024.0;
 }
-
 //获取当前任务所占用内存
 +(double)usedMemory{
     task_basic_info_data_t taskInfo;
@@ -70,9 +69,7 @@
 }
 +(void)removeCurrentController:(UIViewController *)controller{
     NSArray *array = controller.navigationController.viewControllers;
-    
-    NSMutableArray *controllerArray = [[NSMutableArray alloc]initWithCoder:0];
-    
+    NSMutableArray *controllerArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < array.count - 1; i++) {
         [controllerArray addObject:array[i]];
     }
@@ -118,10 +115,23 @@ float durationWithSourceAtIndex(CGImageSourceRef source, NSUInteger index) {
     if (![imageName hasSuffix:@".gif"]) {
         imageName = [imageName stringByAppendingString:@".gif"];
     }
-    
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:imagePath];
     return  [STool getGitImageWithData:data];
     
+}
+
++(NSString *)formatterStringCardNum:(NSString *)string length:(NSInteger)length
+
+{
+    NSString *tempStr=string;
+    NSInteger size =(tempStr.length / length);
+    NSMutableArray *tmpStrArr = [[NSMutableArray alloc] init];
+    for (int n = 0;n < size; n++){
+        [tmpStrArr addObject:[tempStr substringWithRange:NSMakeRange(n*4, 4)]];
+    }
+    [tmpStrArr addObject:[tempStr substringWithRange:NSMakeRange(size*4, (tempStr.length % length))]];
+    tempStr = [tmpStrArr componentsJoinedByString:@" "];
+    return tempStr;
 }
 @end

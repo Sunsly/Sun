@@ -20,7 +20,9 @@
 #import "RACViewController.h"
 #import "SynchronizedViewController.h"
 #import "InterViewController.h"
-#include "DefineInlineViewController.h"
+#import "DefineInlineViewController.h"
+#import "MallocManagerController.h"
+
 static NSString  * const kUserName = @"StrongX";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
@@ -50,7 +52,7 @@ static NSString  * const kUserName = @"StrongX";
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -78,38 +80,42 @@ static NSString  * const kUserName = @"StrongX";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
+    NSString *str = self.dataArray[indexPath.row];
+    if ([str isEqualToString:@"js && oc"]) {
         JSAndOCViewController *vc = [JSAndOCViewController new];
         vc.type = WebUrlTypeNet;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row==1){
+    }else if ([str isEqualToString:@"sql"]){
         SQLViewController *vc = [SQLViewController new];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 2){
+    }else if ([str isEqualToString:@"textfield输入限制"]){
         TextFieldViewController *vc = [TextFieldViewController new];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 3){
+    }else if ([str isEqualToString:@"下载"]){
         DownLoadingsViewController *vc = [DownLoadingsViewController new];
         [self.navigationController pushViewController:vc animated:YES];
 
-    }else if (indexPath.row  == 4){
+    }else if ([str isEqualToString:@"算法"]){
         ArithmeticViewController *vc = [ArithmeticViewController new];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 5){
+    }else if ([str isEqualToString:@"RAC"]){
         RACViewController *vc = [RACViewController new];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if (indexPath.row == 6){
+    } else if ([str isEqualToString:@"多线程"]){
         SynchronizedViewController *vc = [SynchronizedViewController new];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 7){
+    }else if ([str isEqualToString:@"面试"]){
         
         Class class = NSClassFromString(@"InterViewController");
         //vc.nameStr = @"12";//不可修改
         UIViewController *vc = [[class alloc]init];
         
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 8){
+    }else if ([str isEqualToString:@"内联函数宏定义"]){
         DefineInlineViewController *vc = [[DefineInlineViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"内存管理"]){
+        MallocManagerController *vc = [[MallocManagerController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
