@@ -268,6 +268,7 @@
 				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9FD2B2DB242DEDA5000D3560 /* mvvm */,
 				9FD36E80242B2ABE00F5917B /* 内存管理 */,
 				9FD36E492428AFB300F5917B /* 二维码 */,
 				9F0240C823152EFC00DEE392 /* 宏定义内联函数 */,
@@ -464,6 +465,13 @@
 				9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		9FD2B2DB242DEDA5000D3560 /* mvvm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mvvm;
 			sourceTree = "<group>";
 		};
 		9FD36E492428AFB300F5917B /* 二维码 */ = {
