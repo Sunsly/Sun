@@ -12,6 +12,7 @@
 #import "SOAComponentAppDelegate.h"
 #import "SServiceManager.h"
 #import "UIViewController+MDHook.h"
+#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
 
 
 extern CFAbsoluteTime StartTime;
@@ -38,6 +39,7 @@ extern CFAbsoluteTime StartTime;
     //打印main（）耗时时间
     double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
     NSLog(@" -- - -- - -%f",launchTime);
+
     return YES;
 }
 

@@ -13,5 +13,7 @@ pod 'FMDB'
 pod 'Masonry'
 pod 'MJRefresh'
 pod 'ReactiveObjC'
+pod 'MLeaksFinder'
+pod 'FBRetainCycleDetector'
 
 end

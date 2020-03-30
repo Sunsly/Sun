@@ -35,6 +35,12 @@ typedef void(^blockConst)(void);
 @property (nonatomic,strong)NSMutableArray *mallocArray;
 
 @property (nonatomic,copy)NSMutableArray *mucopyArray;
+
+@property (nonatomic, weak) NSString *string_weak;
+
+@property (nonatomic, copy)NSString *string_Copy;
+
+
 @end
 
 @implementation MallocManagerController
@@ -60,6 +66,9 @@ typedef void(^blockConst)(void);
     [self arrinitMalloc];//数组字典等创建
     
     [self copyAndMutableCopyMalloc];
+    
+    [self runloopMalloc];
+    
 }
 
 #pragma mark ------> 字符串malloc
@@ -147,7 +156,9 @@ https://blog.csdn.net/LIN1986LIN/article/details/87907147
     //(__NSCFString *) $0 = 0x0000600002047300 @"12345678901" 堆
 
     NSString *formatStringshort = [NSString stringWithFormat:@"%@",@"123456789"];
-    //(NSTaggedPointerString *) $1 = 0xc3d71a10e969179a @"123456789" 栈
+    //(NSTaggedPointerString *) $1 = 0xc3d71a10e969179a @"123456789"
+    //NSTaggedPointerString 采用六位二进制编码，(14*4)/6=9.333…,可以看出最多存储9位字符。字符数目8~9
+
     //总结 stringWithFormat方式,最终字符串的类型由字符串长度决定,少于10个字符类型为NSTaggedPointerString,否则为__NSCFString类型
     NSString *strShortConstantCopy = [@"999" copy]; //__NSCFConstantString,0x00000001092b1420,数据区.NSString调用copy是浅拷贝,和strDigital内存地址相同
     NSString *strShortConstantMutaCopy = [@"999" mutableCopy]; //__NSCFString,0x0000600003fad410,堆区,NSMutable类型的string调用mutalbeCopy是深拷贝,返回一个b可变类型字符串;调用copy也是深拷贝,返回不可变字符串
@@ -281,8 +292,49 @@ https://blog.csdn.net/LIN1986LIN/article/details/87907147
     第一个 Observer 监视的事件是 Entry(即将进入Loop)，其回调内会调用 _objc_autoreleasePoolPush() 创建自动释放池
     第二个 Observer 监视了两个事件： BeforeWaiting(准备进入休眠) 时调用_objc_autoreleasePoolPop() 和 _objc_autoreleasePoolPush() 释放旧的池并创建新池；Exit(即将退出Loop) 时调用 _objc_autoreleasePoolPop() 来释放自动释放池。
     */
-}
+    [NSTimer scheduledTimerWithTimeInterval:1.0
+      target:self
+    selector:@selector(updateTime)
+    userInfo:nil
+     repeats:YES];
+    dispatch_queue_t qu = dispatch_queue_create("121212", nil);
+    dispatch_async(qu, ^{
 
+    for (int i = 0; i < 100000; i++) {
+//            @autoreleasepool {
+                       NSString *str = [NSString stringWithFormat:@"hello -%04d", i];
+                       str = [str stringByAppendingString:@" - world"];
+//                }
+  
+//        NSLog(@" -- %d",i);
+    }
+              });
+        // 场景 1
+//        NSString *string = [NSString stringWithFormat:@"1234567890"];
+//        self.string_weak = string;
+//        NSLog(@"string: %@",self.string_weak);
+        
+        //场景 2
+//        @autoreleasepool {
+//            NSString *string = [NSString stringWithFormat:@"1234567890"];
+//            _string_weak = string;//因为是弱引用 autorelease 已经n中被释放 nil
+//            _string_Copy = @"12";
+//
+//        }
+//        NSLog(@"string: %@ -- %@",_string_weak,_string_Copy);//(null) -- 12
+//
+        // 场景 3
+        NSString *string = nil;
+        @autoreleasepool {
+            string = [NSString stringWithFormat:@"1234567890"];
+            _string_weak = string;
+        }
+        NSLog(@"string: %@",self.string_weak);
+    
+}
+- (void)updateTime{
+    
+}
 - (void)weakMalloc{
     /*
 Runtime维护了一个weak表，用于存储指向某个对象的所有weak指针。weak表其实是一个hash（哈希）表，Key是所指对象的地址，Value是weak指针的地址（这个地址的值是所指对象指针的地址）数组。
@@ -313,10 +365,6 @@ Runtime维护了一个weak表，用于存储指向某个对象的所有weak指�
      .m：源代码文件，这个典型的源代码文件扩展名，可以包含OC和C代码。
      .mm：源代码文件，带有这种扩展名的源代码文件，除了可以包含OC和C代码之外，还可以包含C++代码。仅在你的OC代码中确实需要使用C++类或者特性的时候才用这种扩展名。
 
-     作者：ElegantLiar
-     链接：https://www.jianshu.com/p/74b5aa7ec3b6
-     来源：简书
-     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      */
     NSObject *obj = [[NSObject alloc]init];
     
@@ -430,10 +478,21 @@ Runtime维护了一个weak表，用于存储指向某个对象的所有weak指�
     /*
       总结:用copy 修饰或者赋值的 变量肯定是不可变的
      用copy修饰的 要看源对象是不是可变的，若源对象可变，则拷贝值到另外一份内存中，
-     用mutableCopy 肯定会申请新的内存地址 
+     用mutableCopy 肯定会申请新的内存地址
     */
 
 }
+
+- (void)runloopMalloc{
+    //https://blog.ibireme.com/2015/05/18/runloop/
+    /*
+     Autoreleasepool 与 Runloop 的关系
+     ARC 下什么样的对象由 Autoreleasepool 管理 //https://www.jianshu.com/p/e3690f3e4675
+     子线程默认不会开启 Runloop，那出现 Autorelease 对象如何处理？不手动处理会内存泄漏吗？
+
+     */
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     // self.obj1  (id) $0 = nil;
