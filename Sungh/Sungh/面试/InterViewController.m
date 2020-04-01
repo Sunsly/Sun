@@ -17,7 +17,7 @@ NSString  * const kUserName = @"StrongX";
 
 @property (nonatomic,copy)NSString *text;
 @end
-
+//https://www.jianshu.com/p/c27349496618
 @implementation MyObject
 //-(NSString *)description{
 //    return <#expression#>

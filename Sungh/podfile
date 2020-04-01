@@ -15,5 +15,7 @@ pod 'MJRefresh'
 pod 'ReactiveObjC'
 pod 'MLeaksFinder'
 pod 'FBRetainCycleDetector'
+pod 'ReactiveCocoa', '2.5'
+
 
 end

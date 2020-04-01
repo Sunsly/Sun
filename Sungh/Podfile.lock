@@ -24,6 +24,13 @@ PODS:
   - MJRefresh (3.2.0)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
   - ReactiveObjC (3.1.1)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
@@ -42,6 +49,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - MLeaksFinder
+  - ReactiveCocoa (= 2.5)
   - ReactiveObjC
   - SDWebImage
   - SVProgressHUD
@@ -57,6 +65,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - MLeaksFinder
+    - ReactiveCocoa
     - ReactiveObjC
     - SDWebImage
     - SVProgressHUD
@@ -71,11 +80,12 @@ SPEC CHECKSUMS:
   MJExtension: 6b69b3bef2864fd550ce1a184eda219e321209d2
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: db5ba3d47d672cd9c0113ef4efddbf74fdd85905
+PODFILE CHECKSUM: 2e43ba0b04e9b32dedb3437cc5b2817f7e682215
 
 COCOAPODS: 1.7.4

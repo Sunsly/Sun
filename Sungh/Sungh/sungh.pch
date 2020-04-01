@@ -53,4 +53,5 @@
 #define USERID @"121111"
 #import "AFNetworking.h"
 #import "ReactiveObjC.h"
+#import "ReactiveCocoa/ReactiveCocoa.h"
 #endif /* sungh_pch */

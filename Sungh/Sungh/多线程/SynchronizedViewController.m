@@ -53,13 +53,10 @@
                 NSLog(@"11111111");
             }
         }
-        
     });
-    
     dispatch_group_async(group, queue, ^{
         NSLog(@"22222222");
     });
-    
     dispatch_group_async(group, queue, ^{
         NSLog(@"33333333");
         dispatch_async(queue, ^{
@@ -68,10 +65,8 @@
                     NSLog(@"44444444444");
                 }
             }
-            
         });
     });
-    
     dispatch_group_notify(group, queue, ^{
         NSLog(@"done");
     });
@@ -80,6 +75,7 @@
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
 //    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 //    NSLog(@"%@",[NSRunLoop mainRunLoop]);
+    [self async];
 }
 -(void)show
 {

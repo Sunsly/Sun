@@ -12,6 +12,11 @@
 		9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB22268773600091FA7 /* RACViewModel.m */; };
 		9F13FEB622696DF000091FA7 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB522696DF000091FA7 /* RACView.m */; };
 		9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB82269794300091FA7 /* RACTwoViewController.m */; };
+		9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A2B24333E1F000AFFB1 /* MVVMViewController.m */; };
+		9F174A2F24333E4E000AFFB1 /* MVVMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A2E24333E4E000AFFB1 /* MVVMModel.m */; };
+		9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A3124333E60000AFFB1 /* MVVMViewModel.m */; };
+		9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A3C24348D44000AFFB1 /* RACSinalViewsController.m */; };
+		9F174A3F24348D44000AFFB1 /* RACSinalViewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F174A3D24348D44000AFFB1 /* RACSinalViewsController.xib */; };
 		9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */; };
 		9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51A20E0BE6F0014E9FC /* ViewController.m */; };
 		9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */; };
@@ -92,6 +97,15 @@
 		9F13FEB522696DF000091FA7 /* RACView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACView.m; sourceTree = "<group>"; };
 		9F13FEB72269794300091FA7 /* RACTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACTwoViewController.h; sourceTree = "<group>"; };
 		9F13FEB82269794300091FA7 /* RACTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACTwoViewController.m; sourceTree = "<group>"; };
+		9F174A2A24333E1F000AFFB1 /* MVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMViewController.h; sourceTree = "<group>"; };
+		9F174A2B24333E1F000AFFB1 /* MVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMViewController.m; sourceTree = "<group>"; };
+		9F174A2D24333E4E000AFFB1 /* MVVMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMModel.h; sourceTree = "<group>"; };
+		9F174A2E24333E4E000AFFB1 /* MVVMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMModel.m; sourceTree = "<group>"; };
+		9F174A3024333E60000AFFB1 /* MVVMViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMViewModel.h; sourceTree = "<group>"; };
+		9F174A3124333E60000AFFB1 /* MVVMViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMViewModel.m; sourceTree = "<group>"; };
+		9F174A3B24348D44000AFFB1 /* RACSinalViewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSinalViewsController.h; sourceTree = "<group>"; };
+		9F174A3C24348D44000AFFB1 /* RACSinalViewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSinalViewsController.m; sourceTree = "<group>"; };
+		9F174A3D24348D44000AFFB1 /* RACSinalViewsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RACSinalViewsController.xib; sourceTree = "<group>"; };
 		9F1DB51320E0BE6F0014E9FC /* Sungh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sungh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1DB51620E0BE6F0014E9FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -470,6 +484,15 @@
 		9FD2B2DB242DEDA5000D3560 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9F174A2A24333E1F000AFFB1 /* MVVMViewController.h */,
+				9F174A2B24333E1F000AFFB1 /* MVVMViewController.m */,
+				9F174A2D24333E4E000AFFB1 /* MVVMModel.h */,
+				9F174A2E24333E4E000AFFB1 /* MVVMModel.m */,
+				9F174A3024333E60000AFFB1 /* MVVMViewModel.h */,
+				9F174A3124333E60000AFFB1 /* MVVMViewModel.m */,
+				9F174A3B24348D44000AFFB1 /* RACSinalViewsController.h */,
+				9F174A3C24348D44000AFFB1 /* RACSinalViewsController.m */,
+				9F174A3D24348D44000AFFB1 /* RACSinalViewsController.xib */,
 			);
 			path = mvvm;
 			sourceTree = "<group>";
@@ -684,6 +707,7 @@
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
 				9F4524FC215A32B600999B07 /* system2@2x.png in Resources */,
 				9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */,
+				9F174A3F24348D44000AFFB1 /* RACSinalViewsController.xib in Resources */,
 				9FCD894D216C8F7C00982652 /* iphoneSize.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,7 +797,9 @@
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
+				9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */,
 				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
+				9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */,
 				9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
@@ -783,9 +809,11 @@
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
+				9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */,
 				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
+				9F174A2F24333E4E000AFFB1 /* MVVMModel.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
 				9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */,
 			);

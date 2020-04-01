@@ -22,7 +22,7 @@
 #import "InterViewController.h"
 #import "DefineInlineViewController.h"
 #import "MallocManagerController.h"
-
+#import "MVVMViewController.h"
 static NSString  * const kUserName = @"StrongX";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
@@ -52,7 +52,7 @@ static NSString  * const kUserName = @"StrongX";
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -117,6 +117,9 @@ static NSString  * const kUserName = @"StrongX";
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"内存管理"]){
         MallocManagerController *vc = [[MallocManagerController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"MVVM"]){
+        MVVMViewController *vc = [[MVVMViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -11,8 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppDelegate (Config)
+/**
+获取当前占用内存
 
-@property (nonatomic, strong) NSDictionary *userInfo;
+@return <#return value description#>
+*/@property (nonatomic, strong) NSDictionary *userInfo;
 
 @end
 
