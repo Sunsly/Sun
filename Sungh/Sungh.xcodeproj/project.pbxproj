@@ -17,6 +17,7 @@
 		9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A3124333E60000AFFB1 /* MVVMViewModel.m */; };
 		9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F174A3C24348D44000AFFB1 /* RACSinalViewsController.m */; };
 		9F174A3F24348D44000AFFB1 /* RACSinalViewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F174A3D24348D44000AFFB1 /* RACSinalViewsController.xib */; };
+		9F174A43243747AD000AFFB1 /* README1.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F174A42243747AC000AFFB1 /* README1.md */; };
 		9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */; };
 		9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB51A20E0BE6F0014E9FC /* ViewController.m */; };
 		9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */; };
@@ -106,6 +107,7 @@
 		9F174A3B24348D44000AFFB1 /* RACSinalViewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACSinalViewsController.h; sourceTree = "<group>"; };
 		9F174A3C24348D44000AFFB1 /* RACSinalViewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSinalViewsController.m; sourceTree = "<group>"; };
 		9F174A3D24348D44000AFFB1 /* RACSinalViewsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RACSinalViewsController.xib; sourceTree = "<group>"; };
+		9F174A42243747AC000AFFB1 /* README1.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README1.md; sourceTree = "<group>"; };
 		9F1DB51320E0BE6F0014E9FC /* Sungh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sungh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1DB51620E0BE6F0014E9FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9F1DB51720E0BE6F0014E9FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 		9FD2B2DB242DEDA5000D3560 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9F174A42243747AC000AFFB1 /* README1.md */,
 				9F174A2A24333E1F000AFFB1 /* MVVMViewController.h */,
 				9F174A2B24333E1F000AFFB1 /* MVVMViewController.m */,
 				9F174A2D24333E4E000AFFB1 /* MVVMModel.h */,
@@ -697,6 +700,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F174A43243747AD000AFFB1 /* README1.md in Resources */,
 				9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */,
 				9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */,
 				9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */,
@@ -1003,6 +1007,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sungh.com.Sungh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1032,6 +1037,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sungh.com.Sungh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sungh/Sungh-Bridging-Header.h";

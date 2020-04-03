@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     
      /*
@@ -58,43 +58,152 @@
     }];
     // 只要文本框文字改变，就会修改label的文字
     RAC(self.lab,text) = self.textf.rac_textSignal;
-    [RACObserve(self.view, center) subscribeNext:^(id x) {
+    [RACObserve(self.view, backgroundColor) subscribeNext:^(id x) {
         NSLog(@" ------ %@",x);
         @strongify(self)
     }];
     
-    
+    self.view.backgroundColor = [UIColor redColor];
+//
+    [self test1];
+    [self test2];
+    [self test3];
+    [self test4];
+    [self test5];
+//    [self test6];
+
 }
 - (void)addTap:(UIGestureRecognizer *)tap{
     
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    if (self.delegateSubject) {
+        [self.delegateSubject sendNext:@"代替代理"];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)test1{
     
-//    if (self.delegateSubject) {
-//        [self.delegateSubject sendNext:@"代替代理"];
-//    }
-//    [self.navigationController popViewControllerAnimated:YES];
+    RACCommand *command = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        NSLog(@" --- %@",input);
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            [subscriber sendNext:@"发送信号"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                NSLog(@"销毁");
+            }];
+        }];
+        
+    }];
+    RACSignal *signal = [command execute:@"121212"];
+    [signal subscribeNext:^(id x) {
+        NSLog(@" --------- %@",x);//订阅
+    }];
+    
 }
+- (void)test2{
+    
+    RACCommand *command =[[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        NSLog(@" --- %@",input);
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            [subscriber sendNext:@"发送信号"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                NSLog(@"---- 销毁");
+            }];
+            
+        }];
+        
+    }];
+    // 方式二：
+       // 订阅信号
+       // 注意：这里必须是先订阅才能发送命令
+       // executionSignals：信号源，信号中信号，signalofsignals:信号，发送数据就是信号
+    [command.executionSignals subscribeNext:^(id x) {
+        //
+        [x subscribeNext:^(id  _Nullable x) {
+            NSLog(@" executionSignals--- %@",x);
+        }];
+    }];
+    [command execute:@(2)];//发送
+    
+    
+}- (void)test3{
+    RACCommand *command =[[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+          
+          NSLog(@" --- %@",input);
+          return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+              
+              [subscriber sendNext:@"发送信号"];
+              [subscriber sendCompleted];
+              return [RACDisposable disposableWithBlock:^{
+                  NSLog(@"---- 销毁");
+              }];
+              
+          }];
+          
+      }];
+      // 方式二：
+        //
+    // switchToLatest获取最新发送的信号，只能用于信号中信号。
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+      [command.executionSignals.switchToLatest subscribeNext:^(id x) {
+          //
+              NSLog(@" switchToLatest--- %@",x);
+        
+      }];
+      [command execute:@(3)];//发送
+    
+    
 }
-*/
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)test4{
+    // 创建信号中信号
+    RACSubject *singalofsingal = [RACSubject subject];
+    RACSubject *singalA = [RACSubject subject];
+    
+    [singalofsingal.switchToLatest subscribeNext:^(id x) {
+        NSLog(@" ---- %@",x);
+    }];//订阅
+    [singalofsingal sendNext:singalA];
+    [singalA sendNext:@4];
+    
 }
-*/
+- (void)test5{
+    //注意：当前命令内部发送数据完成，一定要主动发送完成
+       // 1.创建命令
+       RACCommand *command1 = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+           // block调用：执行命令的时候就会调用
+           NSLog(@"%@", input);
+           // 这里的返回值不允许为nil
+           return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+               // 发送数据
+               [subscriber sendNext:@"12345"];
+               
+               // *** 发送完成 **
+               [subscriber sendCompleted];
+               return nil;
+           }];
+       }];
+       // 监听事件有没有完成
+       [command1.executing subscribeNext:^(id x) {
+           if ([x boolValue] == YES) { // 正在执行
+               NSLog(@"当前正在执行%@", x);
+           }else {
+               // 执行完成/没有执行
+               NSLog(@"执行完成/没有执行");
+           }
+       }];
+       
+       // 2.执行命令
+       [command1 execute:@"0"];
+    
+}
+- (void)test6{
+    
+}
 
 @end
