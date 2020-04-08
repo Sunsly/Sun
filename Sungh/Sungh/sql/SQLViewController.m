@@ -51,7 +51,7 @@
     user.school = @"1111";
 
     [sql insertSql:user];
-    [sql transaction];
+//    [sql transaction];
     NSMutableArray *arr = [sql getResultsSql];
     NSLog(@"---  %@",arr);
     
@@ -68,15 +68,15 @@
 //    [sql addNewcolumn:@"school"];
 //
 ////    [sql createSql];
-//    DBUserModel *user = [[DBUserModel alloc]init];
-//    user.name = @"sun";
-//    user.sex  = @"男";
-//    user.hei  = @"178";
-//    user.wei  = @"65";
-//    user.age  = @"18";
-//    user.userId = @"1002";
-//    user.school = @"农大";
-//    [sql insertSql:user];
+    DBUserModel *user = [[DBUserModel alloc]init];
+    user.name = @"suns";
+    user.sex  = @"男";
+    user.hei  = @"178";
+    user.wei  = @"65";
+    user.age  = @"18";
+    user.userId = @"1002";
+    user.school = @"农大";
+    [sql insertSql:user];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -66,31 +66,30 @@
 {
     NSLog(@" ----- %@",DBPath);
     if ([database open]) {//打开
-        //
-        NSString *existsSql = [NSString stringWithFormat:@"select count(name) as countNum from sqlite_master where type = 'table' and name = '%@'",[NSString stringWithFormat:@"user%@",USERID]];
-        FMResultSet *rs = [database executeQuery:existsSql];
-        if ([rs next]) {
-            NSInteger count = [rs intForColumn:@"countNum"];
-            NSLog(@"The table count: %li", count);
-            if (count == 1) {
-                NSLog(@"存在");
-                return;
-            }
-        }
-        //不存在表的时候 创建
-        NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS user%@ (id integer PRIMARY KEY AUTOINCREMENT,userid char(128) NOT NULL, name char(128) NOT NULL,age char(128) NOT NULL,sex char(128) NOT NULL,hei char(128) NOT NULL,wei char(128) NOT NULL,school char(128) NOT NULL)",USERID];
+
+        NSString *sql = [NSString stringWithFormat:@"create table if not exists user%@ (id integer primary key autoincrement ,userid char(128) not null, name char(128) not null,age char(128) not null,sex char(128) not null,hei char(128) not null,wei char(128) not null,school char(128) not null)",USERID];
        BOOL rel =  [database executeUpdate:sql];
         if (rel) {
             NSLog(@"创建table success");
         }else{
             NSLog(@"创建table fail");
         }
+        [self addNewSql];
+
         [database close];//关闭 数据库
     }else{
         NSLog(@"打开失败");
     }
 }
 
+- (void)addNewSql{
+    if (![database columnExists:@"bask" inTableWithName:[NSString stringWithFormat:@"user%@",USERID]]) {
+        NSString *alertStr = [NSString stringWithFormat:@"alter table %@ add %@ integer",[NSString stringWithFormat:@"user%@",USERID],@"bask"];
+        
+        [database executeUpdate:alertStr];
+    }
+    
+}
 -(void)insertSql:(DBUserModel *)model
 {
     if ([database open]) {
