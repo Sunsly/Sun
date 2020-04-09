@@ -30,6 +30,7 @@
 		9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524B52159D9F800999B07 /* CheckRegularTool.m */; };
 		9F4524FC215A32B600999B07 /* system2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4524FB215A32B600999B07 /* system2@2x.png */; };
 		9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524FE215A3BC300999B07 /* UIButton+Position.m */; };
+		9F465EA2243ECC4300515768 /* Migration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EA1243ECC4300515768 /* Migration.m */; };
 		9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */; };
 		9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22320FDDCC400D327D0 /* SQLViewController.m */; };
 		9F53D22920FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
@@ -130,6 +131,8 @@
 		9F4524FB215A32B600999B07 /* system2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system2@2x.png"; path = "SUNLbundle.bundle/system2@2x.png"; sourceTree = SOURCE_ROOT; };
 		9F4524FD215A3BC300999B07 /* UIButton+Position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Position.h"; sourceTree = "<group>"; };
 		9F4524FE215A3BC300999B07 /* UIButton+Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Position.m"; sourceTree = "<group>"; };
+		9F465EA0243ECC4300515768 /* Migration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Migration.h; sourceTree = "<group>"; };
+		9F465EA1243ECC4300515768 /* Migration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Migration.m; sourceTree = "<group>"; };
 		9F4AD7CE22A658F700B99014 /* SynchronizedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronizedViewController.h; sourceTree = "<group>"; };
 		9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronizedViewController.m; sourceTree = "<group>"; };
 		9F53D22220FDDCC400D327D0 /* SQLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLViewController.h; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 			children = (
 				9F53D22220FDDCC400D327D0 /* SQLViewController.h */,
 				9F53D22320FDDCC400D327D0 /* SQLViewController.m */,
+				9F465EA0243ECC4300515768 /* Migration.h */,
+				9F465EA1243ECC4300515768 /* Migration.m */,
 				9F53D22620FDE52D00D327D0 /* db */,
 			);
 			path = sql;
@@ -817,6 +822,7 @@
 				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
+				9F465EA2243ECC4300515768 /* Migration.m in Sources */,
 				9F174A2F24333E4E000AFFB1 /* MVVMModel.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
 				9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */,

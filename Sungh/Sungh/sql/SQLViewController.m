@@ -40,7 +40,6 @@
     self.navigationItem.title = @"js&&oc";
     self.view.backgroundColor = [UIColor whiteColor];
     DBManager *sql =  [DBManager shareManager];
-    [sql createSql];
     DBUserModel *user = [[DBUserModel alloc]init];
     user.name = @"sun";
     user.sex  = @"男";
@@ -49,8 +48,9 @@
     user.age  = @"18";
     user.userId = @"12123";
     user.school = @"1111";
+    user.bask = @"篮球";
 
-    [sql insertSql:user];
+//    [sql insertSql:user];
 //    [sql transaction];
     NSMutableArray *arr = [sql getResultsSql];
     NSLog(@"---  %@",arr);
@@ -62,7 +62,7 @@
     DBManager *sql =  [DBManager shareManager];
 //    [sql deleteData:@"12123"];
 //    NSMutableArray *arr = [sql getResultsSql];
-    [sql addNewcolumn:@"address"];
+        [sql addNewcolumn:@"address"];
     NSLog(@"---  %@",[sql refreshData:0 limit:8]);
 
 //    [sql addNewcolumn:@"school"];
@@ -74,7 +74,7 @@
     user.hei  = @"178";
     user.wei  = @"65";
     user.age  = @"18";
-    user.userId = @"1002";
+    user.userId = @"1003";
     user.school = @"农大";
     [sql insertSql:user];
 }

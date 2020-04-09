@@ -17,6 +17,7 @@
 @property (nonatomic,copy)NSString *age;
 @property (nonatomic,copy)NSString *userId;
 @property (nonatomic,copy)NSString *school;
+@property (nonatomic,copy)NSString *bask;
 
 //@property (nonatomic,copy)NSString *
 

@@ -172,8 +172,8 @@
     }];
     [command.executionSignals subscribeNext:^(id  _Nullable x) {
         [x subscribeNext:^(id x) {
-                   
-                   NSLog(@"%@",x);
+            
+            NSLog(@"%@",x);
         }];
     }];//订阅信号
     // 4.监听命令是否执行完毕,默认会来一次，可以直接跳过，skip表示跳过第一次信号。

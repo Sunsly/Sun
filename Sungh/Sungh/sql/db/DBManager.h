@@ -19,13 +19,6 @@
 +(DBManager *)shareManager;
 
 /**
- 创建
-
- @param userId 用户
- */
-- (void)createSql;
-
-/**
  插入
 
  @param model <#model description#>
@@ -61,4 +54,6 @@
 
 //事物
 -(void)transaction ;
+
+- (NSString *)getDBInfoValue;
 @end

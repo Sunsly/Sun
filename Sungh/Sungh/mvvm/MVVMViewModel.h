@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ReactiveCocoa/ReactiveCocoa.h"
 #import "MVVMModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

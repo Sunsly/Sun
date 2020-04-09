@@ -41,14 +41,21 @@
  用于在多线程中执行多个查询或更新，它是线程安全的
  */
 #define DBPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]
+static const NSString *version = @"1.0.0";
+
+
 @implementation DBManager
+
 {
     FMDatabase *database;
+    FMDatabaseQueue *queueDatabase;
 }
 // 初始化 路径
-- (void)open{
+- (void)initPath{
     NSString *path = [NSString stringWithFormat:@"%@/user.db",DBPath];
-    database = [FMDatabase databaseWithPath:path];
+//    database = [FMDatabase databaseWithPath:path];
+    NSLog(@" -- %@",path);
+    queueDatabase = [FMDatabaseQueue databaseQueueWithPath:path];
 }
 + (DBManager *)shareManager
 {
@@ -56,45 +63,121 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[DBManager alloc]init];
-        NSLog(@" ----- %@",DBPath);
-        [manager open];
+        [manager initPath];
+        [manager initTable];
+        [manager insertVersion];
     });
     return manager;
 }
+
 #pragma mark 创建
--(void)createSql
+-(void)initTable
 {
-    NSLog(@" ----- %@",DBPath);
-    if ([database open]) {//打开
+//    NSLog(@" ----- %@",DBPath);
+    if ([database open]) {
+//        NSString *sql = [NSString stringWithFormat:@"create table if not exists user%@ (id integer primary key autoincrement ,userid char(128) not null, name char(128) not null,age char(128) not null,sex char(128) not null,hei char(128) not null,wei char(128) not null,school char(128) not null",USERID];
+//        BOOL rel =  [database executeUpdate:sql];
+//        if (rel) {
+//            NSLog(@"创建table success");
+//        }else{
+//            NSLog(@"创建table fail");
+//        }
+//
+//        [database close];//关闭 数据库
+//    }else{
+//        NSLog(@"打开失败");
+    }
+    
+//   if ([queueDatabase openFlags]) {
+        [queueDatabase inDatabase:^(FMDatabase * _Nonnull db) {
+            [self initUserTable:db];
+            [self initVersionTable:db];
+        }];
+//        [database close];
+//    }else{
+//       NSLog(@"打开失败");
+//    }
+}
 
+- (void)initUserTable:(FMDatabase *)db{
+    if ([db open]) {
         NSString *sql = [NSString stringWithFormat:@"create table if not exists user%@ (id integer primary key autoincrement ,userid char(128) not null, name char(128) not null,age char(128) not null,sex char(128) not null,hei char(128) not null,wei char(128) not null,school char(128) not null)",USERID];
-       BOOL rel =  [database executeUpdate:sql];
+        BOOL rel =  [db executeUpdate:sql];
         if (rel) {
-            NSLog(@"创建table success");
+            NSLog(@"创建user success");
         }else{
-            NSLog(@"创建table fail");
+            NSLog(@"创建user fail");
         }
-        [self addNewSql];
-
-        [database close];//关闭 数据库
+        [db close];
+    }else{
+        
+    }
+    
+}
+- (void)initVersionTable:(FMDatabase *)db{
+    if ([db open]) {
+        BOOL result = false;
+        if (![db tableExists:@"tableVersion"]) {
+            NSString *sql =@"create table  tableVersion (verison TEXT)";
+            result = [db executeUpdate:sql];
+            if (result) {
+                NSLog(@"创建version success");
+            }else{
+                NSLog(@"创建version fail");
+            }
+        }
+        [db close];
+    }else{
+        
+    }
+}
+- (void)insertVersion{
+    if ([queueDatabase openFlags]) {
+        [queueDatabase inDatabase:^(FMDatabase *db) {
+               NSString *sql = @"insert into tableVersion (verison) values (?);";
+               BOOL result = [db executeUpdate:sql,version];
+               if (result) {
+                   NSLog(@"插入数据成功");
+               } else {
+                   NSLog(@"插入数据失败");
+               }
+           }];
+        [queueDatabase close];
     }else{
         NSLog(@"打开失败");
     }
 }
-
+#pragma mark 得到版本信息
+- (NSString*)getDBInfoValue
+{
+    __block NSString * version = nil;
+//     *dbUnit =[DataBaseUtil unit];
+    [queueDatabase inDatabase:^(FMDatabase *db) {
+        [db open];
+        FMResultSet* set =[db executeQuery:@"select version from tableVersion"];
+        if (set) {
+            while ([set next]) {
+                version = [set stringForColumn:@"version"];
+            }
+        }
+        [db close];
+    }];
+    return version;
+}
+//FIXME:新增字段
 - (void)addNewSql{
     if (![database columnExists:@"bask" inTableWithName:[NSString stringWithFormat:@"user%@",USERID]]) {
         NSString *alertStr = [NSString stringWithFormat:@"alter table %@ add %@ integer",[NSString stringWithFormat:@"user%@",USERID],@"bask"];
-        
         [database executeUpdate:alertStr];
     }
-    
 }
+
+//TODO:插入
 -(void)insertSql:(DBUserModel *)model
 {
     if ([database open]) {
         //如果有该条数据 则不做插入
-       BOOL ref =  [self searchSql:model.userId];
+        BOOL ref =  [self searchSql:model.userId];
         if (!ref) {
             NSString *sql = [NSString stringWithFormat:@"insert into user%@ (userid,name,age,sex,hei,wei,school) values (?,?,?,?,?,?,?);",USERID];
             BOOL rel =  [database executeUpdate:sql,model.userId,model.name,model.age,model.sex,model.hei,model.wei,model.school];

@@ -7,7 +7,6 @@
 //
 
 #import "RACSinalViewsController.h"
-#import "ReactiveCocoa/RACReturnSignal.h"
 @interface RACSinalViewsController ()//https://github.com/wujunyang/MVVMReactiveCocoaDemo
 @property (strong, nonatomic) IBOutlet UIButton *btn;
 @property (strong, nonatomic) IBOutlet UITextField *textf;
@@ -120,9 +119,9 @@
         
     }];
     // 方式二：
-       // 订阅信号
-       // 注意：这里必须是先订阅才能发送命令
-       // executionSignals：信号源，信号中信号，signalofsignals:信号，发送数据就是信号
+    // 订阅信号
+    // 注意：这里必须是先订阅才能发送命令
+    // executionSignals：信号源，信号中信号，signalofsignals:信号，发送数据就是信号
     [command.executionSignals subscribeNext:^(id x) {
         //
         [x subscribeNext:^(id  _Nullable x) {
@@ -134,29 +133,29 @@
     
 }- (void)test3{
     RACCommand *command =[[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-          
-          NSLog(@" --- %@",input);
-          return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-              
-              [subscriber sendNext:@"发送信号"];
-              [subscriber sendCompleted];
-              return [RACDisposable disposableWithBlock:^{
-                  NSLog(@"---- 销毁");
-              }];
-              
-          }];
-          
-      }];
-      // 方式二：
-        //
-    // switchToLatest获取最新发送的信号，只能用于信号中信号。
-
-      [command.executionSignals.switchToLatest subscribeNext:^(id x) {
-          //
-              NSLog(@" switchToLatest--- %@",x);
         
-      }];
-      [command execute:@(3)];//发送
+        NSLog(@" --- %@",input);
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            
+            [subscriber sendNext:@"发送信号"];
+            [subscriber sendCompleted];
+            return [RACDisposable disposableWithBlock:^{
+                NSLog(@"---- 销毁");
+            }];
+            
+        }];
+        
+    }];
+    // 方式二：
+    //
+    // switchToLatest获取最新发送的信号，只能用于信号中信号。
+    
+    [command.executionSignals.switchToLatest subscribeNext:^(id x) {
+        //
+        NSLog(@" switchToLatest--- %@",x);
+        
+    }];
+    [command execute:@(3)];//发送
     
     
 }
@@ -174,32 +173,32 @@
 }
 - (void)test5{
     //注意：当前命令内部发送数据完成，一定要主动发送完成
-       // 1.创建命令
-       RACCommand *command1 = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-           // block调用：执行命令的时候就会调用
-           NSLog(@"%@", input);
-           // 这里的返回值不允许为nil
-           return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-               // 发送数据
-               [subscriber sendNext:@"12345"];
-               
-               // *** 发送完成 **
-               [subscriber sendCompleted];
-               return nil;
-           }];
-       }];
-       // 监听事件有没有完成
-       [command1.executing subscribeNext:^(id x) {
-           if ([x boolValue] == YES) { // 正在执行
-               NSLog(@"当前正在执行%@", x);
-           }else {
-               // 执行完成/没有执行
-               NSLog(@"执行完成/没有执行");
-           }
-       }];
-       
-       // 2.执行命令
-       [command1 execute:@"0"];
+    // 1.创建命令
+    RACCommand *command1 = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        // block调用：执行命令的时候就会调用
+        NSLog(@"%@", input);
+        // 这里的返回值不允许为nil
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            // 发送数据
+            [subscriber sendNext:@"12345"];
+            
+            // *** 发送完成 **
+            [subscriber sendCompleted];
+            return nil;
+        }];
+    }];
+    // 监听事件有没有完成
+    [command1.executing subscribeNext:^(id x) {
+        if ([x boolValue] == YES) { // 正在执行
+            NSLog(@"当前正在执行%@", x);
+        }else {
+            // 执行完成/没有执行
+            NSLog(@"执行完成/没有执行");
+        }
+    }];
+    
+    // 2.执行命令
+    [command1 execute:@"0"];
     
 }
 - (void)test6{
