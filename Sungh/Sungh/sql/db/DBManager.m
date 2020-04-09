@@ -154,10 +154,10 @@ static const NSString *version = @"1.0.0";
 //     *dbUnit =[DataBaseUtil unit];
     [queueDatabase inDatabase:^(FMDatabase *db) {
         [db open];
-        FMResultSet* set =[db executeQuery:@"select version from tableVersion"];
+        FMResultSet* set =[db executeQuery:@"select verison from tableVersion"];
         if (set) {
             while ([set next]) {
-                version = [set stringForColumn:@"version"];
+                version = [set stringForColumn:@"verison"];
             }
         }
         [db close];

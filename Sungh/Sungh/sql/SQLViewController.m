@@ -53,7 +53,7 @@
 //    [sql insertSql:user];
 //    [sql transaction];
     NSMutableArray *arr = [sql getResultsSql];
-    NSLog(@"---  %@",arr);
+    NSLog(@"---  %@",[[DBManager shareManager]getDBInfoValue]);
     
 }
 
