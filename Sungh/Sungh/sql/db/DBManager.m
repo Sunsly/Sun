@@ -42,7 +42,7 @@
  */
 #define DBPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]
 static const NSString *version = @"1.0.0";
-
+#define DBVersion @"1.0.0"
 
 @implementation DBManager
 
@@ -65,38 +65,19 @@ static const NSString *version = @"1.0.0";
         manager = [[DBManager alloc]init];
         [manager initPath];
         [manager initTable];
-        [manager insertVersion];
+        if (![[manager getDBInfoValue] isEqualToString:DBVersion]) {
+            [manager insertVersion];
+        }
     });
     return manager;
 }
-
 #pragma mark 创建
 -(void)initTable
 {
-//    NSLog(@" ----- %@",DBPath);
-    if ([database open]) {
-//        NSString *sql = [NSString stringWithFormat:@"create table if not exists user%@ (id integer primary key autoincrement ,userid char(128) not null, name char(128) not null,age char(128) not null,sex char(128) not null,hei char(128) not null,wei char(128) not null,school char(128) not null",USERID];
-//        BOOL rel =  [database executeUpdate:sql];
-//        if (rel) {
-//            NSLog(@"创建table success");
-//        }else{
-//            NSLog(@"创建table fail");
-//        }
-//
-//        [database close];//关闭 数据库
-//    }else{
-//        NSLog(@"打开失败");
-    }
-    
-//   if ([queueDatabase openFlags]) {
         [queueDatabase inDatabase:^(FMDatabase * _Nonnull db) {
             [self initUserTable:db];
             [self initVersionTable:db];
         }];
-//        [database close];
-//    }else{
-//       NSLog(@"打开失败");
-//    }
 }
 
 - (void)initUserTable:(FMDatabase *)db{
@@ -110,7 +91,7 @@ static const NSString *version = @"1.0.0";
         }
         [db close];
     }else{
-        
+        NSLog(@" ---user 打开失败");
     }
     
 }
@@ -128,14 +109,15 @@ static const NSString *version = @"1.0.0";
         }
         [db close];
     }else{
-        
+        NSLog(@" ---tableVersion 打开失败");
+
     }
 }
 - (void)insertVersion{
     if ([queueDatabase openFlags]) {
         [queueDatabase inDatabase:^(FMDatabase *db) {
                NSString *sql = @"insert into tableVersion (verison) values (?);";
-               BOOL result = [db executeUpdate:sql,version];
+               BOOL result = [db executeUpdate:sql,DBVersion];
                if (result) {
                    NSLog(@"插入数据成功");
                } else {
@@ -171,7 +153,6 @@ static const NSString *version = @"1.0.0";
         [database executeUpdate:alertStr];
     }
 }
-
 //TODO:插入
 -(void)insertSql:(DBUserModel *)model
 {
@@ -206,6 +187,7 @@ static const NSString *version = @"1.0.0";
     };
     return YES;
 }
+//查
 -(NSMutableArray *)getResultsSql
 {
     //查询整个 表用户 数据
@@ -222,6 +204,7 @@ static const NSString *version = @"1.0.0";
     }
     return nil;
 }
+//更新
 - (BOOL)updateData:(DBUserModel *)model
 {
     if ([database open]) {
@@ -229,7 +212,6 @@ static const NSString *version = @"1.0.0";
         BOOL ref =   [database executeUpdate:sql,model.name,model.userId];
         if (ref) {
             NSLog(@"更新");
-            
         }else{
             NSLog(@"更新fial成功");
         }
@@ -239,6 +221,7 @@ static const NSString *version = @"1.0.0";
     }
     return NO;
 }
+//删除 某一条
 - (BOOL)deleteData:(NSString *)userid{
     
     if ([database open]) {

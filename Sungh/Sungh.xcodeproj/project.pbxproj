@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02FADAC2EBE2C74D8DCFDD32 /* Pods_Sungh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00926150950CC2D2E11B2169 /* Pods_Sungh.framework */; };
 		9F0240CB23152F2300DEE392 /* DefineInlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */; };
+		9F0FD2C724693AE500C1A18B /* UIActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2C624693AE500C1A18B /* UIActionViewController.m */; };
+		9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2C924693BF900C1A18B /* HitUIView.m */; };
 		9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB22268773600091FA7 /* RACViewModel.m */; };
 		9F13FEB622696DF000091FA7 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB522696DF000091FA7 /* RACView.m */; };
 		9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB82269794300091FA7 /* RACTwoViewController.m */; };
@@ -31,6 +33,12 @@
 		9F4524FC215A32B600999B07 /* system2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4524FB215A32B600999B07 /* system2@2x.png */; };
 		9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524FE215A3BC300999B07 /* UIButton+Position.m */; };
 		9F465EA2243ECC4300515768 /* Migration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EA1243ECC4300515768 /* Migration.m */; };
+		9F465EA724406D6F00515768 /* CurrentSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EA524406D6F00515768 /* CurrentSuperViewController.m */; };
+		9F465EA824406D6F00515768 /* CurrentSuperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F465EA624406D6F00515768 /* CurrentSuperViewController.xib */; };
+		9F465EAB24406F4200515768 /* FirstChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EAA24406F4200515768 /* FirstChildViewController.m */; };
+		9F465EB124406F6F00515768 /* SecondChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EB024406F6F00515768 /* SecondChildViewController.m */; };
+		9F465EBA24446E1C00515768 /* FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EB824446E1C00515768 /* FSViewController.m */; };
+		9F465EBB24446E1C00515768 /* FSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F465EB924446E1C00515768 /* FSViewController.xib */; };
 		9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */; };
 		9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22320FDDCC400D327D0 /* SQLViewController.m */; };
 		9F53D22920FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
@@ -39,6 +47,8 @@
 		9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464ED21ABF84A00A7BCFF /* BXTextField.m */; };
 		9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464EE21ABF84A00A7BCFF /* UITextField+BXExtension.m */; };
 		9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5464F021ABF84A00A7BCFF /* UIView+BXExtension.m */; };
+		9F58D4FF24455C7600B2317A /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F58D4FE24455C7600B2317A /* SignView.m */; };
+		9F58D50224455DC100B2317A /* SingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F58D50124455DC100B2317A /* SingTableViewCell.m */; };
 		9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60A7B0212A93CA00D2C487 /* NSFileTool.m */; };
 		9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7957E3214F92BC00BC6BB1 /* STool.m */; };
 		9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9F795BE42152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig */; };
@@ -93,6 +103,10 @@
 		391D30E298205130E0E46C68 /* Pods-Sungh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sungh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sungh/Pods-Sungh.debug.xcconfig"; sourceTree = "<group>"; };
 		9F0240C923152F2300DEE392 /* DefineInlineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineInlineViewController.h; sourceTree = "<group>"; };
 		9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DefineInlineViewController.m; sourceTree = "<group>"; };
+		9F0FD2C524693AE500C1A18B /* UIActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIActionViewController.h; sourceTree = "<group>"; };
+		9F0FD2C624693AE500C1A18B /* UIActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIActionViewController.m; sourceTree = "<group>"; };
+		9F0FD2C824693BF900C1A18B /* HitUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitUIView.h; sourceTree = "<group>"; };
+		9F0FD2C924693BF900C1A18B /* HitUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitUIView.m; sourceTree = "<group>"; };
 		9F13FEB12268773600091FA7 /* RACViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewModel.h; sourceTree = "<group>"; };
 		9F13FEB22268773600091FA7 /* RACViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewModel.m; sourceTree = "<group>"; };
 		9F13FEB422696DF000091FA7 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
@@ -133,6 +147,16 @@
 		9F4524FE215A3BC300999B07 /* UIButton+Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Position.m"; sourceTree = "<group>"; };
 		9F465EA0243ECC4300515768 /* Migration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Migration.h; sourceTree = "<group>"; };
 		9F465EA1243ECC4300515768 /* Migration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Migration.m; sourceTree = "<group>"; };
+		9F465EA424406D6F00515768 /* CurrentSuperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentSuperViewController.h; sourceTree = "<group>"; };
+		9F465EA524406D6F00515768 /* CurrentSuperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentSuperViewController.m; sourceTree = "<group>"; };
+		9F465EA624406D6F00515768 /* CurrentSuperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentSuperViewController.xib; sourceTree = "<group>"; };
+		9F465EA924406F4200515768 /* FirstChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstChildViewController.h; sourceTree = "<group>"; };
+		9F465EAA24406F4200515768 /* FirstChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstChildViewController.m; sourceTree = "<group>"; };
+		9F465EAF24406F6F00515768 /* SecondChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondChildViewController.h; sourceTree = "<group>"; };
+		9F465EB024406F6F00515768 /* SecondChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondChildViewController.m; sourceTree = "<group>"; };
+		9F465EB724446E1C00515768 /* FSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSViewController.h; sourceTree = "<group>"; };
+		9F465EB824446E1C00515768 /* FSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSViewController.m; sourceTree = "<group>"; };
+		9F465EB924446E1C00515768 /* FSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSViewController.xib; sourceTree = "<group>"; };
 		9F4AD7CE22A658F700B99014 /* SynchronizedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronizedViewController.h; sourceTree = "<group>"; };
 		9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronizedViewController.m; sourceTree = "<group>"; };
 		9F53D22220FDDCC400D327D0 /* SQLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLViewController.h; sourceTree = "<group>"; };
@@ -149,6 +173,10 @@
 		9F5464EE21ABF84A00A7BCFF /* UITextField+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BXExtension.m"; sourceTree = "<group>"; };
 		9F5464EF21ABF84A00A7BCFF /* UIView+BXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BXExtension.h"; sourceTree = "<group>"; };
 		9F5464F021ABF84A00A7BCFF /* UIView+BXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BXExtension.m"; sourceTree = "<group>"; };
+		9F58D4FD24455C7600B2317A /* SignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
+		9F58D4FE24455C7600B2317A /* SignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignView.m; sourceTree = "<group>"; };
+		9F58D50024455DC100B2317A /* SingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingTableViewCell.h; sourceTree = "<group>"; };
+		9F58D50124455DC100B2317A /* SingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingTableViewCell.m; sourceTree = "<group>"; };
 		9F60A7AF212A93CA00D2C487 /* NSFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSFileTool.h; sourceTree = "<group>"; };
 		9F60A7B0212A93CA00D2C487 /* NSFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSFileTool.m; sourceTree = "<group>"; };
 		9F7957E2214F92BC00BC6BB1 /* STool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STool.h; sourceTree = "<group>"; };
@@ -252,6 +280,17 @@
 			path = "宏定义内联函数";
 			sourceTree = "<group>";
 		};
+		9F0FD2C424693ABC00C1A18B /* ui事件传递及响应 */ = {
+			isa = PBXGroup;
+			children = (
+				9F0FD2C524693AE500C1A18B /* UIActionViewController.h */,
+				9F0FD2C624693AE500C1A18B /* UIActionViewController.m */,
+				9F0FD2C824693BF900C1A18B /* HitUIView.h */,
+				9F0FD2C924693BF900C1A18B /* HitUIView.m */,
+			);
+			path = "ui事件传递及响应";
+			sourceTree = "<group>";
+		};
 		9F1DB50A20E0BE6F0014E9FC = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +326,11 @@
 				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F465EB724446E1C00515768 /* FSViewController.h */,
+				9F465EB824446E1C00515768 /* FSViewController.m */,
+				9F465EB924446E1C00515768 /* FSViewController.xib */,
+				9F0FD2C424693ABC00C1A18B /* ui事件传递及响应 */,
+				9F465EA324406D4900515768 /* childViewController */,
 				9FD2B2DB242DEDA5000D3560 /* mvvm */,
 				9FD36E80242B2ABE00F5917B /* 内存管理 */,
 				9FD36E492428AFB300F5917B /* 二维码 */,
@@ -332,6 +376,24 @@
 				9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */,
 			);
 			path = "textf&&textv";
+			sourceTree = "<group>";
+		};
+		9F465EA324406D4900515768 /* childViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9F465EA424406D6F00515768 /* CurrentSuperViewController.h */,
+				9F465EA524406D6F00515768 /* CurrentSuperViewController.m */,
+				9F465EA624406D6F00515768 /* CurrentSuperViewController.xib */,
+				9F58D4FD24455C7600B2317A /* SignView.h */,
+				9F58D4FE24455C7600B2317A /* SignView.m */,
+				9F58D50024455DC100B2317A /* SingTableViewCell.h */,
+				9F58D50124455DC100B2317A /* SingTableViewCell.m */,
+				9F465EA924406F4200515768 /* FirstChildViewController.h */,
+				9F465EAA24406F4200515768 /* FirstChildViewController.m */,
+				9F465EAF24406F6F00515768 /* SecondChildViewController.h */,
+				9F465EB024406F6F00515768 /* SecondChildViewController.m */,
+			);
+			path = childViewController;
 			sourceTree = "<group>";
 		};
 		9F4AD7CD22A658BB00B99014 /* 多线程 */ = {
@@ -663,6 +725,9 @@
 		9F1DB50B20E0BE6F0014E9FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					"Sign View",
+				);
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = yonyouqiche;
 				TargetAttributes = {
@@ -710,7 +775,9 @@
 				9F795BE52152294C00BC6BB1 /* Pods-Sungh.beat.xcconfig in Resources */,
 				9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */,
 				9F795BE72152296100BC6BB1 /* Pods-Sungh.enterprise.xcconfig in Resources */,
+				9F465EBB24446E1C00515768 /* FSViewController.xib in Resources */,
 				9F42E2292192BE4C003A6F38 /* TextFieldViewController.xib in Resources */,
+				9F465EA824406D6F00515768 /* CurrentSuperViewController.xib in Resources */,
 				9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */,
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
@@ -780,6 +847,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F465EAB24406F4200515768 /* FirstChildViewController.m in Sources */,
+				9F58D4FF24455C7600B2317A /* SignView.m in Sources */,
+				9F58D50224455DC100B2317A /* SingTableViewCell.m in Sources */,
 				9FD36E4C2428AFD300F5917B /* UIScreenViewController.m in Sources */,
 				9F53D23121006B9900D327D0 /* BaseModel.m in Sources */,
 				9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */,
@@ -797,7 +867,9 @@
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */,
+				9F0FD2C724693AE500C1A18B /* UIActionViewController.m in Sources */,
 				9F91CD572303B96500D1A7EB /* UIViewController+MDHook.m in Sources */,
+				9F465EBA24446E1C00515768 /* FSViewController.m in Sources */,
 				9F0240CB23152F2300DEE392 /* DefineInlineViewController.m in Sources */,
 				9FD36E83242B2AE300F5917B /* MallocManagerController.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
@@ -807,9 +879,11 @@
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
 				9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */,
+				9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */,
 				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
 				9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */,
 				9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */,
+				9F465EA724406D6F00515768 /* CurrentSuperViewController.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
 				9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */,
@@ -818,6 +892,7 @@
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
+				9F465EB124406F6F00515768 /* SecondChildViewController.m in Sources */,
 				9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */,
 				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,

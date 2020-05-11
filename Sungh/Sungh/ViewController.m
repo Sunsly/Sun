@@ -23,6 +23,7 @@
 #import "DefineInlineViewController.h"
 #import "MallocManagerController.h"
 #import "MVVMViewController.h"
+#import "CurrentSuperViewController.h"
 static NSString  * const kUserName = @"StrongX";
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
@@ -32,10 +33,20 @@ static NSString  * const kUserName = @"StrongX";
 @implementation ViewController
 
 
+-(NSString *)getNowTimeStamp {
+
+NSDate *date = [NSDate date];
+NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+return timeSp;
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     int a = 100;
     NSLog(@"%p",&a);
+    
+    
+    NSLog(@" --- %ld",[[self getNowTimeStamp] integerValue]);
     
 
     self.dataArray = [[NSMutableArray alloc]init];
@@ -52,7 +63,7 @@ static NSString  * const kUserName = @"StrongX";
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -120,6 +131,16 @@ static NSString  * const kUserName = @"StrongX";
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"MVVM"]){
         MVVMViewController *vc = [[MVVMViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"childView"]){
+        CurrentSuperViewController *vc = [[CurrentSuperViewController alloc]initWithNibName:@"CurrentSuperViewController" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"ui事件传递"]){
+        
+        Class class = NSClassFromString(@"UIActionViewController");
+        //vc.nameStr = @"12";//不可修改
+        UIViewController *vc = [[class alloc]init];
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
