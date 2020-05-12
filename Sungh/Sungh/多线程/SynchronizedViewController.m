@@ -22,25 +22,55 @@
     dispatch_semaphore_t signal = dispatch_semaphore_create(1);
     dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+
         dispatch_semaphore_wait(signal, overTime);
         NSLog(@"需要线程同步的操作1 开始");
         sleep(2);
         NSLog(@"需要线程同步的操作1 结束");
         dispatch_semaphore_signal(signal);
     });
-    
-    
+
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         sleep(1);
         dispatch_semaphore_wait(signal, overTime);
         NSLog(@"需要线程同步的操作2");
         dispatch_semaphore_signal(signal);
     });
-    
-    
+
+
     [self autoreleasepoolAction];
-    
+    //递归所
+    NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        static void (^RecursiveMethod)(int);
+        RecursiveMethod = ^(int value) {
+            [lock lock];
+            value--;
+            if (value > 0) {
+//                NSLog(@"value = %d", value);
+//                sleep(1);
+                RecursiveMethod(value);
+            }
+            NSLog(@" ---- %d",value+1);
+
+            [lock unlock];
+        };
+     
+        RecursiveMethod(5);
+    });
+     
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        sleep(2);
+//        BOOL flag = [lock lockBeforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+//        if (flag) {
+//            NSLog(@"lock before date");
+//            [lock unlock];
+//        } else {
+//            NSLog(@"fail to lock before date");
+//        }
+//    });
+
 }
 - (void)async{
     

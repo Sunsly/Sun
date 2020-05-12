@@ -88,6 +88,7 @@ return timeSp;
         cell =[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"rootcell"];
     }
     cell.textLabel.text = self.dataArray[indexPath.row];
+//    cell.textLabel.clipsToBounds = YES;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
