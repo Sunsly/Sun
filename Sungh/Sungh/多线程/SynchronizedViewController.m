@@ -8,6 +8,7 @@
 
 #import "SynchronizedViewController.h"
 #import "SsOperation.h"
+#import "GCDViewController.h"
 @interface SynchronizedViewController ()
 @property (nonatomic, strong) NSThread *thread;//创建一个常驻线程
 @property (nonatomic,strong)NSOperationQueue *queueOprtations;
@@ -73,7 +74,15 @@
 
 }
 - (void)async{
-    
+    //DISPATCH_QUEUE_CONCURRENT 队里 并行并发队列
+    //DISPATCH_QUEUE_SERIAL 队列串行  NULL 同步队列
+/*
+ 队列优先级
+ DISPATCH_QUEUE_PRIORITY_HIGH 2 // 高
+ DISPATCH_QUEUE_PRIORITY_DEFAULT 0 // 默认（中）
+ DISPATCH_QUEUE_PRIORITY_LOW (-2) // 低
+ DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后台
+ */
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_queue_create("com.gcd-group.www", DISPATCH_QUEUE_CONCURRENT);
     
@@ -105,7 +114,8 @@
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
 //    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 //    NSLog(@"%@",[NSRunLoop mainRunLoop]);
-    [self async];
+    GCDViewController *vc = [GCDViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)show
 {

@@ -8,8 +8,9 @@
 
 #import "MallocManagerController.h"
 
-void (^globalBlock)() = ^{
-
+int (^globalBlock)(void) = ^{
+    NSLog(@"");
+    return 1;
 };
 
 typedef void(^blockConst)(void);

@@ -9,10 +9,15 @@
 #import "MVVMViewController.h"
 #import "MVVMViewModel.h"
 #import "RACSinalViewsController.h"
+#import "NetWorkingRequest.h"
+#import "SubjectsModels.h"
+#import "SubjectsViewModels.h"
 @interface MVVMViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray *bindArr;
 @property (nonatomic,strong)MVVMViewModel *viewModel;
+@property (nonatomic,strong)SubjectsViewModels *subViewModel;//
+@property (nonatomic,strong)NSMutableArray *dataArray;
 @end
 
 @implementation MVVMViewController
@@ -21,8 +26,25 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    [self bindData];
-    [self bingRAC];
+//    [self bindData];
+//    [self bingRAC];
+    [self requestS];
+}
+- (void)requestS{
+    self.subViewModel.url = @"https://douban.uieee.com/v2/movie/new_movies?apikey=0df993c66c0c636e29ecbb5344252a4a";
+    @weakify(self)
+    [self.subViewModel.successObject subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        SubjectsModels *model = (SubjectsModels *)x;
+        [self.dataArray addObjectsFromArray:model.subjects];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
+    [self.subViewModel.failObject subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    [self.subViewModel bindTableViewData];
 }
 //数据绑定
 - (void)bindData{
@@ -36,54 +58,31 @@
     [self.viewModel exchangeData];//发送信号
 
 }
-//MARK: tableview 懒加载
--(UITableView *)tableView{
-    
-    if (!_tableView) {
-        _tableView = [UITableView new];
-        //初始化背景颜色为白色
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.frame = self.view.bounds;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-        _tableView.separatorStyle = NO;
-        
-    }
-    return _tableView;
-    
-}
+
 //MARK: tableview DataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.bindArr.count;
+    return  self.dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    cell.textLabel.text = [self.bindArr[indexPath.row] valueForKey:@"title"];
-//    cell.backgroundColor = [UIColor greenColor];
-//    cell.textLabel.textColor =[UIColor grayColor];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    
+    RatingModels *model = self.dataArray[indexPath.row];
+    cell.textLabel.text =  model.title;
     return cell;
-    
-    
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
 
 //MARK: tableview Delagete
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     RACSinalViewsController *vc = [[RACSinalViewsController alloc]initWithNibName:@"RACSinalViewsController" bundle:[NSBundle mainBundle]];
     vc.delegateSubject = [RACSubject subject];
     [vc.delegateSubject subscribeNext:^(id  _Nullable x) {
         NSLog(@" ---- %@",x);
     }];//订阅信号
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
+
 - (void)bingRAC{
     //创建信号源 // RACSignal使用步骤：
     RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -195,4 +194,32 @@
 
 }
 
+-(NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray arrayWithCapacity: 0];
+    }
+    return _dataArray;
+}
+//MARK: tableview 懒加载
+-(UITableView *)tableView{
+    
+    if (!_tableView) {
+        _tableView = [UITableView new];
+        //初始化背景颜色为白色
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.frame = self.view.bounds;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        _tableView.separatorStyle = NO;
+        
+    }
+    return _tableView;
+}
+-(SubjectsViewModels *)subViewModel{
+    if (_subViewModel == nil) {
+        _subViewModel = [[SubjectsViewModels alloc]init];
+    }
+    return _subViewModel;
+}
 @end

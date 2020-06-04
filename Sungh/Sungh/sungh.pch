@@ -53,4 +53,6 @@
 #define USERID @"121111"
 #import "AFNetworking.h"
 #import "ReactiveObjC.h"
+#import "MJExtension.h"
+#import "NetWorkingRequest.h"
 #endif /* sungh_pch */

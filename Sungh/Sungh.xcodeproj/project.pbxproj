@@ -11,6 +11,12 @@
 		9F0240CB23152F2300DEE392 /* DefineInlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0240CA23152F2300DEE392 /* DefineInlineViewController.m */; };
 		9F0FD2C724693AE500C1A18B /* UIActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2C624693AE500C1A18B /* UIActionViewController.m */; };
 		9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2C924693BF900C1A18B /* HitUIView.m */; };
+		9F0FD2D1246BC95D00C1A18B /* TextFieldViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2D0246BC95D00C1A18B /* TextFieldViewControllers.m */; };
+		9F0FD2D5246BC97200C1A18B /* TextFieldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2D3246BC97200C1A18B /* TextFieldViewCell.m */; };
+		9F0FD2D6246BC97200C1A18B /* TextFieldViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0FD2D4246BC97200C1A18B /* TextFieldViewCell.xib */; };
+		9F0FD2DC246D184A00C1A18B /* NetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2DB246D184900C1A18B /* NetWorkingRequest.m */; };
+		9F0FD2DF246D1AAD00C1A18B /* SubjectsModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2DE246D1AAC00C1A18B /* SubjectsModels.m */; };
+		9F0FD2E2246D20F800C1A18B /* SubjectsViewModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0FD2E1246D20F800C1A18B /* SubjectsViewModels.m */; };
 		9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB22268773600091FA7 /* RACViewModel.m */; };
 		9F13FEB622696DF000091FA7 /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB522696DF000091FA7 /* RACView.m */; };
 		9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F13FEB82269794300091FA7 /* RACTwoViewController.m */; };
@@ -77,6 +83,7 @@
 		9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */; };
 		9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
+		9FF1DB41247B8B9800AB3DA9 /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */; };
 		9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF373A9223660770012ADF1 /* VideoViewController.m */; };
 		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
 /* End PBXBuildFile section */
@@ -107,6 +114,17 @@
 		9F0FD2C624693AE500C1A18B /* UIActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIActionViewController.m; sourceTree = "<group>"; };
 		9F0FD2C824693BF900C1A18B /* HitUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitUIView.h; sourceTree = "<group>"; };
 		9F0FD2C924693BF900C1A18B /* HitUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitUIView.m; sourceTree = "<group>"; };
+		9F0FD2CF246BC95D00C1A18B /* TextFieldViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldViewControllers.h; sourceTree = "<group>"; };
+		9F0FD2D0246BC95D00C1A18B /* TextFieldViewControllers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewControllers.m; sourceTree = "<group>"; };
+		9F0FD2D2246BC97200C1A18B /* TextFieldViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldViewCell.h; sourceTree = "<group>"; };
+		9F0FD2D3246BC97200C1A18B /* TextFieldViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewCell.m; sourceTree = "<group>"; };
+		9F0FD2D4246BC97200C1A18B /* TextFieldViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldViewCell.xib; sourceTree = "<group>"; };
+		9F0FD2DA246D184900C1A18B /* NetWorkingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingRequest.h; sourceTree = "<group>"; };
+		9F0FD2DB246D184900C1A18B /* NetWorkingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingRequest.m; sourceTree = "<group>"; };
+		9F0FD2DD246D1AAC00C1A18B /* SubjectsModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectsModels.h; sourceTree = "<group>"; };
+		9F0FD2DE246D1AAC00C1A18B /* SubjectsModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectsModels.m; sourceTree = "<group>"; };
+		9F0FD2E0246D20F800C1A18B /* SubjectsViewModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectsViewModels.h; sourceTree = "<group>"; };
+		9F0FD2E1246D20F800C1A18B /* SubjectsViewModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectsViewModels.m; sourceTree = "<group>"; };
 		9F13FEB12268773600091FA7 /* RACViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewModel.h; sourceTree = "<group>"; };
 		9F13FEB22268773600091FA7 /* RACViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewModel.m; sourceTree = "<group>"; };
 		9F13FEB422696DF000091FA7 /* RACView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACView.h; sourceTree = "<group>"; };
@@ -229,6 +247,8 @@
 		9FEEFE3121354CC000736430 /* SUNLbundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SUNLbundle.bundle; sourceTree = "<group>"; };
 		9FEEFE3421354DF200736430 /* BundleSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleSdk.h; sourceTree = "<group>"; };
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
+		9FF1DB3F247B8B9800AB3DA9 /* GCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDViewController.h; sourceTree = "<group>"; };
+		9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDViewController.m; sourceTree = "<group>"; };
 		9FF347EB22E714FA006D5B72 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9FF373A8223660770012ADF1 /* VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		9FF373A9223660770012ADF1 /* VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
@@ -291,6 +311,18 @@
 			path = "ui事件传递及响应";
 			sourceTree = "<group>";
 		};
+		9F0FD2CE246BC94400C1A18B /* textfield */ = {
+			isa = PBXGroup;
+			children = (
+				9F0FD2CF246BC95D00C1A18B /* TextFieldViewControllers.h */,
+				9F0FD2D0246BC95D00C1A18B /* TextFieldViewControllers.m */,
+				9F0FD2D2246BC97200C1A18B /* TextFieldViewCell.h */,
+				9F0FD2D3246BC97200C1A18B /* TextFieldViewCell.m */,
+				9F0FD2D4246BC97200C1A18B /* TextFieldViewCell.xib */,
+			);
+			path = textfield;
+			sourceTree = "<group>";
+		};
 		9F1DB50A20E0BE6F0014E9FC = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +361,7 @@
 				9F465EB724446E1C00515768 /* FSViewController.h */,
 				9F465EB824446E1C00515768 /* FSViewController.m */,
 				9F465EB924446E1C00515768 /* FSViewController.xib */,
+				9F0FD2CE246BC94400C1A18B /* textfield */,
 				9F0FD2C424693ABC00C1A18B /* ui事件传递及响应 */,
 				9F465EA324406D4900515768 /* childViewController */,
 				9FD2B2DB242DEDA5000D3560 /* mvvm */,
@@ -401,6 +434,8 @@
 			children = (
 				9F4AD7CE22A658F700B99014 /* SynchronizedViewController.h */,
 				9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */,
+				9FF1DB3F247B8B9800AB3DA9 /* GCDViewController.h */,
+				9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */,
 				9F91CD4F23025D8300D1A7EB /* SsOperation.h */,
 				9F91CD5023025D8300D1A7EB /* SsOperation.m */,
 			);
@@ -553,6 +588,10 @@
 		9FD2B2DB242DEDA5000D3560 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9F0FD2DD246D1AAC00C1A18B /* SubjectsModels.h */,
+				9F0FD2DE246D1AAC00C1A18B /* SubjectsModels.m */,
+				9F0FD2E0246D20F800C1A18B /* SubjectsViewModels.h */,
+				9F0FD2E1246D20F800C1A18B /* SubjectsViewModels.m */,
 				9F174A42243747AC000AFFB1 /* README1.md */,
 				9F174A2A24333E1F000AFFB1 /* MVVMViewController.h */,
 				9F174A2B24333E1F000AFFB1 /* MVVMViewController.m */,
@@ -626,6 +665,8 @@
 				9F7957E3214F92BC00BC6BB1 /* STool.m */,
 				9F4524B42159D9F800999B07 /* CheckRegularTool.h */,
 				9F4524B52159D9F800999B07 /* CheckRegularTool.m */,
+				9F0FD2DA246D184900C1A18B /* NetWorkingRequest.h */,
+				9F0FD2DB246D184900C1A18B /* NetWorkingRequest.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -780,6 +821,7 @@
 				9F465EA824406D6F00515768 /* CurrentSuperViewController.xib in Resources */,
 				9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */,
 				9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */,
+				9F0FD2D6246BC97200C1A18B /* TextFieldViewCell.xib in Resources */,
 				9F1DB51E20E0BE6F0014E9FC /* Main.storyboard in Resources */,
 				9F4524FC215A32B600999B07 /* system2@2x.png in Resources */,
 				9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */,
@@ -855,7 +897,9 @@
 				9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */,
 				9F53D22920FDE55400D327D0 /* DBManager.m in Sources */,
 				9F7A60A02266D384002E26ED /* RACViewController.m in Sources */,
+				9F0FD2E2246D20F800C1A18B /* SubjectsViewModels.m in Sources */,
 				9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */,
+				9F0FD2D1246BC95D00C1A18B /* TextFieldViewControllers.m in Sources */,
 				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,
 				9F7957E4214F92BC00BC6BB1 /* STool.m in Sources */,
@@ -888,12 +932,16 @@
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
 				9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */,
 				9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */,
+				9FF1DB41247B8B9800AB3DA9 /* GCDViewController.m in Sources */,
+				9F0FD2D5246BC97200C1A18B /* TextFieldViewCell.m in Sources */,
 				9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */,
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
 				9F465EB124406F6F00515768 /* SecondChildViewController.m in Sources */,
+				9F0FD2DC246D184A00C1A18B /* NetWorkingRequest.m in Sources */,
 				9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */,
+				9F0FD2DF246D1AAD00C1A18B /* SubjectsModels.m in Sources */,
 				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,

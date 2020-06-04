@@ -47,7 +47,6 @@
     gradient.startPoint = CGPointMake(1, 0);
     gradient.endPoint = CGPointMake(0, 0);
     [vc.layer addSublayer:gradient];
-    
 }
 /*
  iOS设备的硬件时钟会发出Vsync（垂直同步信号），然后App的CPU会去计算屏幕要显示的内容，之后将计算好的内容提交到GPU去渲染。随后，GPU将渲染结果提交到帧缓冲区，等到下一个VSync到来时将缓冲区的帧显示到屏幕上。也就是说，一帧的显示是由CPU和GPU共同决定的。
@@ -67,6 +66,7 @@
  为什么要避免GPU离屏渲染？
  GPU需要做额外的渲染操作。通常GPU在做渲染的时候是很快的，但是涉及到offscreen-render的时候情况就可能有些不同，因为需要额外开辟一个新的缓冲区进行渲染，然后绘制到当前屏幕的过程需要做onscreen跟offscreen上下文之间的切换，这个过程的消耗会比较昂贵，涉及到OpenGL的pipeline跟barrier，而且offscreen-render在每一帧都会涉及到，因此处理不当肯定会对性能产生一定的影响。另外由于离屏渲染会增加GPU的工作量，可能会导致CPU+GPU的处理时间超出16.7ms，导致掉帧卡顿。所以可以的话应尽量减少offscreen-render的图层
 
+ CPU 处理完后交给 GPU 去渲染，如两者合作耗时超过 16m
 */
 #pragma mark - Navigation
 

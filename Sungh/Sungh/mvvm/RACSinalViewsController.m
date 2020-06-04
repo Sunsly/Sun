@@ -7,10 +7,14 @@
 //
 
 #import "RACSinalViewsController.h"
+#import "SubjectsModels.h"
+#import "NetWorkingRequest.h"
+
 @interface RACSinalViewsController ()//https://github.com/wujunyang/MVVMReactiveCocoaDemo
 @property (strong, nonatomic) IBOutlet UIButton *btn;
 @property (strong, nonatomic) IBOutlet UITextField *textf;
 @property (strong, nonatomic) IBOutlet UILabel *lab;
+@property (nonatomic,readwrite)RACDisposable *rac;
 
 @property (nonatomic,strong)UIView *racView;
 @end
@@ -35,6 +39,7 @@
      
      */
     self.racView = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    self.racView.backgroundColor = [UIColor whiteColor];
     self.racView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addTap:)];
@@ -53,6 +58,9 @@
     [[self.textf rac_textSignal]subscribeNext:^(id x) {
         NSLog(@" -- -- %@",x);
         @strongify(self)
+        if ([NSString stringWithFormat:@"%@",x].length>10) {
+            return ;
+        }
 
     }];
     // 只要文本框文字改变，就会修改label的文字
@@ -69,11 +77,12 @@
     [self test3];
     [self test4];
     [self test5];
-//    [self test6];
-
-}
-- (void)addTap:(UIGestureRecognizer *)tap{
+    [self test6];
     
+}
+
+- (void)addTap:(UIGestureRecognizer *)tap{
+  
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     if (self.delegateSubject) {
@@ -202,7 +211,17 @@
     
 }
 - (void)test6{
-    
+    __block NSInteger time = 10;
+    self.rac  =  [[RACSignal interval:2 onScheduler:[RACScheduler mainThreadScheduler]]subscribeNext:^(NSDate * _Nullable x) {
+        time--;
+        NSLog(@" --- %ld",time);
+        if (time ==0) {
+            [self.rac dispose];
+        }
+    }];
 }
-
+-(void)dealloc{
+    self.rac = nil;
+    [self.rac dispose];
+}
 @end
