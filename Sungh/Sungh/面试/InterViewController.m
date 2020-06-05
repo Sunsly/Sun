@@ -864,4 +864,7 @@ static inline int add(int a,int b){
      */
 }
 
+- (void)afn{
+    
+}
 @end

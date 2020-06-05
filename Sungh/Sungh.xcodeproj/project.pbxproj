@@ -75,6 +75,7 @@
 		9FD0BBB020EE1C0900ACF2BD /* WKWebViewMessageHandler.html in Resources */ = {isa = PBXBuildFile; fileRef = 9FD0BBAF20EE1C0900ACF2BD /* WKWebViewMessageHandler.html */; };
 		9FD36E4C2428AFD300F5917B /* UIScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD36E4B2428AFD300F5917B /* UIScreenViewController.m */; };
 		9FD36E83242B2AE300F5917B /* MallocManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD36E82242B2AE300F5917B /* MallocManagerController.m */; };
+		9FDA2625248A08F800984E28 /* AFNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA2624248A08F800984E28 /* AFNViewController.m */; };
 		9FE3557322AF4F2F00B886E0 /* SunghTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE3557222AF4F2F00B886E0 /* SunghTests.m */; };
 		9FE3558122AF4F3700B886E0 /* SunghUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE3558022AF4F3700B886E0 /* SunghUITests.m */; };
 		9FE7A2BB2111B1880048776E /* SDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2B92111B1880048776E /* SDKViewController.m */; };
@@ -230,6 +231,8 @@
 		9FD36E4B2428AFD300F5917B /* UIScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIScreenViewController.m; sourceTree = "<group>"; };
 		9FD36E81242B2AE300F5917B /* MallocManagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MallocManagerController.h; sourceTree = "<group>"; };
 		9FD36E82242B2AE300F5917B /* MallocManagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MallocManagerController.m; sourceTree = "<group>"; };
+		9FDA2623248A08F800984E28 /* AFNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNViewController.h; sourceTree = "<group>"; };
+		9FDA2624248A08F800984E28 /* AFNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNViewController.m; sourceTree = "<group>"; };
 		9FE3557022AF4F2F00B886E0 /* SunghTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunghTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3557222AF4F2F00B886E0 /* SunghTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SunghTests.m; sourceTree = "<group>"; };
 		9FE3557422AF4F2F00B886E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -361,6 +364,7 @@
 				9F465EB724446E1C00515768 /* FSViewController.h */,
 				9F465EB824446E1C00515768 /* FSViewController.m */,
 				9F465EB924446E1C00515768 /* FSViewController.xib */,
+				9FDA2622248A08E600984E28 /* afn */,
 				9F0FD2CE246BC94400C1A18B /* textfield */,
 				9F0FD2C424693ABC00C1A18B /* ui事件传递及响应 */,
 				9F465EA324406D4900515768 /* childViewController */,
@@ -622,6 +626,15 @@
 				9FD36E82242B2AE300F5917B /* MallocManagerController.m */,
 			);
 			path = "内存管理";
+			sourceTree = "<group>";
+		};
+		9FDA2622248A08E600984E28 /* afn */ = {
+			isa = PBXGroup;
+			children = (
+				9FDA2623248A08F800984E28 /* AFNViewController.h */,
+				9FDA2624248A08F800984E28 /* AFNViewController.m */,
+			);
+			path = afn;
 			sourceTree = "<group>";
 		};
 		9FE3557122AF4F2F00B886E0 /* SunghTests */ = {
@@ -946,6 +959,7 @@
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,
 				9FD0BBAD20EE11D300ACF2BD /* JSAndOCViewController.m in Sources */,
 				9F465EA2243ECC4300515768 /* Migration.m in Sources */,
+				9FDA2625248A08F800984E28 /* AFNViewController.m in Sources */,
 				9F174A2F24333E4E000AFFB1 /* MVVMModel.m in Sources */,
 				9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */,
 				9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */,

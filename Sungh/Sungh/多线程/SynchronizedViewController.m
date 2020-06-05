@@ -328,7 +328,7 @@ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式�
 - (void)operationExample{
     /*
      NSOperation是基于GCD更高一层的封装，但是比GCD更简单易用、代码可读性也更高
-     NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况下，NSOperation单独使用时系统同步执行操作，并没有开辟新线程的能力，只有配合NSOperationQueue才能实现异步执行
+NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况下，NSOperation单独使用时系统同步执行操作，并没有开辟新线程的能力，只有配合NSOperationQueue才能实现异步执行
      
      1.创建任务：先将需要执行的操作封装到一个NSOperation对象中。
      2 .创建队列：创建NSOperationQueue对象。
@@ -345,7 +345,7 @@ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式�
      定义继承自NSOperation的子类，通过实现内部相应的方法来封装任务。
      */
     NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(operationAction) object:nil];
-    [operation1 start];//没有使用队列的时候仍然是hi主线程，并没有开启新的线程
+    [operation1 start];//没有使用队列的时候仍然是主线程，并没有开启新的线程
     
     NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
         [self operationAction];
@@ -494,36 +494,6 @@ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式�
 
 //FIXME: 2 GCD  GCD和nsoperation对比一下
 - (void)gcdExample{
-    /*
-     GCD：
-     将任务（block）添加到队列(串行/并发/主队列)，并且指定任务执行的函数(同步/异步)
-     GCD是底层的C语言构成的API
-     iOS 4.0 推出的，针对多核处理器的并发技术
-     在队列中执行的是由 block 构成的任务，这是一个轻量级的数据结构
-     要停止已经加入 queue 的 block 需要写复杂的代码
-     需要通过 Barrier 或者同步任务设置任务之间的依赖关系
-     只能设置队列的优先级
-     高级功能：
-     一次性 once
-     延迟操作 after
-     调度组
-     
-     NSOperation：
-     核心概念：把操作(异步)添加到队列(全局的并发队列)
-     OC 框架，更加面向对象，是对 GCD 的封装
-     iOS 2.0 推出的，苹果推出 GCD 之后，对 NSOperation 的底层全部重写
-     Operation作为一个对象，为我们提供了更多的选择
-     可以随时取消已经设定要准备执行的任务，已经执行的除外
-     可以跨队列设置操作的依赖关系
-     可以设置队列中每一个操作的优先级
-     高级功能：
-     最大操作并发数(GCD不好做)
-     继续/暂停/全部取消
-     跨队列设置操作的依赖关系
-     
-     ** 总结  operation 可以设置最大并发数 可以暂停、取消、继续队列 可以简单的设置依赖关系 可以设置每一个任务的优先级  ，是对gcd的更高层的抽象
-     gcd 一次性once 可以简单的设置t串行并行等 执行和操作简单高效 可以通过dispatch_barrier_async设置依赖关系，
-     */
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

@@ -63,7 +63,7 @@ return timeSp;
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -149,6 +149,12 @@ return timeSp;
             UIViewController *vc = [[class alloc]init];
             
             [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"AFNViewController"]){
+        Class class = NSClassFromString(@"AFNViewController");
+               //vc.nameStr = @"12";//不可修改
+               UIViewController *vc = [[class alloc]init];
+               
+               [self.navigationController pushViewController:vc animated:YES];
     }
 }
 #pragma mark ------> 水滴gif
