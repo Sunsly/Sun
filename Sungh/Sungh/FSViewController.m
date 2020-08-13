@@ -7,16 +7,21 @@
 //
 
 #import "FSViewController.h"
-
+#import "Masonry.h"
 @interface FSViewController ()
-
 @end
 
 @implementation FSViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+        make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        } else {
+            
+        }
+    }];
 }
 
 /*

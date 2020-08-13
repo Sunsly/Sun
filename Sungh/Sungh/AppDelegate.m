@@ -13,6 +13,7 @@
 #import "SServiceManager.h"
 #import "UIViewController+MDHook.h"
 #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+#import <Flutter/Flutter.h>
 
 
 extern CFAbsoluteTime StartTime;
@@ -39,7 +40,7 @@ extern CFAbsoluteTime StartTime;
     //打印main（）耗时时间
     double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
     NSLog(@" -- - -- - -%f",launchTime);
-
+    [self createUUID];
     return YES;
 }
 
@@ -107,7 +108,12 @@ extern CFAbsoluteTime StartTime;
         }
     }
 }
-
+- (NSString *)createUUID{
+    CFUUIDRef uuid =CFUUIDCreate(NULL);
+    CGPDFStringRef uuidf = CFUUIDCreateString(NULL, uuid);
+    NSString *uuidstr = (__bridge NSString *)uuidf;
+    return  uuidstr;
+}
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
     NSLog(@" ---- %@ ----- %@",url.scheme,url.path);

@@ -24,7 +24,20 @@
 #import "MallocManagerController.h"
 #import "MVVMViewController.h"
 #import "CurrentSuperViewController.h"
+#import "DemoVC.h"
+#import <Flutter/Flutter.h>
+
+static void funcMeth(){
+    printf("\n12121\n");
+}
+
+
 static NSString  * const kUserName = @"StrongX";
+
+extern int name;//在第二个类中使用extern来访问
+
+extern int name2;//不可引用
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -42,12 +55,17 @@ return timeSp;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    funcMeth();
     int a = 100;
+    NSLog(@"name ---- %d ---",name);
+//    NSLog(@"name2 ---- %d ---",name2);
+
     NSLog(@"%p",&a);
     
     
     NSLog(@" --- %ld",[[self getNowTimeStamp] integerValue]);
-    
+    DemoVC *vc= [[DemoVC alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self.view addSubview:vc];
 
     self.dataArray = [[NSMutableArray alloc]init];
     NSLog(@" --- %p",self.dataArray);
@@ -71,8 +89,14 @@ return timeSp;
     
     [self.view addSubview:self.tableview];
 
-
+    
+    
 }
+
+
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
@@ -129,6 +153,7 @@ return timeSp;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"内存管理"]){
         MallocManagerController *vc = [[MallocManagerController alloc]init];
+   
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"MVVM"]){
         MVVMViewController *vc = [[MVVMViewController alloc]init];
@@ -138,11 +163,15 @@ return timeSp;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"ui事件传递"]){
         
-        Class class = NSClassFromString(@"UIActionViewController");
-        //vc.nameStr = @"12";//不可修改
-        UIViewController *vc = [[class alloc]init];
-        
-        [self.navigationController pushViewController:vc animated:YES];
+//        Class class = NSClassFromString(@"UIActionViewController");
+//        //vc.nameStr = @"12";//不可修改
+//        UIViewController *vc = [[class alloc]init];
+//
+//        [self.navigationController pushViewController:vc animated:YES];
+        FlutterViewController* flutterViewController = [[FlutterViewController alloc] init];
+//        [self presentViewController:flutterViewController animated:false completion:nil];
+        [self.navigationController pushViewController:flutterViewController animated:YES];
+
     }else if ([str isEqualToString:@"textfield"]){
         Class class = NSClassFromString(@"TextFieldViewControllers");
             //vc.nameStr = @"12";//不可修改

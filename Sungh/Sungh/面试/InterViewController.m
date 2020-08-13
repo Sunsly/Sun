@@ -10,6 +10,18 @@
 #import "STool.h"
 #import <CoreFoundation/CoreFoundation.h>
 
+
+int name = 1919;//第一个类中声明一个全局变量和一个方法
+
+
+/*
+ 被static修饰的情况下
+ ①作用域只限于当前文件，项目中任何地方都不能通过extern关键字来引用
+ ②改变了作用域，但是没有改变生命周期
+ */
+static int name2 = 2020;
+
+
 NSString  * const kUserName = @"StrongX";
 //https://www.jianshu.com/p/bf61b7e1cd51 面试
 
@@ -41,7 +53,11 @@ NSString  * const kUserName = @"StrongX";
     scro.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:scro];
 //    [self blockAndWeak];
+    
+    [self staticFunc];
+
     // Do any additional setup after loading the view.
+    [self autoreleasepoolExample];
 }
 //FIXME:1 autoreleasepool 自动释放池
 - (void)autoreleasepoolExample{
@@ -54,7 +70,7 @@ NSString  * const kUserName = @"StrongX";
      6.子线程默认不会开启 Runloop，那出现 Autorelease 对象如何处理？不手动处理会内存泄漏吗？
      **答：
      1.自动释放池 用来管理内存
-     2.当sutoreleasepool 结束的时候会释放内存
+     2.当autoreleasepool 结束的时候会释放内存
      3.如下
      4.每一个主线程默认都会开启一个runloop 并且 创建autoreleasepool 进行 push pop 来进行内存管理
      
@@ -62,22 +78,25 @@ NSString  * const kUserName = @"StrongX";
      ***什么样的对象会加入到autoreleaseloop
 
      */
-    NSNumber *num = nil;
-    NSString *str = nil;
-    for (int i = 0; i < kIterationCount; i++) {
-        @autoreleasepool {
-            num = [NSNumber numberWithInt:i];
-            str = [NSString stringWithFormat:@"打哈萨克的哈克实打实的哈克时间的话大声疾呼多阿萨德爱仕达按时 "];
-            
-            //Use num and str...whatever...
-            [NSString stringWithFormat:@"%@%@", num, str];
-            
-            if (i % kStep == 0) {
-                double ff  =   [STool usedMemory];
-                NSLog(@"%f",ff);
+  __block  NSNumber *num = nil;
+  __block  NSString *str = nil;
+    dispatch_async(dispatch_queue_create("l", DISPATCH_QUEUE_SERIAL), ^{
+        for (int i = 0; i < kIterationCount; i++) {
+
+            @autoreleasepool {
+                num = [NSNumber numberWithInt:i];
+                str = [NSString stringWithFormat:@"打哈萨克的哈克实打实的哈克时间的话大声疾呼多阿萨德爱仕达按时 "];
+                //Use num and str...whatever...
+                [NSString stringWithFormat:@"%@%@", num, str];
+                
+                if (i % kStep == 0) {
+                    double ff  =   [STool usedMemory];
+                    NSLog(@"%f",ff);
+                }
             }
         }
-    }
+    });
+    
     
 }
 static const int kStep = 50000;
@@ -806,19 +825,19 @@ static inline int add(int a,int b){
 }
 //- (void)viewDidLoad {
 //}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-- (void)updateViewConstraints{
-    [super updateViewConstraints];
-}
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//}
+//- (void)updateViewConstraints{
+//    [super updateViewConstraints];
+//}
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
 }
 
 //KVC的底层实现原理
 - (void)KVC_method{
-    
+    //https://blog.csdn.net/weixin_34114823/article/details/91386641
     /*
      底层的执行机制：
      当调用setValue:属性值 forKey:@"name"代码时，底层的执行机制：
@@ -866,5 +885,24 @@ static inline int add(int a,int b){
 
 - (void)afn{
     
+}
+
+- (void)staticFunc{
+//    int age = 20;
+//    age--;
+//     NSLog(@" ---- %d  ---  %p",age,&age);//19 19 19
+    //在没有被static 修饰的时候 打印一直是 19
+    
+   static int age = 20;
+    age--;
+    NSLog(@" ---- %d  ---  %p",age,&age);//19 18  17
+    //被static 修饰之后 19 18 17
+    
+    ////局部变量
+    //1.只会被初始化一次，也就是只有一份内存。
+    //2.生命周期被改变，一直到程序结束才释放
+    /*
+     static 修饰的h局部变量，只会被初始化一次，内存地址只有一份
+     */
 }
 @end

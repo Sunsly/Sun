@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MallocManagerController : UIViewController
 
+
+@property (nonatomic,copy)void(^blockMall)(void);
 @end
 
 NS_ASSUME_NONNULL_END

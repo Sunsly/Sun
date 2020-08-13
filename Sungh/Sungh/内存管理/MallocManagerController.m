@@ -42,6 +42,9 @@ typedef void(^blockConst)(void);
 @property (nonatomic, copy)NSString *string_Copy;
 
 
+@property(nonatomic, strong) void(^stackBlock)(void);
+
+
 @end
 
 @implementation MallocManagerController
@@ -70,22 +73,46 @@ typedef void(^blockConst)(void);
     
     [self runloopMalloc];
     
+    
+    
 }
 
 #pragma mark ------> 字符串malloc
 - (void)stringMalloc{
     //常量区中的字符串只要内容一致, 不会重复创建
-    NSString *a0 = @"aaa";
+    NSString *a0 = @"aaa34567890-678";
     NSString *a1 = [NSString stringWithString:a0];
     NSString *a2 = [[NSString alloc] initWithString:a0];
-    NSString *a3 = [[NSString alloc] initWithFormat:@"%@", a0];
+    NSString *a3 = [[NSString alloc] initWithFormat:@"%@", a0];//
     NSString *a4 = [[NSString alloc] initWithFormat:@"aaa"];
     NSString *a5 = [[NSString alloc] initWithFormat:@"b%@", a0];
     NSString *a6 = [[NSString alloc] initWithString:a5];
     NSString *a7 = [[NSString alloc] initWithString:a3];
 NSLog(@"\na0=~~~~%p\na1=~~~~%p\na2=~~~~%p\na3=~~~~%p\na4=~~~~%p\na5=~~~~%p\na6=~~~~%p\na7=~~~~%p", a0, a1, a2, a3, a4, a5, a6, a7);
+    /*
+     a0=~~~~0x1066d02f8
+     a1=~~~~0x1066d02f8
+     a2=~~~~0x1066d02f8
+     a3=~~~~0xeae68c94c76754eb
+     a4=~~~~0xeae68c94c76754eb
+     a5=~~~~0xeae68c92d76754dc
+     a6=~~~~0xeae68c92d76754dc
+     a7=~~~~0xeae68c94c76754eb
+     */
     a0 = @"1212";
 NSLog(@"\na0=~~~~%p\na1=~~~~%p\na2=~~~~%p\na3=~~~~%p\na4=~~~~%p\na5=~~~~%p\na6=~~~~%p\na7=~~~~%p", a0, a1, a2, a3, a4, a5, a6, a7);
+    
+    /*
+     a0=~~~~0x1066d0358
+     a1=~~~~0x1066d02f8
+     a2=~~~~0x1066d02f8
+     a3=~~~~0xeae68c94c76754eb
+     a4=~~~~0xeae68c94c76754eb
+     a5=~~~~0xeae68c92d76754dc
+     a6=~~~~0xeae68c92d76754dc
+     a7=~~~~0xeae68c94c76754eb
+
+     */
     NSString *pl = @"aaa";
     NSLog(@" ---- %p",pl);
     ///堆区中得字符串哪怕内容一致, 也会重复创建
@@ -250,10 +277,11 @@ https://blog.csdn.net/LIN1986LIN/article/details/87907147
 
     void(^myGlobalBlock)(int x);
     myGlobalBlock= ^(int num){
-        int result = num + 100;//mu 换成mu 后 引用了外部的变量 就block只要捕获了外部变量就会位于堆
+        int result = num + 100;//num  换成mu 后 引用了外部的变量 就block只要捕获了外部变量就会位于堆
         NSLog(@"result -- %d",result);
     };
     myGlobalBlock(100);
+    
     
     //__NSStackBlock__： 我们在声明一个block的时候，使用了__weak或者__unsafe__unretained的修饰符，那么系统就不会为我们做copy的操作，不会将其迁移到堆区。下面我们实验一下：
     __weak void (^myStackBlock) (int mu) = ^(int num){
@@ -284,7 +312,55 @@ https://blog.csdn.net/LIN1986LIN/article/details/87907147
     2:把age变成全局变量
     3:使用__block修饰age
     */
+    
+    
+    void(^blockA)(void) = ^{//__NSGlobalBlock__
+    NSLog(@"just a block");//全局的block里没有引用任何堆或栈上的数据
+    };
+    NSLog(@"%@", blockA);
 
+    int value = 10;//如果将例子中的int value = 10;改为const int value = 10;那么blockB将变成NSGlobalBlock这是因为const修饰下value里的值会存储在常量区即数据段上，也就是不违反原则，只要block literal里没有引用栈或堆上的数据，那么这个block会自动变为NSGlobalBlock类型，这是编译器的优化
+
+    void(^blockB)(void) = ^{//__NSMallocBlock__
+
+    NSLog(@"just a block === %d", value);
+    };
+    NSLog(@"%@", blockB);
+//
+    void(^ __weak blockC)(void) = ^{//__NSStackBlock__
+    NSLog(@"just a block === %d", value);
+    };
+
+    NSLog(@" --------------   %@", blockC);
+     //在MRR或MRC(两个词都是指同一个玩意)中，block默认是在栈上创建的。如果我们将它赋值给一个成员变量，如果成员变量没有被copy修饰或在赋值的时候没有进行copy，那么在使用这个block成员变量的时候就会崩溃。
+    int values = 10;
+    void(^blockcs)(void) = ^{
+        NSLog(@"just a block === %d", values);
+    };
+    
+    NSLog(@"%@",blockcs);
+    self.stackBlock = ^{
+        NSLog(@"just --");
+        NSLog(@" --- %d",value);
+        
+    };
+    NSLog(@" --- %@ -- %@",self.stackBlock,_stackBlock);
+    self.stackBlock();
+//    _stackBlock = blockcs;
+    
+    /*
+     一个block要使用self，会处理成在外部声明一个weak变量指向self，在block里又声明一个strong变量指向weakSelf？？？？？
+     原因：block会把写在block里的变量copy一份，如果直接在block里使用self，（self对变量默认是强引用）self对block持有，block对self持有，导致循环引用，所以这里需要声明一个弱引用weakSelf，让block引用weakSelf，打破循环引用。
+     而这样会导致另外一个问题，因为weakSelf是对self的弱引用，如果这个时候控制器pop或者其他的方式引用计数为0，就会释放，如果这个block是异步调用而且调用的时候self已经释放了，这个时候weakSelf已就变成了nil。
+     当控制器（也可以是其他的控件）pop回来之后（或者一些其他的原因导致释放），网络请求完成，如果这个时候需要控制器做出反映，需要strongSelf再对weakSelf强引用一下。
+     但是，你可能会疑问，strongSelf对weakSelf强引用，weakSelf对self弱引用，最终不也是对self进行了强引用，会导致循环引用吗。不会的，因为strongSelf是在block里面声明的一个指针，当block执行完毕后，strongSelf会释放，这个时候将不再强引用weakSelf，所以self会正确的释放。
+     */
+
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"%@", _stackBlock);
+
+    
 }
 
 - (void)autoreleasePoolMalloc{//autoreleasePool
@@ -461,7 +537,6 @@ Runtime维护了一个weak表，用于存储指向某个对象的所有weak指�
     NSArray *arr = @[@"123", @"456", @"asd"];//(__NSArrayI *) $0 = 0x00006000016fda40 @"3 elements"
 
     self.mucopyArray = [arr mutableCopy];//(__NSArrayI *) $1 = 0x00006000016fdef0 @"3 elements"
-
  
     NSString *copyStr1 = @"12";//(__NSCFConstantString *) $0 = 0x0000000102aa3838 @"12"
 

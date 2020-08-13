@@ -1,6 +1,6 @@
 #  https://www.jianshu.com/p/d884f3040fda
 https://juejin.im/post/5b56155e6fb9a04f8b78619b
-
+https://www.jianshu.com/p/8f566ce3bc2c
 1.无痕埋点 App 无痕埋点的思路了解么？你认为理想的无痕埋点系统应该具备哪些特点？
 
     **1代码埋点
@@ -631,3 +631,29 @@ UI相关：事件传递，图像显示，性能优化，离屏渲染
 
    删除操作的处理顺序：前节点逻辑，后节点逻辑，中间节点逻辑
 */
+
+
+static 
+//局部变量
+//1.只会被初始化一次，也就是只有一份内存。
+//2.生命周期被改变，一直到程序结束才释放
+
+通过消息响应者链找到UIView所在的UIViewController
+UIView类继承于UIResponder,通过UIResponder的next方法来获取UIViewController.
+-(UIViewController *)viewController{
+    UIViewController *viewController = nil;
+    UIResponder *next = self.nextResponder;
+    while (next) {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            viewController = (UIViewController *)next;
+            break;
+        }
+        next = next.nextResponder;
+    }
+    return viewController;
+}
+
+
+
+hash表维护weak指针，当指向的对象的引用计数为0，h就会从hash表中删除对应的weak指针，d将weak指针的位置置空nil
+key- >对象地址 value 指针地址

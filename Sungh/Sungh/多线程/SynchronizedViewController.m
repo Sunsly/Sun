@@ -245,8 +245,6 @@ __weak id  reference = nil;
  
  _Exit(即将退出Loop) 时 _
  调用 _objc_autoreleasePoolPop() 来释放自动释放池。这个 Observer 优先级最低，保证其释放池子发生在其他所有回调之后。
-
-/*
  讲讲 RunLoop，项目中有用到吗？
  RunLoop内部实现逻辑？
  Runloop和线程的关系？

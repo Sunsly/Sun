@@ -1,7 +1,10 @@
-
+flutter_application_path = '../my_flutter'
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 platform :ios, '8.0'
 use_frameworks!
 target :Sungh  do
+  install_all_flutter_pods(flutter_application_path)
+
   pod 'AFNetworking'
 
 pod 'SVProgressHUD'
@@ -15,5 +18,12 @@ pod 'MJRefresh'
 pod 'ReactiveObjC'
 pod 'MLeaksFinder'
 pod 'FBRetainCycleDetector'
+pod 'FDFullscreenPopGesture', '~> 1.1'
+
 
 end
+#target 'Sungh' do
+#end
+
+
+
