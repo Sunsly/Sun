@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
 //
 //    NSRunLoop *runl;
 //    CFRunLoopRef run2;
@@ -42,15 +43,25 @@
  
  runloop 销毁时间是 线程结束的时候就会销毁 ，他与线程一对一
  
-CFRunLoopMode;
+CFRunLoopMode;  mode 运行模式  运行的时候只选择一种模式运行
  
 CFRunLoopSourceRef
  
 CFRunLoopTimerRef
  
 CFRunLoopObserverRef
- *
  
+ *
+ source0 要处理的任务
+ source1 基于端口 port
+ observe
+  自动释放池也是通过它实现的
+ 
+ timer
+ 
+ kCFRunLoopDefaultMode;默认的model
+ UITrackingRunLoopMode;界面跟踪，mode
+
  */
 
 - (void)loop{
@@ -59,5 +70,8 @@ CFRunLoopObserverRef
     
     CFRunLoopRef ref = CFRunLoopGetCurrent();
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@" --- %s",__func__);
+    
+}
 @end
