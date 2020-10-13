@@ -61,6 +61,10 @@ CFRunLoopObserverRef
  
  kCFRunLoopDefaultMode;默认的model
  UITrackingRunLoopMode;界面跟踪，mode
+ NSRunLoopCommonModes  共有型 Model 含有上面两种Mode模式的意义
+ GSEventReceiveRunLoopMode  Connection 系统内核模式，系统调用事件发生会切换到相应模式下，开发者无法操作
+ 
+ UIInitializationRunLoopMode Modal 项目初始化模式，只会走一次
 
  */
 

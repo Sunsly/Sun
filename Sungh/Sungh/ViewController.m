@@ -25,7 +25,7 @@
 #import "MVVMViewController.h"
 #import "CurrentSuperViewController.h"
 #import "DemoVC.h"
-#import <Flutter/Flutter.h>
+//#import <Flutter/Flutter.h>
 #import "RunLoopViewController.h"
 static void funcMeth(){
     printf("\n12121\n");
@@ -81,7 +81,7 @@ return timeSp;
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -163,14 +163,12 @@ return timeSp;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([str isEqualToString:@"ui事件传递"]){
         
-//        Class class = NSClassFromString(@"UIActionViewController");
-//        //vc.nameStr = @"12";//不可修改
-//        UIViewController *vc = [[class alloc]init];
-//
-//        [self.navigationController pushViewController:vc animated:YES];
-        FlutterViewController* flutterViewController = [[FlutterViewController alloc] init];
-//        [self presentViewController:flutterViewController animated:false completion:nil];
-        [self.navigationController pushViewController:flutterViewController animated:YES];
+        Class class = NSClassFromString(@"UIActionViewController");
+        //vc.nameStr = @"12";//不可修改
+        UIViewController *vc = [[class alloc]init];
+
+        [self.navigationController pushViewController:vc animated:YES];
+
 
     }else if ([str isEqualToString:@"textfield"]){
         Class class = NSClassFromString(@"TextFieldViewControllers");
@@ -186,6 +184,14 @@ return timeSp;
                [self.navigationController pushViewController:vc animated:YES];
     }else if([str isEqualToString:@"RunLoopViewController"]){
         RunLoopViewController *vc = [[RunLoopViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"flutter"]){
+//                FlutterViewController* flutterViewController = [[FlutterViewController alloc] init];
+        //        [self presentViewController:flutterViewController animated:false completion:nil];
+//                [self.navigationController pushViewController:flutterViewController animated:YES];
+    }else if([str isEqualToString:@"加密"]){
+        Class class = NSClassFromString(@"JMViewController");
+        UIViewController *vc = [[class alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

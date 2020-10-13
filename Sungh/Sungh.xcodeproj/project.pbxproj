@@ -34,6 +34,7 @@
 		9F1DB52020E0BE720014E9FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB51F20E0BE720014E9FC /* Assets.xcassets */; };
 		9F1DB52320E0BE720014E9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */; };
 		9F1DB52620E0BE720014E9FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DB52520E0BE720014E9FC /* main.m */; };
+		9F2D151525359F4B005663BD /* JMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2D151425359F4B005663BD /* JMViewController.m */; };
 		9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */; };
 		9F42E2292192BE4C003A6F38 /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */; };
 		9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */; };
@@ -160,6 +161,8 @@
 		9F1DB52420E0BE720014E9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F1DB52520E0BE720014E9FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F1DB52C20E0C3E10014E9FC /* sungh.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sungh.pch; sourceTree = "<group>"; };
+		9F2D151325359F4B005663BD /* JMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMViewController.h; sourceTree = "<group>"; };
+		9F2D151425359F4B005663BD /* JMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMViewController.m; sourceTree = "<group>"; };
 		9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sungh-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
 		9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
@@ -393,6 +396,7 @@
 				9F465EB724446E1C00515768 /* FSViewController.h */,
 				9F465EB824446E1C00515768 /* FSViewController.m */,
 				9F465EB924446E1C00515768 /* FSViewController.xib */,
+				9F2D151225359F25005663BD /* 加密 */,
 				9F11F33D24E53A07000357DB /* runloop */,
 				9F11F33924E5369B000357DB /* 安全协议 */,
 				9FDA2622248A08E600984E28 /* afn */,
@@ -432,6 +436,15 @@
 				9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */,
 			);
 			path = Sungh;
+			sourceTree = "<group>";
+		};
+		9F2D151225359F25005663BD /* 加密 */ = {
+			isa = PBXGroup;
+			children = (
+				9F2D151325359F4B005663BD /* JMViewController.h */,
+				9F2D151425359F4B005663BD /* JMViewController.m */,
+			);
+			path = "加密";
 			sourceTree = "<group>";
 		};
 		9F42E2242192BE34003A6F38 /* textf&&textv */ = {
@@ -754,7 +767,6 @@
 			buildConfigurationList = 9F1DB52920E0BE720014E9FC /* Build configuration list for PBXNativeTarget "Sungh" */;
 			buildPhases = (
 				ED560E8B77F164BBC25E5573 /* [CP] Check Pods Manifest.lock */,
-				30B200FE34331888AF5D9475 /* [CP-User] Run Flutter Build Script */,
 				9F1DB50F20E0BE6F0014E9FC /* Sources */,
 				9F1DB51020E0BE6F0014E9FC /* Frameworks */,
 				9F1DB51120E0BE6F0014E9FC /* Resources */,
@@ -892,22 +904,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30B200FE34331888AF5D9475 /* [CP-User] Run Flutter Build Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../my_flutter/.metadata",
-				"${SRCROOT}/../my_flutter/.ios/Flutter/App.framework/App",
-				"${SRCROOT}/../my_flutter/.ios/Flutter/engine/Flutter.framework/Flutter",
-				"${SRCROOT}/../my_flutter/.ios/Flutter/flutter_export_environment.sh",
-			);
-			name = "[CP-User] Run Flutter Build Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../my_flutter/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
-		};
 		DA0A2E5539075DD362D98B79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -961,6 +957,7 @@
 				9F7A60A02266D384002E26ED /* RACViewController.m in Sources */,
 				9F0FD2E2246D20F800C1A18B /* SubjectsViewModels.m in Sources */,
 				9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */,
+				9F2D151525359F4B005663BD /* JMViewController.m in Sources */,
 				9F0FD2D1246BC95D00C1A18B /* TextFieldViewControllers.m in Sources */,
 				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
 				9F60A7B1212A93CA00D2C487 /* NSFileTool.m in Sources */,

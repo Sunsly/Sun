@@ -657,3 +657,36 @@ UIView类继承于UIResponder,通过UIResponder的next方法来获取UIViewContr
 
 hash表维护weak指针，当指向的对象的引用计数为0，h就会从hash表中删除对应的weak指针，d将weak指针的位置置空nil
 key- >对象地址 value 指针地址
+
+
+
+
+运行项目发现报错：Cannot synthesize weak property because the current deployment target does not support weak references。字面意思理解为：当前的deployment target，不支持用weak修饰属性。而weak在使用ARC管理引用计数项目中才可使用。
+
+platform :ios, '9.0'
+
+target 'YYOUCarCommonComponent_Example' do
+  pod 'YYOUCarCommonComponent', :path => '../'
+ target 'YYOUCarCommonComponent_Tests' do
+    inherit! :search_paths
+    
+    post_install do |installer|
+    installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    config.build_settings[‘IPHONEOS_DEPLOYMENT_TARGET’] = '10.0'
+    end
+    end
+    end
+    
+  end
+end
+
+/*
+
+    模块换分
+    围绕业务模块来划分 
+    支撑模块（基础模块）  业务模块
+    业务模块根据场景 和关联 划分 小区模块
+    低耦合 易关联 可延展
+    j
+*/
