@@ -48,6 +48,7 @@
 		9F465EB124406F6F00515768 /* SecondChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EB024406F6F00515768 /* SecondChildViewController.m */; };
 		9F465EBA24446E1C00515768 /* FSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F465EB824446E1C00515768 /* FSViewController.m */; };
 		9F465EBB24446E1C00515768 /* FSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F465EB924446E1C00515768 /* FSViewController.xib */; };
+		9F46D402255914D70020F7B1 /* UIView+GTMCWavesAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46D401255914D70020F7B1 /* UIView+GTMCWavesAnimation.m */; };
 		9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */; };
 		9F53D22420FDDCC400D327D0 /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22320FDDCC400D327D0 /* SQLViewController.m */; };
 		9F53D22920FDE55400D327D0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F53D22820FDE55400D327D0 /* DBManager.m */; };
@@ -186,6 +187,8 @@
 		9F465EB724446E1C00515768 /* FSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSViewController.h; sourceTree = "<group>"; };
 		9F465EB824446E1C00515768 /* FSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSViewController.m; sourceTree = "<group>"; };
 		9F465EB924446E1C00515768 /* FSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSViewController.xib; sourceTree = "<group>"; };
+		9F46D400255914D60020F7B1 /* UIView+GTMCWavesAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTMCWavesAnimation.h"; sourceTree = "<group>"; };
+		9F46D401255914D70020F7B1 /* UIView+GTMCWavesAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTMCWavesAnimation.m"; sourceTree = "<group>"; };
 		9F4AD7CE22A658F700B99014 /* SynchronizedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronizedViewController.h; sourceTree = "<group>"; };
 		9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronizedViewController.m; sourceTree = "<group>"; };
 		9F53D22220FDDCC400D327D0 /* SQLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLViewController.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */,
 				9F1DB51920E0BE6F0014E9FC /* ViewController.h */,
 				9F1DB51A20E0BE6F0014E9FC /* ViewController.m */,
+				9F46D400255914D60020F7B1 /* UIView+GTMCWavesAnimation.h */,
+				9F46D401255914D70020F7B1 /* UIView+GTMCWavesAnimation.m */,
 				9FD5008B24C6976000D3C1EA /* DemoVC.h */,
 				9FD5008C24C6976000D3C1EA /* DemoVC.m */,
 				9F465EB724446E1C00515768 /* FSViewController.h */,
@@ -985,6 +990,7 @@
 				9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */,
 				9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */,
 				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
+				9F46D402255914D70020F7B1 /* UIView+GTMCWavesAnimation.m in Sources */,
 				9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */,
 				9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */,
 				9F11F33C24E536E1000357DB /* SSHViewController.m in Sources */,

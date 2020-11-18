@@ -807,8 +807,25 @@ static inline int add(int a,int b){
         
     });
 }
+/*
+ initialize和load是如何调用的？它们会多次调用吗？
+ load :load方法调用的顺序是根据类的加载的前后进行调用的，
+ 
+ load方法一个类只会调用一次(除去手动调用)，而调用的数序是，从superclass -> class -> category,category里面的顺序是先编译，先调用
+ initialize方法，一个类可能会调用多次，如果子类没有实现initialize方法，当第一次使用此类的时候，会调用superclass。而调用的顺序是，superclass -> 实现initialize的category 或者 实现了initialize方法(没有category实现initialize) 或者 superclass的initialize (没有子类和category实现initialize方法)
+
+ */
 + (void)load{
-    [super load];
+    [super load];//运行时 runtime 拿到load的 imp 直接去调用 而不是像其他方式根据objc_msgSend(消息机制)来调用方法的
+    NSLog(@" -------------------------------");
+    
+}
++ (void)initialize
+{
+    if (self == [self class]) {//initialize方法的调用其实和其他方法调用一样的，objc_msgSend(消息机制)来调用的
+        NSLog(@" -------------self class------------------");
+
+    }
 }
 //声明周期
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -905,4 +922,14 @@ static inline int add(int a,int b){
      static 修饰的h局部变量，只会被初始化一次，内存地址只有一份
      */
 }
+
+/*
+autoreleasepool
+    
+ 双向链表 <=>
+存放内存成员变量
+存放autorelease 对象的内存地址
+ 
+ aotoreleasepool 开始  =>调用 aotoreleasepoolapge 的push 方法
+ */
 @end

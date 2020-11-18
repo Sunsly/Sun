@@ -8,8 +8,11 @@
 
 #import "UIActionViewController.h"
 #import "HitUIView.h"
+#import "UIView+GTMCWavesAnimation.h"
 @interface UIActionViewController ()
-
+{
+    UIView *vcm;
+}
 @end
 
 @implementation UIActionViewController
@@ -19,11 +22,11 @@
     self.title = @"事件传递";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
-    vc.backgroundColor = [UIColor grayColor];
-//    vc.layer.borderWidth = 5;
-//    vc.layer.borderColor = [UIColor blueColor].CGColor;
-    [self.view addSubview:vc];
+//    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
+//    vc.backgroundColor = [UIColor grayColor];
+////    vc.layer.borderWidth = 5;
+////    vc.layer.borderColor = [UIColor blueColor].CGColor;
+//    [self.view addSubview:vc];
 //    vc.layer.cornerRadius = 50;
 //    vc.clipsToBounds  = YES;
     
@@ -38,15 +41,31 @@
 //    lay.shadowOpacity = 0.8;
 //    lay.shadowOffset = CGSizeMake(4, 4);
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = vc.bounds;
-    // 渐变色数组
-    gradient.colors = [NSArray arrayWithObjects:
-                       (id)[UIColor colorWithRed:(0/255.0)  green:(0/255.0)  blue:(0/255.0)  alpha:0.12].CGColor,
-                       (id)[UIColor colorWithRed:(0/255.0)  green:(0/255.0)  blue:(0/255.0)  alpha:0.0].CGColor, nil];
-    gradient.startPoint = CGPointMake(1, 0);
-    gradient.endPoint = CGPointMake(0, 0);
-    [vc.layer addSublayer:gradient];
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    gradient.frame = vc.bounds;
+//    // 渐变色数组
+//    gradient.colors = [NSArray arrayWithObjects:
+//                       (id)[UIColor colorWithRed:(0/255.0)  green:(0/255.0)  blue:(0/255.0)  alpha:0.12].CGColor,
+//                       (id)[UIColor colorWithRed:(0/255.0)  green:(0/255.0)  blue:(0/255.0)  alpha:0.0].CGColor, nil];
+//    gradient.startPoint = CGPointMake(1, 0);
+//    gradient.endPoint = CGPointMake(0, 0);
+//    [vc.layer addSublayer:gradient];
+//    
+    
+    vcm = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+    [self.view addSubview:vcm];
+    vcm.radarColor = [UIColor redColor];
+    vcm.radarBorderColor = [UIColor whiteColor];
+    [vcm addRadarAnimation];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [vcm removeRadarAnimation];
+    [self performSelector:@selector(add) withObject:nil afterDelay:2];
+}
+- (void)add{
+    vcm.radarColor = [UIColor redColor];
+    vcm.radarBorderColor = [UIColor whiteColor];
+    [vcm addRadarAnimation];
 }
 /*
  iOS设备的硬件时钟会发出Vsync（垂直同步信号），然后App的CPU会去计算屏幕要显示的内容，之后将计算好的内容提交到GPU去渲染。随后，GPU将渲染结果提交到帧缓冲区，等到下一个VSync到来时将缓冲区的帧显示到屏幕上。也就是说，一帧的显示是由CPU和GPU共同决定的。

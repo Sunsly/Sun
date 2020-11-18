@@ -62,6 +62,7 @@
     WKUserContentController *jsuser =[[WKUserContentController alloc]init];
     [jsuser addScriptMessageHandler:self name:@"Share"];
     [jsuser addScriptMessageHandler:self name:@"Camera"];
+    [jsuser addScriptMessageHandler:self name:@"getDataFormVue"];
     config.userContentController = jsuser;
     
     
@@ -76,21 +77,21 @@
     //window.webkit.messageHandlers.collectSendKey.postMessage({body: 'goodsId=1212'});
     
 
-    self.kwebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64) configuration:config];
+    self.kwebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-264) configuration:config];
     // 是否允许手势左滑返回上一级, 类似导航控制的左滑返回
     self.kwebView.allowsBackForwardNavigationGestures = YES;
     self.kwebView.UIDelegate = self;
     self.kwebView.navigationDelegate = self;
     
-    if (self.type == WebUrlTypeLocation) {//本地
-        NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"WKWebViewMessageHandler" ofType:@"html"];
-        NSString *fileURL = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-        NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-        
-        [self.kwebView loadHTMLString:fileURL baseURL:baseURL];
-    }else{//网页
-        [self.kwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
-    }
+//    if (self.type == WebUrlTypeLocation) {//本地
+//        NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"WKWebViewMessageHandler" ofType:@"html"];
+//        NSString *fileURL = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+//        NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+//
+//        [self.kwebView loadHTMLString:fileURL baseURL:baseURL];
+//    }else{//网页
+        [self.kwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8087"]]];
+//    }
 
     [self.view addSubview:self.kwebView];
     
@@ -128,11 +129,15 @@
 #pragma mark - > 交互 is 调用oc  body 是js 传给oc 的值
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
+    NSLog(@" ---- %@",message.name);
+
     
     if ([message.name isEqualToString:@"Share"]) {
         NSLog(@"交互交互");
         NSLog(@" - -- -%@",message.body);
         [self addData];
+    }else if ([message.name isEqualToString:@"getDataFormVue"]){
+        NSLog(@" ---- %@",message.body);
     }
 }
 #pragma mark --- >oc 传值给 js 调用js
@@ -140,7 +145,14 @@
     
     NSString *str = [NSString stringWithFormat:@"shareResult('%@','%@','%@')",@"sun",@"内容",@"http"];
     [_kwebView evaluateJavaScript:str completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-        
+    }];
+}
+//调用web方法
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSString *toVueSting = @"vickylizy";
+    NSString *jsStr = [NSString stringWithFormat:@"getDataFromNative('%@')",toVueSting];
+     [_kwebView evaluateJavaScript:jsStr completionHandler:^(id _Nullable d, NSError * _Nullable error) {
+               NSLog(@"返回---%@",d);//回调值
     }];
 }
 #pragma mark - >webview
