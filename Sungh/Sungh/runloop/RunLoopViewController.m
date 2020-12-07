@@ -7,19 +7,42 @@
 //
 
 #import "RunLoopViewController.h"
-
+#import "NSArray+Safe.h"
 @interface RunLoopViewController ()
+@property (nonatomic,copy)void(^block)(void);
+@property (nonatomic,copy)NSString *str;
 
 @end
 
 @implementation RunLoopViewController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 //
 //    NSRunLoop *runl;
 //    CFRunLoopRef run2;
+    self.str = @"212112";
+    __weak typeof(self)weakself = self;
+    self.block = ^{
+//        __strong typeof(self)strongself = weakself;
+//        strongself.str = @"21211221";
+//        dispatch_async(dispatch_queue_create("sun", 0), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   //2.0秒后追加任务代码到主队列，并开始执行
+                   //打印当前线程
+            
+            __strong typeof(self)strongself = weakself;
+            strongself.str = @"sun";
+            NSLog(@" --- %@",strongself.str);
+               });
+//        });
+
+    };
+    self.block();
+   
     
 }
 
@@ -75,7 +98,29 @@ CFRunLoopObserverRef
     CFRunLoopRef ref = CFRunLoopGetCurrent();
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@" --- %s",__func__);
+//    NSLog(@" --- %s",__func__);
+//    UIResponder *responder = self.view.nextResponder;
+//    while (responder) {
+//
+//        responder = responder.nextResponder;
+//        NSLog(@"----%@",responder);
+//    }
+//    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
+    NSArray *arr = @[@"1"];
+    [arr objectAtIndex:2];
     
+}
++(BOOL)resolveInstanceMethod:(SEL)sel{
+    return YES;
+}
+//- (void)forwardInvocation:(NSInvocation *)anInvocation{
+//
+//}
+//-(id)forwardingTargetForSelector:(SEL)aSelector{
+//
+//}
+
+-(void)dealloc{
+    NSLog(@"dealloc --%@",self.str);
 }
 @end

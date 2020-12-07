@@ -38,6 +38,8 @@
 		9F42E2282192BE4C003A6F38 /* TextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */; };
 		9F42E2292192BE4C003A6F38 /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */; };
 		9F42E22C2192BE6F003A6F38 /* UITextView+placeHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */; };
+		9F433742256CECCA007C1FAA /* PersonClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F433740256CECC9007C1FAA /* PersonClass.m */; };
+		9F433745256F577B007C1FAA /* Smodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F433744256F577B007C1FAA /* Smodel.m */; };
 		9F4524B62159D9F800999B07 /* CheckRegularTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524B52159D9F800999B07 /* CheckRegularTool.m */; };
 		9F4524FC215A32B600999B07 /* system2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4524FB215A32B600999B07 /* system2@2x.png */; };
 		9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4524FE215A3BC300999B07 /* UIButton+Position.m */; };
@@ -70,6 +72,12 @@
 		9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD4D2301590000D1A7EB /* SOAComponentAppDelegate.m */; };
 		9F91CD5123025D8300D1A7EB /* SsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD5023025D8300D1A7EB /* SsOperation.m */; };
 		9F91CD572303B96500D1A7EB /* UIViewController+MDHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */; };
+		9FA5739B2575F07A00682084 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA5739A2575F07A00682084 /* NSArray+Safe.m */; };
+		9FA573F52579E63400682084 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573F42579E63300682084 /* Bugly.framework */; };
+		9FA573F72579E66900682084 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573F62579E66800682084 /* SystemConfiguration.framework */; };
+		9FA573F92579E66E00682084 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573F82579E66E00682084 /* Security.framework */; };
+		9FA573FB2579E67A00682084 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573FA2579E67A00682084 /* libz.tbd */; };
+		9FA573FD2579E68A00682084 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573FC2579E68A00682084 /* libc++.tbd */; };
 		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
@@ -87,6 +95,10 @@
 		9FE7A2BE2111B1B50048776E /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2BD2111B1B50048776E /* File.m */; };
 		9FE7A2C32111B66A0048776E /* SdkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C22111B66A0048776E /* SdkView.m */; };
 		9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */; };
+		9FEBC056257DF22000555DA5 /* SUOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBC055257DF22000555DA5 /* SUOViewController.m */; };
+		9FEBC05A257E275900555DA5 /* CopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBC059257E275900555DA5 /* CopyViewController.m */; };
+		9FEBC05D257E30EA00555DA5 /* PersonCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBC05C257E30EA00555DA5 /* PersonCopy.m */; };
+		9FEBC060257E386A00555DA5 /* CustomUrlProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBC05F257E386A00555DA5 /* CustomUrlProtocol.m */; };
 		9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
 		9FF1DB41247B8B9800AB3DA9 /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */; };
@@ -170,6 +182,10 @@
 		9F42E2272192BE4C003A6F38 /* TextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldViewController.h; sourceTree = "<group>"; };
 		9F42E22A2192BE6F003A6F38 /* UITextView+placeHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+placeHolder.h"; sourceTree = "<group>"; };
 		9F42E22B2192BE6F003A6F38 /* UITextView+placeHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+placeHolder.m"; sourceTree = "<group>"; };
+		9F433740256CECC9007C1FAA /* PersonClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonClass.m; sourceTree = "<group>"; };
+		9F433741256CECCA007C1FAA /* PersonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonClass.h; sourceTree = "<group>"; };
+		9F433743256F577A007C1FAA /* Smodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Smodel.h; sourceTree = "<group>"; };
+		9F433744256F577B007C1FAA /* Smodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smodel.m; sourceTree = "<group>"; };
 		9F4524B42159D9F800999B07 /* CheckRegularTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckRegularTool.h; sourceTree = "<group>"; };
 		9F4524B52159D9F800999B07 /* CheckRegularTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckRegularTool.m; sourceTree = "<group>"; };
 		9F4524FB215A32B600999B07 /* system2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "system2@2x.png"; path = "SUNLbundle.bundle/system2@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -229,6 +245,13 @@
 		9F91CD5023025D8300D1A7EB /* SsOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SsOperation.m; sourceTree = "<group>"; };
 		9F91CD552303B96500D1A7EB /* UIViewController+MDHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDHook.h"; sourceTree = "<group>"; };
 		9F91CD562303B96500D1A7EB /* UIViewController+MDHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDHook.m"; sourceTree = "<group>"; };
+		9FA573992575F07A00682084 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		9FA5739A2575F07A00682084 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		9FA573F42579E63300682084 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
+		9FA573F62579E66800682084 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9FA573F82579E66E00682084 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9FA573FA2579E67A00682084 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9FA573FC2579E68A00682084 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
@@ -262,6 +285,14 @@
 		9FE7A2C22111B66A0048776E /* SdkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SdkView.m; sourceTree = "<group>"; };
 		9FE7A2C62112A6530048776E /* UIScrollView+UITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UITouch.m"; sourceTree = "<group>"; };
 		9FE7A2C72112A6530048776E /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
+		9FEBC054257DF22000555DA5 /* SUOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUOViewController.h; sourceTree = "<group>"; };
+		9FEBC055257DF22000555DA5 /* SUOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUOViewController.m; sourceTree = "<group>"; };
+		9FEBC058257E275900555DA5 /* CopyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyViewController.h; sourceTree = "<group>"; };
+		9FEBC059257E275900555DA5 /* CopyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CopyViewController.m; sourceTree = "<group>"; };
+		9FEBC05B257E30EA00555DA5 /* PersonCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonCopy.h; sourceTree = "<group>"; };
+		9FEBC05C257E30EA00555DA5 /* PersonCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonCopy.m; sourceTree = "<group>"; };
+		9FEBC05E257E386A00555DA5 /* CustomUrlProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUrlProtocol.h; sourceTree = "<group>"; };
+		9FEBC05F257E386A00555DA5 /* CustomUrlProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomUrlProtocol.m; sourceTree = "<group>"; };
 		9FEEFE3121354CC000736430 /* SUNLbundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SUNLbundle.bundle; sourceTree = "<group>"; };
 		9FEEFE3421354DF200736430 /* BundleSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BundleSdk.h; sourceTree = "<group>"; };
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
@@ -280,6 +311,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA573FD2579E68A00682084 /* libc++.tbd in Frameworks */,
+				9FA573FB2579E67A00682084 /* libz.tbd in Frameworks */,
+				9FA573F92579E66E00682084 /* Security.framework in Frameworks */,
+				9FA573F72579E66900682084 /* SystemConfiguration.framework in Frameworks */,
+				9FA573F52579E63400682084 /* Bugly.framework in Frameworks */,
 				02FADAC2EBE2C74D8DCFDD32 /* Pods_Sungh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +340,10 @@
 		1D1304BF9CF3784FCBF8EE49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FA573FC2579E68A00682084 /* libc++.tbd */,
+				9FA573FA2579E67A00682084 /* libz.tbd */,
+				9FA573F82579E66E00682084 /* Security.framework */,
+				9FA573F62579E66800682084 /* SystemConfiguration.framework */,
 				00926150950CC2D2E11B2169 /* Pods_Sungh.framework */,
 			);
 			name = Frameworks;
@@ -355,6 +395,8 @@
 			children = (
 				9F11F33E24E53A32000357DB /* RunLoopViewController.h */,
 				9F11F33F24E53A32000357DB /* RunLoopViewController.m */,
+				9FA573992575F07A00682084 /* NSArray+Safe.h */,
+				9FA5739A2575F07A00682084 /* NSArray+Safe.m */,
 			);
 			path = runloop;
 			sourceTree = "<group>";
@@ -362,6 +404,7 @@
 		9F1DB50A20E0BE6F0014E9FC = {
 			isa = PBXGroup;
 			children = (
+				9FA573F42579E63300682084 /* Bugly.framework */,
 				9FF347EB22E714FA006D5B72 /* README.md */,
 				9FEEFE3121354CC000736430 /* SUNLbundle.bundle */,
 				9F1DB51520E0BE6F0014E9FC /* Sungh */,
@@ -401,6 +444,8 @@
 				9F465EB724446E1C00515768 /* FSViewController.h */,
 				9F465EB824446E1C00515768 /* FSViewController.m */,
 				9F465EB924446E1C00515768 /* FSViewController.xib */,
+				9FEBC057257E274100555DA5 /* copy&mutabcopy */,
+				9FEBC053257DF20B00555DA5 /* 锁 */,
 				9F2D151225359F25005663BD /* 加密 */,
 				9F11F33D24E53A07000357DB /* runloop */,
 				9F11F33924E5369B000357DB /* 安全协议 */,
@@ -489,6 +534,8 @@
 				9F4AD7CF22A658F700B99014 /* SynchronizedViewController.m */,
 				9FF1DB3F247B8B9800AB3DA9 /* GCDViewController.h */,
 				9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */,
+				9F433743256F577A007C1FAA /* Smodel.h */,
+				9F433744256F577B007C1FAA /* Smodel.m */,
 				9F91CD4F23025D8300D1A7EB /* SsOperation.h */,
 				9F91CD5023025D8300D1A7EB /* SsOperation.m */,
 			);
@@ -584,6 +631,8 @@
 		9F91CCBE22FBF73900D1A7EB /* 面试 */ = {
 			isa = PBXGroup;
 			children = (
+				9F433741256CECCA007C1FAA /* PersonClass.h */,
+				9F433740256CECC9007C1FAA /* PersonClass.m */,
 				9F91CCBF22FBF76800D1A7EB /* InterViewController.h */,
 				9F91CCC022FBF76800D1A7EB /* InterViewController.m */,
 			);
@@ -626,6 +675,8 @@
 				9FD0BBAB20EE11D300ACF2BD /* JSAndOCViewController.h */,
 				9FD0BBAC20EE11D300ACF2BD /* JSAndOCViewController.m */,
 				9FD0BBAE20EE126F00ACF2BD /* resources */,
+				9FEBC05E257E386A00555DA5 /* CustomUrlProtocol.h */,
+				9FEBC05F257E386A00555DA5 /* CustomUrlProtocol.m */,
 			);
 			path = "js&&oc";
 			sourceTree = "<group>";
@@ -731,6 +782,26 @@
 				9F0FD2DB246D184900C1A18B /* NetWorkingRequest.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		9FEBC053257DF20B00555DA5 /* 锁 */ = {
+			isa = PBXGroup;
+			children = (
+				9FEBC054257DF22000555DA5 /* SUOViewController.h */,
+				9FEBC055257DF22000555DA5 /* SUOViewController.m */,
+			);
+			path = "锁";
+			sourceTree = "<group>";
+		};
+		9FEBC057257E274100555DA5 /* copy&mutabcopy */ = {
+			isa = PBXGroup;
+			children = (
+				9FEBC058257E275900555DA5 /* CopyViewController.h */,
+				9FEBC059257E275900555DA5 /* CopyViewController.m */,
+				9FEBC05B257E30EA00555DA5 /* PersonCopy.h */,
+				9FEBC05C257E30EA00555DA5 /* PersonCopy.m */,
+			);
+			path = "copy&mutabcopy";
 			sourceTree = "<group>";
 		};
 		9FF373A7223660490012ADF1 /* 小视频 */ = {
@@ -962,6 +1033,7 @@
 				9F7A60A02266D384002E26ED /* RACViewController.m in Sources */,
 				9F0FD2E2246D20F800C1A18B /* SubjectsViewModels.m in Sources */,
 				9F13FEB32268773600091FA7 /* RACViewModel.m in Sources */,
+				9F433745256F577B007C1FAA /* Smodel.m in Sources */,
 				9F2D151525359F4B005663BD /* JMViewController.m in Sources */,
 				9F0FD2D1246BC95D00C1A18B /* TextFieldViewControllers.m in Sources */,
 				9F5464F321ABF84A00A7BCFF /* UIView+BXExtension.m in Sources */,
@@ -985,11 +1057,13 @@
 				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
 				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
+				9FEBC060257E386A00555DA5 /* CustomUrlProtocol.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */,
 				9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */,
 				9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */,
 				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
+				9FEBC05A257E275900555DA5 /* CopyViewController.m in Sources */,
 				9F46D402255914D70020F7B1 /* UIView+GTMCWavesAnimation.m in Sources */,
 				9F174A3224333E60000AFFB1 /* MVVMViewModel.m in Sources */,
 				9F91CD4E2301590000D1A7EB /* SOAComponentAppDelegate.m in Sources */,
@@ -997,6 +1071,7 @@
 				9F465EA724406D6F00515768 /* CurrentSuperViewController.m in Sources */,
 				9FE7A2BE2111B1B50048776E /* File.m in Sources */,
 				9F1DB51820E0BE6F0014E9FC /* AppDelegate.m in Sources */,
+				9FA5739B2575F07A00682084 /* NSArray+Safe.m in Sources */,
 				9F4AD7D022A658F700B99014 /* SynchronizedViewController.m in Sources */,
 				9F13FEB92269794300091FA7 /* RACTwoViewController.m in Sources */,
 				9FF1DB41247B8B9800AB3DA9 /* GCDViewController.m in Sources */,
@@ -1005,9 +1080,12 @@
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
+				9FEBC05D257E30EA00555DA5 /* PersonCopy.m in Sources */,
+				9FEBC056257DF22000555DA5 /* SUOViewController.m in Sources */,
 				9F465EB124406F6F00515768 /* SecondChildViewController.m in Sources */,
 				9F0FD2DC246D184A00C1A18B /* NetWorkingRequest.m in Sources */,
 				9F174A3E24348D44000AFFB1 /* RACSinalViewsController.m in Sources */,
+				9F433742256CECCA007C1FAA /* PersonClass.m in Sources */,
 				9F0FD2DF246D1AAD00C1A18B /* SubjectsModels.m in Sources */,
 				9F91CCC122FBF76800D1A7EB /* InterViewController.m in Sources */,
 				9F5464F121ABF84A00A7BCFF /* BXTextField.m in Sources */,

@@ -81,7 +81,7 @@ return timeSp;
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",@"锁",@"copy",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -89,9 +89,13 @@ return timeSp;
     
     [self.view addSubview:self.tableview];
 
-    
+//    [self performSelector:@selector(test)];
+//    for (int i = 0; i < 100000; i++) {
+//        NSLog(@"121212");
+//    }
     
 }
+
 
 
 
@@ -193,6 +197,14 @@ return timeSp;
         Class class = NSClassFromString(@"JMViewController");
         UIViewController *vc = [[class alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if([str isEqualToString:@"锁"]){
+        Class class = NSClassFromString(@"SUOViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if([str isEqualToString:@"copy"]){
+        Class class = NSClassFromString(@"CopyViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 #pragma mark ------> 水滴gif
@@ -210,5 +222,11 @@ return timeSp;
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
 @end

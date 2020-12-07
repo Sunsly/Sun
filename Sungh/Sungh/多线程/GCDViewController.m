@@ -7,16 +7,37 @@
 //
 
 #import "GCDViewController.h"
-
+#import "Smodel.h"
 @interface GCDViewController ()
-
+@property (nonatomic,weak)Smodel *mod;
 @end
 
 @implementation GCDViewController
+-(void)dealloc{
+    
+    NSLog(@"delca --- %@",self.mod);
+}
+- (void)ces{
+    NSLog(@" ces----- %@",self.mod);
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    NSMutableArray *mus = [[NSMutableArray alloc]init];
+    Smodel *model = [[Smodel alloc]init];
+    model.age2 = 10;
+    [mus addObject:model];
+    
+    NSArray *arr = [mus mutableCopy];
+    
+    Smodel *model2 = arr[0];
+//    model2.age = @"120";
+    model2.age2 = 100;
+    NSLog(@" ---- %@ %d ---- %@ %d",model,model.age2,model2,model2.age2);
+    
+    self.mod.age = @"1111";
+    [self performSelector:@selector(ces) withObject:nil afterDelay:5];
     /*
      队列 - > 数据结构 FIFO(先进先出)
      先添加先执行？（不一定  看任务耗时操作、并发，优先级,依赖，线程状态）
@@ -190,6 +211,7 @@
                NSLog(@"barrier---%@",[NSThread currentThread]);// 打印当前线程
         });
     
+    NSLog(@" --------- ---------------------");
         dispatch_async(ques1, ^{
                // 追加任务 3
                [NSThread sleepForTimeInterval:0];              // 模拟耗时操作

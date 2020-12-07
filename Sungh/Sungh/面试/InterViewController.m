@@ -9,7 +9,7 @@
 #import "InterViewController.h"
 #import "STool.h"
 #import <CoreFoundation/CoreFoundation.h>
-
+#import "PersonClass.h"
 
 int name = 1919;//第一个类中声明一个全局变量和一个方法
 
@@ -58,6 +58,8 @@ NSString  * const kUserName = @"StrongX";
 
     // Do any additional setup after loading the view.
     [self autoreleasepoolExample];
+    
+    [self blockTest];
 }
 //FIXME:1 autoreleasepool 自动释放池
 - (void)autoreleasepoolExample{
@@ -932,4 +934,34 @@ autoreleasepool
  
  aotoreleasepool 开始  =>调用 aotoreleasepoolapge 的push 方法
  */
+
+- (void)blockTest{
+    PersonClass *person = [[PersonClass alloc] init];
+    person.age = 10;
+    
+    __weak PersonClass *weakPerson = person;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"age:%p",weakPerson);
+        NSLog(@"age:%d",weakPerson.age);
+
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)),
+                      dispatch_get_main_queue(), ^{
+
+           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+               NSLog(@"2-----age:%p",person);//强引用
+           });
+           NSLog(@"1-----age:%p",weakPerson);//因为内部有强引用  故 weakperso会等到强引用结束彩销毁 这时候 weakperosn 有值
+       });
+    NSLog(@"touchesBegan");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)),
+                      dispatch_get_main_queue(), ^{
+                          
+           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+               NSLog(@"2-----age:%p",weakPerson);//弱引用就不在存在
+           });
+           NSLog(@"1-----age:%p",person);//强引用过后 就会被销毁 无值
+       });
+    NSLog(@"touchesBegan");
+}
 @end

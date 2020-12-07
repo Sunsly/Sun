@@ -15,62 +15,167 @@
 @end
 
 @implementation SynchronizedViewController
+- (void)dispatch_semaphore_createaction{
+//    异步网络请求  通过信号量 实现同步执行
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
+//    dispatch_queue_t queu = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//
+//    //任务1
+//    dispatch_async(queu, ^{
+//        NSLog(@" ----1-----");
+//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//              NSLog(@"run task 1");
+//              sleep(1);
+//              NSLog(@"complete task 1");
+//        dispatch_semaphore_signal(semaphore);
+//    });
+////    任务2
+//    dispatch_async(queu, ^{
+//        NSLog(@" ----2-----");
+//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//              NSLog(@"run task 2");
+//              sleep(1);
+//              NSLog(@"complete task 2");
+//              dispatch_semaphore_signal(semaphore);
+//    });
+//    dispatch_async(queu, ^{
+//        NSLog(@" ----3-----");
+//
+//           dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//           NSLog(@"run task 3");
+//           sleep(1);
+//           NSLog(@"complete task 3");
+//           dispatch_semaphore_signal(semaphore);
+//       });
+//    NSLog(@" ------ dispatch_semaphore_signal");
+    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"任务1:%@",[NSThread currentThread]);
+        dispatch_semaphore_signal(sem);
+    });
+    NSLog(@" ------ dispatch_semaphore_signal");
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"任务2:%@",[NSThread currentThread]);
+        dispatch_semaphore_signal(sem);
+    });
+    
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"任务3:%@",[NSThread currentThread]);
+    });
+    
+    
+//    异步组
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_group_t group  =   dispatch_group_create();
+//    dispatch_group_async(group, queue, ^{
+//           NSLog(@"1");
+//       });
+//       dispatch_group_async(group, queue, ^{
+//           NSLog(@"2");
+//       });
+//       dispatch_group_async(group, queue, ^{
+//           NSLog(@"3");
+//       });
+//    dispatch_group_notify(group, queue, ^{
+//        NSLog(@"done");
+//    });
+    
+    
+    
+//    有时候我们希望使用异步函数并发执行完任务之后再异步回调到当前线程。当前线程的任务执行完毕后再执行最后的处理。这种异步的异步，只使用dispatch group是不够的，还需要dispatch_semaphore_t（信号量）的加入。
+    
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_queue_create("concurrent.queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_semaphore_t semp = dispatch_semaphore_create(0);
+    dispatch_group_async(group, queue, ^{
+       
+        dispatch_async(queue, ^{
+                     sleep(2);
+            NSLog(@"task1 finish : %@",[NSThread currentThread]);
+   
+            dispatch_semaphore_signal(semp);
+        });
+        dispatch_semaphore_wait(semp, DISPATCH_TIME_FOREVER);
+    });
+    dispatch_group_async(group, queue, ^{
+       
+        dispatch_async(queue, ^{
+           
+            NSLog(@"task2 finish : %@",[NSThread currentThread]);
+            dispatch_semaphore_signal(semp);
+        });
+        dispatch_semaphore_wait(semp, DISPATCH_TIME_FOREVER);
+    });
+    dispatch_group_notify(group, queue, ^{
+        
+        NSLog(@"refresh UI");
+
+        
+    });
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self dispatch_semaphore_createaction];
     self.view.backgroundColor = [UIColor whiteColor];
-    NSObject *obj = [[NSObject alloc]init];
-    dispatch_semaphore_t signal = dispatch_semaphore_create(1);
-    dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC);
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-        dispatch_semaphore_wait(signal, overTime);
-        NSLog(@"需要线程同步的操作1 开始");
-        sleep(2);
-        NSLog(@"需要线程同步的操作1 结束");
-        dispatch_semaphore_signal(signal);
-    });
-
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        sleep(1);
-        dispatch_semaphore_wait(signal, overTime);
-        NSLog(@"需要线程同步的操作2");
-        dispatch_semaphore_signal(signal);
-    });
-
-
-    [self autoreleasepoolAction];
-    //递归所
-    NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        static void (^RecursiveMethod)(int);
-        RecursiveMethod = ^(int value) {
-            [lock lock];
-            value--;
-            if (value > 0) {
-//                NSLog(@"value = %d", value);
-//                sleep(1);
-                RecursiveMethod(value);
-            }
-            NSLog(@" ---- %d",value+1);
-
-            [lock unlock];
-        };
-     
-        RecursiveMethod(5);
-    });
-     
+//    NSObject *obj = [[NSObject alloc]init];
+//    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+//    dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC);
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//
+//        dispatch_semaphore_wait(signal, overTime);
+//        NSLog(@"需要线程同步的操作1 开始");
 //        sleep(2);
-//        BOOL flag = [lock lockBeforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-//        if (flag) {
-//            NSLog(@"lock before date");
-//            [lock unlock];
-//        } else {
-//            NSLog(@"fail to lock before date");
-//        }
+//        NSLog(@"需要线程同步的操作1 结束");
+//        dispatch_semaphore_signal(signal);
 //    });
+//
+//
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        sleep(1);
+//        dispatch_semaphore_wait(signal, overTime);
+//        NSLog(@"需要线程同步的操作2");
+//        dispatch_semaphore_signal(signal);
+//    });
+//
+//
+//    [self autoreleasepoolAction];
+//    //递归所
+//    NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        static void (^RecursiveMethod)(int);
+//        RecursiveMethod = ^(int value) {
+//            [lock lock];
+//            value--;
+//            if (value > 0) {
+////                NSLog(@"value = %d", value);
+////                sleep(1);
+//                RecursiveMethod(value);
+//            }
+//            NSLog(@" ---- %d",value+1);
+//
+//            [lock unlock];
+//        };
+//
+//        RecursiveMethod(5);
+//    });
+//
+////    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+////        sleep(2);
+////        BOOL flag = [lock lockBeforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+////        if (flag) {
+////            NSLog(@"lock before date");
+////            [lock unlock];
+////        } else {
+////            NSLog(@"fail to lock before date");
+////        }
+////    });
 
 }
 - (void)async{
@@ -496,5 +601,18 @@ NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况�
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self operationExample];
+}
+
+- (void)threadOperationn{
+    [NSThread detachNewThreadSelector:@selector(test99) toTarget:self withObject:nil];
+    NSThread *th = [[NSThread alloc]initWithTarget:self selector:@selector(test100)  object:nil];
+    [th start];
+}
+- (void)test99{
+    NSLog(@" --- test99");
+}
+- (void)test100{
+    NSLog(@" --- test100");
+
 }
 @end
