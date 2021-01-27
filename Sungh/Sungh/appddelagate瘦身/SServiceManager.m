@@ -9,7 +9,6 @@
 #import "SServiceManager.h"
 
 @implementation SServiceManager
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions
 {
     NSLog(@"BaiduPushService didFinishLaunchingWithOptions");

@@ -331,7 +331,6 @@ __weak id  reference = nil;
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     NSLog(@" --- -%@",reference);
-
 }
 /*
  其中就引用了一个自动释放池。其实，自动释放池@autoreleasepool{}在系统中所编译的代码为：1.void *ctx = objc_autoreleasepoolPush();     //创建一个无类型指针的哨兵对象2.执行@autoreleasepool{}中对应{}里所书写的代码3.执行objc_autoreleasepool(ctx);//释放哨兵对象所分隔区域内所有对象的引用计数
@@ -386,7 +385,7 @@ __weak id  reference = nil;
  
  CFRunLoopRef - 获得当前RunLoop和主RunLoop
  
-CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式中做不同的操作
+ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式中做不同的操作
  
  CFRunLoopSourceRef - 事件源，输入源
 
@@ -431,7 +430,7 @@ CFRunLoopModeRef - RunLoop 运行模式，只能选择一种，在不同模式�
 - (void)operationExample{
     /*
      NSOperation是基于GCD更高一层的封装，但是比GCD更简单易用、代码可读性也更高
-NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况下，NSOperation单独使用时系统同步执行操作，并没有开辟新线程的能力，只有配合NSOperationQueue才能实现异步执行
+  NSOperation需要配合NSOperationQueue来实现多线程。因为默认情况下，NSOperation单独使用时系统同步执行操作，并没有开辟新线程的能力，只有配合NSOperationQueue才能实现异步执行
      
      1.创建任务：先将需要执行的操作封装到一个NSOperation对象中。
      2 .创建队列：创建NSOperationQueue对象。
