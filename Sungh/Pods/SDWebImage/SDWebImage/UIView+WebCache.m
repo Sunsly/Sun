@@ -58,10 +58,12 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
         validOperationKey = NSStringFromClass([self class]);
     }
     self.sd_latestOperationKey = validOperationKey;
+//    查找是否有正在执行的图片请求 有 则取消
     [self sd_cancelImageLoadOperationWithKey:validOperationKey];
     self.sd_imageURL = url;
     
     if (!(options & SDWebImageDelayPlaceholder)) {
+//        是否有占位图
         dispatch_main_async_safe(^{
             [self sd_setImage:placeholder imageData:nil basedOnClassOrViaCustomSetImageBlock:setImageBlock cacheType:SDImageCacheTypeNone imageURL:url];
         });
@@ -74,6 +76,7 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
         
 #if SD_UIKIT || SD_MAC
         // check and start image indicator
+//        是否开启了loading 加载
         [self sd_startImageIndicator];
         id<SDWebImageIndicator> imageIndicator = self.sd_imageIndicator;
 #endif
@@ -101,7 +104,8 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
                 progressBlock(receivedSize, expectedSize, targetURL);
             }
         };
-        id <SDWebImageOperation> operation = [manager loadImageWithURL:url options:options context:context progress:combinedProgressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//        通过
+        SDWebImageCombinedOperation * _Nullable extractedExpr = [manager loadImageWithURL:url options:options context:context progress:combinedProgressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             @strongify(self);
             if (!self) { return; }
             // if the progress not been updated, mark it to complete state
@@ -166,6 +170,7 @@ const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
                 callCompletedBlockClojure();
             });
         }];
+        id <SDWebImageOperation> operation = extractedExpr;
         [self sd_setImageLoadOperation:operation forKey:validOperationKey];
     } else {
 #if SD_UIKIT || SD_MAC

@@ -37,6 +37,8 @@ NSString  * const kUserName = @"StrongX";
 @end
 
 @interface InterViewController  ()
+@property (nonatomic,weak)NSDictionary *assginDic;
+
 @property (nonatomic,copy,readwrite)NSString *nameStr;
 @end
 
@@ -57,9 +59,47 @@ NSString  * const kUserName = @"StrongX";
     [self staticFunc];
 
     // Do any additional setup after loading the view.
-    [self autoreleasepoolExample];
+//    [self autoreleasepoolExample];
     
-    [self blockTest];
+//    [self blockTest];
+    [self nsarrAndSet];
+    self.assginDic = [NSDictionary dictionaryWithObject:@"1" forKey:@"key"];
+    
+}
+- (void)dealloc
+{
+    
+    NSLog(@" ----- %@",self.assginDic);
+    NSLog(@" ------------%s",__func__);
+}
+//FIXME:NSArray与NSSet的区别？
+- (void)nsarrAndSet{
+//    NSArray *arr;
+//    NSMutableSet *set = [[NSMutableSet alloc]init];
+//    [set addObject:@"sun"];
+//    [set addObject:@"sun2"];
+//    [set addObject:@"sun"];
+
+//    [set setValue:@"101" forKey:@"val2"];
+//    [set setValue:@"102" forKey:@"val3"];
+//    NSArray *arr = @[@{@"key":@"132",@"sun":@"999"}, @{@"key":@"13",@"sun":@"1000"},@{@"key":@"188",@"sun":@"100"},@{@"key":@"11",@"sun":@"1200"}];
+//
+////    NSSet *set = [NSSet setWithArray:arr];
+//
+////    NSLog(@"set%@\n", set);
+//
+//    NSSortDescriptor *sortdes = [[NSSortDescriptor alloc]initWithKey:@"sun" ascending:YES];
+//
+//    NSArray *soreset = [arr sortedArrayUsingDescriptors:@[sortdes]];
+//    NSLog(@" - --- %@",soreset);
+//    NSLog(@" ---- %@",set.allObjects);
+    NSHashTable *hashTable = [NSHashTable hashTableWithOptions:NSPointerFunctionsCopyIn];
+           [hashTable addObject:@"foo"];
+            [hashTable addObject:@"bar"];
+           [hashTable addObject:@"foo"];
+            [hashTable addObject:@42];
+            NSLog(@"Members: %@", [hashTable allObjects]);
+
 }
 //FIXME:1 autoreleasepool 自动释放池
 - (void)autoreleasepoolExample{

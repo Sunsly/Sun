@@ -180,10 +180,142 @@
 //    [self xinhaoliang];
     
 //    [self enterGroup];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.view.backgroundColor = [UIColor orangeColor];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.view.backgroundColor = [UIColor orangeColor];
+//    });
+//    [self zlgcd];
+    
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+//
+//    /* 任务1 */
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        /* 耗时任务1 */
+//        NSLog(@"任务1开始");
+//        [NSThread sleepForTimeInterval:3];
+//        NSLog(@"任务1结束");
+//        /* 任务1结束，发送信号告诉任务2可以开始了 */
+//        dispatch_semaphore_signal(semaphore);//+1
+//    });
+//
+//    /* 任务2 */
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        /* 等待任务1结束获得信号量, 无限等待 */
+//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//        /* 如果获得信号量则开始任务2 */
+//        NSLog(@"任务2开始");
+//        [NSThread sleepForTimeInterval:3];
+//        NSLog(@"任务2结束");
+//        [self performSelector:@selector(tongxin) onThread:[NSThread mainThread] withObject:self waitUntilDone:YES];
+//
+//    });
+//    NSLog(@"**********************");
+//
+//    /* 创建一个信号量并初始化为5 */
+//    dispatch_semaphore_t semaphore2 = dispatch_semaphore_create(10);
+//
+//    /* 模拟1000个等待执行的任务，通过信号量控制最大并发任务数量为5 */
+//    for (int i = 0; i < 1000; i++) {
+//        /* 任务i */
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            /* 耗时任务1，执行前等待信号使信号量减1 */
+//            dispatch_semaphore_wait(semaphore2, DISPATCH_TIME_FOREVER);
+//            NSLog(@"任务%d开始", i);
+//            [NSThread sleepForTimeInterval:10];
+//            NSLog(@"任务%d结束", i);
+//            /* 任务i结束，发送信号释放一个资源 */
+//            dispatch_semaphore_signal(semaphore2);
+//        });
+//    }
+//
+    
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self ctask];
+
+}
+- (void)ctask{
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_semaphore_t semap = dispatch_semaphore_create(0);
+    
+    
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSLog(@" ---- task1开始");
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            sleep(2);
+            NSLog(@"task1结束");
+            dispatch_semaphore_signal(semap);//发送解锁信号+1
+            
+        });
+        dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);//-2 等待 忙等 自旋锁
+        
     });
-    [self zlgcd];
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSLog(@" ---- task2开始");
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           
+            sleep(1);
+            NSLog(@"task2结束");
+            dispatch_semaphore_signal(semap);//发送解锁信号+1
+            
+        });
+        dispatch_semaphore_wait(semap, DISPATCH_TIME_FOREVER);//-2 等待 忙等 自旋锁
+
+
+    });
+    
+    dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
+       
+        NSLog(@"---------------- 任务完成");
+    });
+    NSLog(@" --- --***************");
+    
+      // 并发队列
+      dispatch_queue_t queue = dispatch_queue_create("test", DISPATCH_QUEUE_CONCURRENT);
+      
+      // 异步执行
+      dispatch_async(queue, ^{
+          for (int i = 0; i < 3; i++) {
+              NSLog(@"栅栏：并发异步1   %@",[NSThread currentThread]);
+          }
+      });
+      dispatch_async(queue, ^{
+          for (int i = 0; i < 3; i++) {
+              NSLog(@"栅栏：并发异步2   %@",[NSThread currentThread]);
+          }
+      });
+      
+      dispatch_barrier_async(queue, ^{
+          NSLog(@"------------barrier------------%@", [NSThread currentThread]);
+          NSLog(@"******* 并发异步执行，但是34一定在12后面 *********");
+      });
+      
+      dispatch_async(queue, ^{
+          for (int i = 0; i < 3; i++) {
+              NSLog(@"栅栏：并发异步3   %@",[NSThread currentThread]);
+          }
+      });
+    
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"------------barrier------------%@", [NSThread currentThread]);
+        NSLog(@"******* 并发异步执行，但是34一定在12后面 *********");
+    });
+      dispatch_async(queue, ^{
+          for (int i = 0; i < 3; i++) {
+              NSLog(@"栅栏：并发异步4   %@",[NSThread currentThread]);
+          }
+      });
+    
+    NSLog(@" ------------------------------------");
+    
+}
+- (void)tongxin{
+    NSLog(@"任务通信结束");
+    self.view.backgroundColor = [UIColor redColor];
+
 }
 //栅栏
 - (void)zlgcd{

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol delegatetest <NSObject>
+
+@required
+- (void)func:(NSString *)str;
+
+@end
+
 @interface ViewController : UIViewController
 
 

@@ -8,9 +8,14 @@
 
 #import "RunLoopViewController.h"
 #import "NSArray+Safe.h"
+#import "SunThread.h"
+#import "SunPerment.h"
 @interface RunLoopViewController ()
-@property (nonatomic,copy)void(^block)(void);
-@property (nonatomic,copy)NSString *str;
+@property (nonatomic,strong)UITextView *textv;
+@property (nonatomic,strong)NSThread *thread;
+@property (nonatomic,assign)BOOL isstop;
+
+@property (nonatomic,strong)SunPerment *perment;
 
 @end
 
@@ -21,29 +26,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-//
-//    NSRunLoop *runl;
-//    CFRunLoopRef run2;
-    self.str = @"212112";
-    __weak typeof(self)weakself = self;
-    self.block = ^{
-//        __strong typeof(self)strongself = weakself;
-//        strongself.str = @"21211221";
-//        dispatch_async(dispatch_queue_create("sun", 0), ^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                   //2.0秒后追加任务代码到主队列，并开始执行
-                   //打印当前线程
-            
-            __strong typeof(self)strongself = weakself;
-            strongself.str = @"sun";
-            NSLog(@" --- %@",strongself.str);
-               });
-//        });
-
-    };
-    self.block();
-   
     
+#if  0
+    self.textv = [[UITextView alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    self.textv.text = @"akhdahkalsdladlanldnalnsdlasndlnalndlandlnalndlanlnldnalndlandlndndndndlknasldnlandlasndlnaldnalndlnldnldnlndndndndndnndnddnddnlnlndlndlndndnnddnldnlndndndnndnnddndnd";
+    [self.view addSubview:self.textv];
+    
+//    [self observeFunc];
+    
+   
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        NSLog(@" ---- ");
+//    }];
+//    [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
+    
+//    self.thread = [[SunThread alloc]initWithTarget:self selector:@selector(run) object:nil];
+ 
+    self.isstop = NO;
+    __weak typeof(self)weakself = self;
+    self.thread = [[SunThread alloc]initWithBlock:^{
+        
+        NSLog(@" ------- %s ---- %@",__func__,[NSThread currentThread]);
+        [[NSRunLoop currentRunLoop]addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+//        [[NSRunLoop currentRunLoop]run];
+        
+        while (weakself && !weakself.isstop) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        }
+        
+        NSLog(@" ---------end ---%s",__func__);
+    }];
+
+    [self.thread start];
+    
+    
+#else
+    self.perment = [[SunPerment alloc]init];
+    [self.perment run];
+#endif
 }
 
 /*
@@ -76,10 +96,10 @@ CFRunLoopObserverRef
  
  *
  source0 要处理的任务
- source1 基于端口 port
+ source1 基于端口 port 线程间通过port 通信 source1 捕捉事件，交给source1处理
  observe
-  自动释放池也是通过它实现的
- 
+ 自动释放池也是通过它实现的
+ ui刷新改变 在runloop休眠之前
  timer
  
  kCFRunLoopDefaultMode;默认的model
@@ -88,39 +108,152 @@ CFRunLoopObserverRef
  GSEventReceiveRunLoopMode  Connection 系统内核模式，系统调用事件发生会切换到相应模式下，开发者无法操作
  
  UIInitializationRunLoopMode Modal 项目初始化模式，只会走一次
-
+//循环处理 source0 source1 time observe
+ 1
+ 
  */
 
-- (void)loop{
-    
+- (void)loop1{
     [NSRunLoop currentRunLoop];
     
     CFRunLoopRef ref = CFRunLoopGetCurrent();
-}
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    NSLog(@" --- %s",__func__);
-//    UIResponder *responder = self.view.nextResponder;
-//    while (responder) {
-//
-//        responder = responder.nextResponder;
-//        NSLog(@"----%@",responder);
-//    }
-//    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
-    NSArray *arr = @[@"1"];
-    [arr objectAtIndex:2];
     
 }
-+(BOOL)resolveInstanceMethod:(SEL)sel{
-    return YES;
+- (void)observeFunc{
+    
+////    kCFRunLoopCommonModes  包括两种模式
+//    CFRunLoopObserverRef obser =  CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, CFRunLoopObserverCallBack2, NULL);
+//    CFRunLoopAddObserver(CFRunLoopGetMain(), obser, kCFRunLoopCommonModes);
+//    CFRelease(obser);
+    
+    CFRunLoopObserverRef obser =   CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+        switch (activity) {
+            case kCFRunLoopEntry:
+                NSLog(@" ------kCFRunLoopEntry");
+                break;
+            case kCFRunLoopBeforeTimers:
+                NSLog(@" ------kCFRunLoopBeforeTimers");
+                break;
+            case kCFRunLoopBeforeSources:
+                NSLog(@" ------kCFRunLoopBeforeSources");
+                break;
+            case kCFRunLoopBeforeWaiting:
+                NSLog(@" ------kCFRunLoopBeforeWaiting");
+                break;
+            case kCFRunLoopAfterWaiting:
+                NSLog(@" ------kCFRunLoopAfterWaiting");
+                break;
+            case kCFRunLoopExit:
+                NSLog(@" ------kCFRunLoopExit");
+                break;
+            default:
+            break;
+                
+        }
+    });
+        CFRunLoopAddObserver(CFRunLoopGetMain(), obser, kCFRunLoopCommonModes);
+        CFRelease(obser);
+    
+    
+    
+/*
+ //runloop初始化
+ 1.通知observe 即将进入loop
+  source0（port） 外部唤醒（
+ 2.通知observe 将要处理time
+ 3.通知observe 将要处理source
+ 4.处理source
+ 5.如果有source1 跳到9
+ 6.通知observe 线程即将休眠
+ 7.休眠 等待唤醒
+ 8.通知observe 线程被唤醒
+ 9.处理唤醒时收到的消息，跳转2
+ ）
+ 10.通知observe 即将推出loop
+ */
+    
 }
-//- (void)forwardInvocation:(NSInvocation *)anInvocation{
-//
-//}
-//-(id)forwardingTargetForSelector:(SEL)aSelector{
-//
-//}
 
+void CFRunLoopObserverCallBack2(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info){
+    switch (activity) {
+        case kCFRunLoopEntry:
+            NSLog(@" ------kCFRunLoopEntry");
+            break;
+        case kCFRunLoopBeforeTimers:
+            NSLog(@" ------kCFRunLoopBeforeTimers");
+            break;
+        case kCFRunLoopBeforeSources:
+            NSLog(@" ------kCFRunLoopBeforeSources");
+            break;
+        case kCFRunLoopBeforeWaiting:
+            NSLog(@" ------kCFRunLoopBeforeWaiting");
+            break;
+        case kCFRunLoopAfterWaiting:
+            NSLog(@" ------kCFRunLoopAfterWaiting");
+            break;
+        case kCFRunLoopExit:
+            NSLog(@" ------kCFRunLoopExit");
+            break;
+        default:
+            break;
+    }
+   //kCFRunLoopBeforeWaiting 睡眠
+// kCFRunLoopAfterWaiting   唤醒
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@" ------- %s",__func__);
+    
+#if 0
+    [self threadTest];
+#else
+    [self.perment excuteTaskBlock:^{
+        NSLog(@" -----------执行任务%@",[NSThread currentThread]);
+    }];
+#endif
+    
+}
+//线程保活
+- (void)threadTest{
+//    SunThread *thread = [[SunThread alloc]initWithTarget:self selector:@selector(run) object:nil];
+//    [thread start];
+    
+    //添加source time observe
+    
+    [self performSelector:@selector(test) onThread:self.thread withObject:nil waitUntilDone:YES];
+    NSLog(@"test123");
+}
+- (void)test{
+    NSLog(@" -------- %@",[NSThread currentThread]);
+}
+//  线程保护活跃
+- (void)run{
+    
+    
+    NSLog(@" ------- %s ---- %@",__func__,[NSThread currentThread]);
+    
+    [[NSRunLoop currentRunLoop]addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop]run];
+    NSLog(@" ---------end ---%s",__func__);
+
+}
+- (void)stop{
+    self.isstop = YES;
+
+    CFRunLoopStop(CFRunLoopGetCurrent());
+    
+}
+
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+}
 -(void)dealloc{
-    NSLog(@"dealloc --%@",self.str);
+    
+//    yes 代表子线程执行完之后 这个方法才会往下走
+//    [self performSelector:@selector(stop) onThread:self.thread withObject:nil waitUntilDone:YES];
+    
+    NSLog(@" -------   %s",__func__);
 }
 @end

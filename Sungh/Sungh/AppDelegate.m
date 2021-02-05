@@ -13,9 +13,8 @@
 #import "SServiceManager.h"
 #import "UIViewController+MDHook.h"
 #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
-#import <Bugly/Bugly.h>
 #import "CustomUrlProtocol.h"
-
+#import "TravinURLProtocol.h"
 //#import <Flutter/Flutter.h>
 
 /**/
@@ -59,10 +58,12 @@ void UncaughtExceptionHandler(NSException *exception){
     double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
     NSLog(@" -- - -- - -%f",launchTime);
     [self createUUID];
-    [Bugly startWithAppId:@"ab85ee08dd"];
+//    [Bugly startWithAppId:@"ab85ee08dd"];
 //520dd2e8-6d87-47c1-9600-4b42f5578ddf
 //    NSArray *arr = @[];
 //    NSLog(@" -- %@",arr[2]);
+    
+    [NSURLProtocol registerClass:[TravinURLProtocol class]];
     return YES;
 }
 

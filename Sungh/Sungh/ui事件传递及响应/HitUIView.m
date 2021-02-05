@@ -8,8 +8,7 @@
 
 #import "HitUIView.h"
 
-@implementation UISecondView : UIView
-
+@implementation HitUIView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -19,58 +18,60 @@
     return self;
 }
 
--(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    NSLog(@" -- -- -second  %@",self);
-    
-    UIView *vc =   [super hitTest:point withEvent:event];
 
-//    NSLog(@" -- -- -second  %@",vc);
-    
-    return self;
-}
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    NSLog(@" ---- touch ");
-}
-@end
-@implementation HitUIView
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-       vcs = [[UISecondView alloc]initWithFrame:CGRectMake(-100, -100, 100, 100)];
-        vcs.backgroundColor = [UIColor orangeColor];
-        [self addSubview:vcs];
-    }
-    return self;
-}
-
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    
-    [super hitTest:point withEvent:event];
-    CGPoint tempPoint = [vcs convertPoint:point fromView:self];//超出父类事件获取
-    if ([vcs pointInside:tempPoint withEvent:event]) {
-        return vcs;
+    NSLog(@"AAA ************  %s",__func__);
+//    return  [super hitTest:point withEvent:event];
+    // 如果交互未打开，或者透明度小于0.05 或者 视图被隐藏
+    if (self.userInteractionEnabled == NO || self.alpha < 0.05 || self.hidden == YES)
+    {
+        return nil;
     }
     
-    return self;
+    // 如果 touch 的point 在 self 的bounds 内
+    if ([self pointInside:point withEvent:event])
+    {
+        
+        for (UIView *subView in self.subviews)
+        {
+            
+            NSLog(@"sungh ----- %@",subView);
+            //进行坐标转化
+            CGPoint coverPoint = [subView convertPoint:point fromView:self];
+            
+            // 调用子视图的 hitTest 重复上面的步骤。找到了，返回hitTest view ,没找到返回有自身处理
+            UIView *hitTestView = [subView hitTest:coverPoint withEvent:event];
+            
+            if (hitTestView)
+            {
+                
+                return hitTestView;
+            }
+        }
+        
+        return self;
+        
+        
+    }
+    
+    return nil;
+    
 }
 
--(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
-    
-    return YES;
-}
+
+//s
+//-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
+//
+//    NSLog(@" ************  %s",__func__);
+//    return [super pointInside:point withEvent:event];
+//}
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@" ----super  touch ");
+    NSLog(@"AAA ************  %s",__func__);
 }
 
 @end
-/*
- hitTest 调用顺序   hitview  - > secondview
- 
- 返回顺序   second - > hit
- */
+
 

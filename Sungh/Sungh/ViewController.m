@@ -30,7 +30,7 @@
 static void funcMeth(){
     printf("\n12121\n");
 }
-
+typedef void(^SuccessBlock)(NSString *value,BOOL success);
 
 static NSString  * const kUserName = @"StrongX";
 
@@ -51,7 +51,7 @@ extern int name2;//不可引用
 NSDate *date = [NSDate date];
 NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
 return timeSp;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +60,8 @@ return timeSp;
     NSLog(@"name ---- %d ---",name);
 //    NSLog(@"name2 ---- %d ---",name2);
 
+    
+    UIView *layview;
     NSLog(@"%p",&a);
     
     
@@ -69,6 +71,7 @@ return timeSp;
 
     self.dataArray = [[NSMutableArray alloc]init];
     NSLog(@" --- %p",self.dataArray);
+
 //    BOOL isbools = [STool isWiFiEnabled];
 //    TICK;
 //    if (isbools) {
@@ -81,7 +84,7 @@ return timeSp;
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",@"锁",@"copy",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",@"锁",@"copy",@"NSProtocolController",@"RuntimeViewController",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -94,6 +97,14 @@ return timeSp;
 //        NSLog(@"121212");
 //    }
     
+   __block int showage = 100;
+    
+    void (^blcoktestm)(void) = ^{
+        showage = 10;
+        
+    };
+//    UIImageView *imagev = [[UIImageView alloc]init];
+//    [imagev sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1819216937,2118754409&fm=26&gp=0.jpg"]];
 }
 
 
@@ -203,6 +214,14 @@ return timeSp;
         [self.navigationController pushViewController:vc animated:YES];
     }else if([str isEqualToString:@"copy"]){
         Class class = NSClassFromString(@"CopyViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"NSProtocolController"]){
+        Class class = NSClassFromString(@"NSProtocolController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"RuntimeViewController"]){
+        Class class = NSClassFromString(@"RuntimeViewController");
         UIViewController *vc = [[class alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }

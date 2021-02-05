@@ -9,7 +9,7 @@
 #import "CurrentSuperViewController.h"
 
 @interface CurrentSuperViewController ()
-@property (strong, nonatomic) IBOutlet UIScrollView *scr;
+//@property (strong, nonatomic) IBOutlet UIScrollView *scr;
 @property (nonatomic,copy)NSString *str;
 @end
 
@@ -17,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scr.contentOffset = CGPointMake(375, 0);
+//    self.scr.contentOffset = CGPointMake(375, 0);
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    self.scr.contentOffset = CGPointMake(375, 0);
+//    self.scr.contentOffset = CGPointMake(375, 0);
 }
 - (IBAction)click:(id)sender {
     

@@ -8,6 +8,7 @@
 
 #import "CopyViewController.h"
 #import "PersonCopy.h"
+#import "CopyObject.h"
 @interface CopyViewController ()
 
 @end
@@ -19,64 +20,104 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"copy&mutabcopy";
     // Do any additional setup after loading the view.
-    
-    PersonCopy *per = [[PersonCopy alloc]init];
-    per.name = @"sun";
-    PersonCopy *per2 = [per copy];
-    NSLog(@" -%@-- %p ---%p- %p",per.name,per,per2.name,per2);
-    
-    per2.name = @"**************";
-    
-    NSLog(@" -%@-- %p ---%p- %p",per.name,per,per2.name,per2);
+
 
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self copytest];
-    sleep(3);
-    [self mutabCopy];
+    [self copytest2];
 }
-- (void)copytest{
+#pragma mark ------>非容器类
+- (void)copytest1{
+//    非容器类
+#if  1
+    NSString *string = @"origionppppppp";
+    NSString *stringCopy = [string copy];
     
-    NSString *str1 = @"str1";
-    NSString *str2 = [str1 copy];
-//    NSString *str3 = str1;
-//    str1 = @"66666";
-//    str1 = @"233223";
-//    重新赋值之后，就相当于创建了新的地址指针
-    NSLog(@"\nstr1 = %@ str1P = %p \n str2 = %@ str2P = %p   ", str1, str1, str2, str2);
-    str1 = @"pppp";
-//不可变 时候修改 原来的数据 h就会生成新的内存地址
-    NSLog(@" --- %@ ---- %p",str1,str1);
+    NSMutableString *stringMCopy = [string mutableCopy];
+    NSLog(@"string -%p    cpoy--%p   mcopy --%p",string,stringCopy,stringMCopy);//对象的内存地址
+    //string -0x1097080f8    cpoy--0x1097080f8   mcopy --0x60000140e0d0
+    NSLog(@"string -%p    cpoy--%p   mcopy --%p",&string,&stringCopy,&stringMCopy);//指针变量的内存地址；地址的指针
+
+//string -0x7ffee6522a38    cpoy--0x7ffee6522a40   mcopy --0x7ffee6522a30
+    [stringMCopy appendString:@"!!"];
     
-//    NSMutableString *str1 =
+    NSLog(@"string -%p    cpoy--%p   mcopy --%p",string,stringCopy,stringMCopy);
     
-//        NSMutableString *str1 = [[NSMutableString alloc]initWithString:@"可变"];
-//        NSString *str2 = [str1 copy];
-//    //    NSString *str3 = str1;
-//    //    str1 = @"66666";
-//    //    str1 = @"233223";
-//    //    重新赋值之后，就相当于创建了新的地址指针
-//        NSLog(@"\nstr1 = %@ str1P = %p \n str2 = %@ str2P = %p   ", str1, str1, str2, str2);
-//
-//    [str1 appendFormat:@" sungh"];
-//
-//
-//        NSLog(@" --- %@ ---- %p",str1,str1);
+    NSLog(@"string -%p    cpoy--%p   mcopy --%p",&string,&stringCopy,&stringMCopy);
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@" ---%@------ %p ----- %p",string,string,&string);
+
+    });
+    string = @"kkkkkkkkksakskakskas";
+    NSLog(@" --------- %p ----- %p",string,&string);
     
-//    ****************数组
-//    NSMutableArray *mArr1 = [@[@"123", @"456", @"asd"] mutableCopy];
-//    NSMutableArray *mArr2 = [mArr1 copy];
-//
-//    NSLog(@"\n mArr1 = %@ mArr1P = %p mArr1 class = %@ \n\n mArr2 = %@ mArr2P = %p mArr2 class = %@", mArr1, mArr1, [mArr1 class], mArr2, mArr2, [mArr2 class]);
-//    [mArr1 addObject:@"sun"];
-//    NSLog(@" --- %p",mArr1);
+#else
+      NSMutableString *string = [NSMutableString stringWithString: @"origionweewwewew"];
+      NSString *stringCopy = [string copy];
+      NSMutableString *mStringCopy = [string copy];
+      NSMutableString *stringMCopy = [string mutableCopy];
+    NSLog(@"*****string -%p    cpoy--%p   mcopy --%p",string,stringCopy,stringMCopy);
+    NSLog(@"*******string -%p    cpoy--%p   mcopy --%p",&string,&stringCopy,&stringMCopy);
+    
+
+#endif
+/*   总结：不可变 copy 浅拷贝 只是拷贝了指针的内存地址  有新的指针  指向了同一块对象的内存地址  对象的内存地址不变
+    返回的是不可变对象
+ mutablecopy 深拷贝 生成了新的指针， 和新的对象的内存地址 ，返回的是可变类型
+ 可变的  copy 深拷贝 不只拷贝的指针的内存地址，还拷贝的新的对象的内存地址 ，返回的不可变类型
+ mytablecopy 深拷贝 ，拷贝了对象的指针地址 和内存地址 ，返回的可变类型
+ */
+    
+}
+
+#pragma mark ------> 容器类
+- (void)copytest2{
+    
+#if  1
+    CopyObject *objc = [[CopyObject alloc]init];
+    objc.age = @"test";
+    NSLog(@"objc ----- %p ------ %p",objc,&objc);
+    NSString *copyStr = @"测试copy";
+    NSArray *array1 = [NSArray arrayWithObjects:@"a",@"b",@"c",objc,copyStr,nil];
+    CopyObject *objc1 =[array1[3] copy];
+
+    CopyObject *objc3 = [objc copy];
+    
+    objc3.age = @"3";
+    NSLog(@" --- %@ -- %@",objc.age,objc3.age);
+    
+    
+    NSArray *arrayCopy1 = [[NSArray alloc]initWithArray:array1 copyItems:YES];
+    CopyObject *objc2 =arrayCopy1[3];
+    objc2.age = @"1ppp";
+    NSLog(@"objc2 ----- %p ------ %p -----%@--%@",objc2,&objc2,objc.age,objc2.age);
+    
+    NSLog(@" --- %p   %p",array1,arrayCopy1);//内存地址指向的是同一个  指针地址是不同的（新的指针地址）
+    NSLog(@" --- %p   %p",&array1,&arrayCopy1);
+
+    NSMutableArray *mArrayCopy1 = [array1 mutableCopy];
+    NSLog(@" --- %p %p",mArrayCopy1,array1); //mu 指针的地址  和对象的内存地址均为新生成的
+    NSLog(@" --- %p %p",&mArrayCopy1,&array1);
+    
+    CopyObject *objc4 =mArrayCopy1[3];
+    objc4.age = @"objc4";
+    
+    NSLog(@" ----- %@ ---- %@ --- %@",objc4.age,objc.age,objc1.age);
+
+    
+#else
+    
+#endif
+/*
+ 数组容器：不论是copy 还是mutablecopy 都是浅拷贝 ，并不能拷贝数组中的item
+ 
+ */
+    
 }
 - (void)mutabCopy{
-//        NSMutableString *mStr1 = [@"123" mutableCopy];
-//        NSMutableString *mStr2 = [mStr1 mutableCopy];
-//        NSLog(@"\n mStr1 = %@ mStr1P = %p \n mStr2 = %@ mStr2P = %p", mStr1, mStr1, mStr2, mStr2);
-//*************
+
 }
 /*
  总结：

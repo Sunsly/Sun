@@ -9,6 +9,8 @@
 #import "UIActionViewController.h"
 #import "HitUIView.h"
 #import "UIView+GTMCWavesAnimation.h"
+#import "HitUIViewB.h"
+#import "HitViewC.h"
 @interface UIActionViewController ()
 {
     UIView *vcm;
@@ -22,12 +24,20 @@
     self.title = @"事件传递";
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
-//    vc.backgroundColor = [UIColor grayColor];
-////    vc.layer.borderWidth = 5;
-////    vc.layer.borderColor = [UIColor blueColor].CGColor;
-//    [self.view addSubview:vc];
-//    vc.layer.cornerRadius = 50;
+    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(0,0, 400, 800)];
+    vc.backgroundColor = [UIColor orangeColor];
+//    vc.layer.borderWidth = 5;
+//    vc.layer.borderColor = [UIColor blueColor].CGColor;
+    [self.view addSubview:vc];
+    
+    HitUIViewB *viewb  = [[HitUIViewB alloc]initWithFrame:CGRectMake(100, 300, 100, 100)];
+    viewb.backgroundColor = [UIColor redColor];
+    [vc addSubview:viewb];
+    
+    HitViewC *viewc  = [[HitViewC alloc]initWithFrame:CGRectMake(100, 500, 100, 100)];
+    viewc.backgroundColor = [UIColor purpleColor];
+    [vc addSubview:viewc];
+//    vc.layer.cornerRadius = 50;/
 //    vc.clipsToBounds  = YES;
     
 //    UIBezierPath *path1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 100, 100) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft cornerRadii:CGSizeMake(30, 30)];
@@ -51,21 +61,22 @@
 //    gradient.endPoint = CGPointMake(0, 0);
 //    [vc.layer addSublayer:gradient];
 //    
-    
-    vcm = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
-    [self.view addSubview:vcm];
-    vcm.radarColor = [UIColor redColor];
-    vcm.radarBorderColor = [UIColor whiteColor];
-    [vcm addRadarAnimation];
+//
+//    vcm = [[UIView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+//    [self.view addSubview:vcm];
+//    vcm.radarColor = [UIColor redColor];
+//    vcm.radarBorderColor = [UIColor whiteColor];
+//    [vcm addRadarAnimation];
 }
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [vcm removeRadarAnimation];
     [self performSelector:@selector(add) withObject:nil afterDelay:2];
 }
 - (void)add{
-    vcm.radarColor = [UIColor redColor];
-    vcm.radarBorderColor = [UIColor whiteColor];
-    [vcm addRadarAnimation];
+//    vcm.radarColor = [UIColor redColor];
+//    vcm.radarBorderColor = [UIColor whiteColor];
+//    [vcm addRadarAnimation];
 }
 /*
  iOS设备的硬件时钟会发出Vsync（垂直同步信号），然后App的CPU会去计算屏幕要显示的内容，之后将计算好的内容提交到GPU去渲染。，随后GPU将渲染结果提交到帧缓冲区，等到下一个VSync到来时将缓冲区的帧显示到屏幕上。也就是说，一帧的显示是由CPU和GPU共同决定的。

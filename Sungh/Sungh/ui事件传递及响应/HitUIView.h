@@ -10,14 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UISecondView : UIView
-
-@end
 @interface HitUIView : UIView
-{
-    UISecondView *vcs;
-    
-}
 @end
 
 NS_ASSUME_NONNULL_END
