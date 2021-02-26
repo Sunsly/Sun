@@ -16,24 +16,34 @@
 #import "CustomUrlProtocol.h"
 #import "TravinURLProtocol.h"
 //#import <Flutter/Flutter.h>
-
+#import "YZMonitorRunloop.h"
+#import "NSObject+UnrecognizedSelectorProtecter.h"
 /**/
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()
 @end
 // 异常日志获取,崩溃把日志写入本地，等下次开启app再上传
 void UncaughtExceptionHandler(NSException *exception){
-
-    NSArray  *excpArr = [exception callStackSymbols];
-    NSString *reason = [exception reason];
-    NSString *name = [exception name];
-    NSDictionary * userInfo = [exception userInfo];
-    NSString *excpCnt = [NSString stringWithFormat:@"exceptionType: %@ \n reason: %@ \n stackSymbols: %@ \n userInfo: %@",name,reason,excpArr,userInfo];
-    //NSDOCUMENTPATH是沙盒路径
+//
+//    NSArray  *excpArr = [exception callStackSymbols];
+//    NSString *reason = [exception reason];
+//    NSString *name = [exception name];
+//    NSDictionary * userInfo = [exception userInfo];
+//    NSString *excpCnt = [NSString stringWithFormat:@"exceptionType: %@ \n reason: %@ \n stackSymbols: %@ \n userInfo: %@",name,reason,excpArr,userInfo];
+//    //NSDOCUMENTPATH是沙盒路径
 //    NSString * errorMessageFile = [NSString stringWithFormat:@"%@/error.txt",NSDOCUMENTPATH];
     //将崩溃信息写入沙盒里的error.txt文件
 //    [excpCnt writeToFile:errorMessageFile atomically:YES encoding:NSUTF8StringEncoding error:nil];
-}
+
+    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
+
+    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
+
+    NSString *name = [exception name];//异常类型
+
+    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
+
+    }
 @implementation AppDelegate
 
 
@@ -53,6 +63,7 @@ void UncaughtExceptionHandler(NSException *exception){
     dispatch_async(queue, ^{
         NSLog(@"sun.com.dis");
     });
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
 
     //打印main（）耗时时间
     double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
@@ -64,6 +75,12 @@ void UncaughtExceptionHandler(NSException *exception){
 //    NSLog(@" -- %@",arr[2]);
     
     [NSURLProtocol registerClass:[TravinURLProtocol class]];
+    
+    
+    [[YZMonitorRunloop sharedInstance] startMonitor];
+    [YZMonitorRunloop sharedInstance].callbackWhenStandStill = ^{
+        NSLog(@"eagle.检测到卡顿了");
+    };
     return YES;
 }
 

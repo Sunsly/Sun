@@ -33,7 +33,12 @@ int main(int argc, char * argv[]) {
     
     @autoreleasepool {
         
-        
+        /*
+        局部变量，当用__block 修饰之后，调用block bolck 和局部变量都会被copy到堆上，这个时候block内部就可以修改
+         
+         如何clang 之后查看编译后的源码，发现有一个blcokmainimp结构体，他就是block的c++实现，__block修饰之后里边会有一个布局变量的，够着函数列表页多了个参数a
+         
+         */
         
         testBlocks();
         blockms();

@@ -231,7 +231,6 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self ctask];
-
 }
 - (void)ctask{
     dispatch_group_t group = dispatch_group_create();
@@ -327,6 +326,9 @@
 //            });
     
         });
+   
+
+
     
         dispatch_async(ques1, ^{
                // 追加任务 2
@@ -342,6 +344,8 @@
                [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
                NSLog(@"barrier---%@",[NSThread currentThread]);// 打印当前线程
         });
+
+
     
     NSLog(@" --------- ---------------------");
         dispatch_async(ques1, ^{

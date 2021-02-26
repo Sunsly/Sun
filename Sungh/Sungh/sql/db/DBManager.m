@@ -292,11 +292,47 @@ FMDatabaseQueue *queue;
 - (void)operation{
     
     [queue inDatabase:^(FMDatabase * _Nonnull db) {
-      //操作
+        //操作
+        
+        [db beginTransaction];
+        
+        BOOL isRollBack = NO;
+        
+        
+        @try
+        {
+//            插入db1  db2
+            
+        }
+        @catch (NSException *exception) {
+            isRollBack = YES;
+            [db rollback];
+        }
+        @finally {
+            
+        }
+        
     }];
     //多线程使用事物
+    __block BOOL flag = NO;
+    
     [queue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
-        
+        @try
+        {
+            //                           for (NSString *type in typeArr) {
+            //                               flag = [db executeUpdateWithFormat:@"INSERT INTO TypeList (type) VALUES (%@);", type];
+            //                           }
+        }
+        @catch (NSException *exception) {
+            *rollback = YES;
+            flag = NO;
+        }
+        @finally {
+            *rollback = !flag;
+            //                           if (flag) {
+            //                               [self resultWithResult:flag success:success failed:failed];
+            //                           }
+        }
     }];
 }
 
@@ -360,6 +396,20 @@ FMDatabaseQueue *queue;
     NSLog(@"FMDatabase使用事务插入500条数据用时%.3f秒",a);
 }
 
+/*
+ FMDB的正确打开方式
 
+ 如果用 while 循环遍历 FMResultSet 就不存在该问题，因为 [FMResultSet next] 遍历到最后会调用 [FMResultSet close]。
+ 
+ // 安全
+    while ([result next]) {
+    }
+    
+    // 安全
+    if ([result next]) {
+    }
+    [result close];
+
+ */
 
 @end

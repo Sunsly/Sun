@@ -1004,4 +1004,9 @@ autoreleasepool
        });
     NSLog(@"touchesBegan");
 }
+
+//crash 分析
+- (void)crashMethod{
+    
+}
 @end

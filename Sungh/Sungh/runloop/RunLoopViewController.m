@@ -256,4 +256,24 @@ void CFRunLoopObserverCallBack2(CFRunLoopObserverRef observer, CFRunLoopActivity
     
     NSLog(@" -------   %s",__func__);
 }
+
+/*
+ @autoreleasepool
+ 
+ poolpush
+ 压栈
+ 
+ poolpop
+ 出栈
+ */
+
+
+/*
+ 
+ 伪代码
+ 通知observe
+ beforcetimer
+ beforesource
+ 
+ */
 @end

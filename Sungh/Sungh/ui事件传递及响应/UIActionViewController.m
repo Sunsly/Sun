@@ -97,6 +97,36 @@
  GPU需要做额外的渲染操作。通常GPU在做渲染的时候是很快的，但是涉及到offscreen-render的时候情况就可能有些不同，因为需要额外开辟一个新的缓冲区进行渲染，然后绘制到当前屏幕的过程需要做onscreen跟offscreen上下文之间的切换，这个过程的消耗会比较昂贵，涉及到OpenGL的pipeline跟barrier，而且offscreen-render在每一帧都会涉及到，因此处理不当肯定会对性能产生一定的影响。另外由于离屏渲染会增加GPU的工作量，可能会导致CPU+GPU的处理时间超出16.7ms，导致掉帧卡顿。所以可以的话应尽量减少offscreen-render的图层
 
  CPU 处理完后交给 GPU 去渲染，如两者合作耗时超过 16m
+ 
+ 
+ 
+ 
+ 点击之后 将操作打包成uievent对象 ，添加到 uiapplicatuon 管理的队列中， 通uiapplication 分发 传递
+ 
+ uiwindow - 执行hit 最后到所点击的视图 view  传递给需要处理事件的view
+ 
+ 响应的话与时间分发相反
+ 从第一响应着 到俯视图 - window  到 uiapplication  找不到事件 丢弃
+ 
+ 
+ 
+ 
+ 
+ 
+ 点击屏幕 uievent 事件，会被添加到uiapplication管理的队列中，然后通过uiapplication对事件进行分发，->uiwindow
+ 
+ uiwindow 会 调用hittest  pointinside 如果返回no，则hit返回nil，否则yes，遍历子视图  从最顶层 的视图开始遍历 ，直到有子视图返回空或者全部遍历结束，
+    有视图返回费控，则hittest返回此对象，处理结束
+ 若都返回空，则hittest返回自身
+ 找到第一响应者
+ 
+ 事件处理：
+ 响应链
+ 
+ 
+ 
+ 
+ 
 */
 #pragma mark - Navigation
 

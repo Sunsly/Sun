@@ -55,6 +55,26 @@ return timeSp;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    BOOL flag = NO;
+    [userdefault setObject:@(flag) forKey:@"flag"];
+
+    if ([userdefault objectForKey:@"flag"]) {
+        BOOL eq = [userdefault objectForKey:@"flag"];
+        if (eq) {
+            NSLog(@"a");
+        }else{
+            NSLog(@"b");
+        }
+    }else{
+        BOOL eq = [userdefault objectForKey:@"flag"];
+        if (eq) {
+            NSLog(@"c");
+        }else{
+            NSLog(@"d");
+        }
+    };
     funcMeth();
     int a = 100;
     NSLog(@"name ---- %d ---",name);
@@ -84,7 +104,7 @@ return timeSp;
 //    //测试
 ////    [[UIScreen mainScreen].bounds.size.width];
 //    // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",@"锁",@"copy",@"NSProtocolController",@"RuntimeViewController",nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"js && oc",@"sql",@"textfield输入限制", @"下载",@"算法",@"RAC",@"多线程",@"面试",@"内联函数宏定义",@"内存管理",@"MVVM",@"childView",@"ui事件传递",@"textfield",@"AFNViewController",@"RunLoopViewController",@"flutter",@"加密",@"锁",@"copy",@"NSProtocolController",@"RuntimeViewController",@"UIOPViewController",@"本地文件存储",@"内存泄漏检测",@"性能监控",@"LoadInitViewController",nil];
 
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScrWid, kScrHei-64)];
     self.tableview.dataSource = self;
@@ -96,13 +116,7 @@ return timeSp;
 //    for (int i = 0; i < 100000; i++) {
 //        NSLog(@"121212");
 //    }
-    
-   __block int showage = 100;
-    
-    void (^blcoktestm)(void) = ^{
-        showage = 10;
-        
-    };
+
 //    UIImageView *imagev = [[UIImageView alloc]init];
 //    [imagev sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1819216937,2118754409&fm=26&gp=0.jpg"]];
 }
@@ -224,7 +238,31 @@ return timeSp;
         Class class = NSClassFromString(@"RuntimeViewController");
         UIViewController *vc = [[class alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"UIOPViewController"]){
+        Class class = NSClassFromString(@"UIOPViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"本地文件存储"]){
+        Class class = NSClassFromString(@"FileViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"内存泄漏检测"]){
+        Class class = NSClassFromString(@"LeakerViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"性能监控"]){
+        Class class = NSClassFromString(@"GPUViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([str isEqualToString:@"LoadInitViewController"]){
+        Class class = NSClassFromString(@"LoadInitViewController");
+        UIViewController *vc = [[class alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    
+
+    
+    
 }
 #pragma mark ------> 水滴gif
 - (void)chargeAnimationImages{

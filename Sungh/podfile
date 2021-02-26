@@ -20,6 +20,8 @@ pod 'MLeaksFinder'
 pod 'FBRetainCycleDetector'
 pod 'FDFullscreenPopGesture', '~> 1.1'
 pod 'TABAnimated'
+pod 'SSZipArchive'
+
 
 end
 #target 'Sungh' do

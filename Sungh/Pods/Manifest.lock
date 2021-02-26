@@ -29,6 +29,7 @@ PODS:
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
+  - SSZipArchive (2.2.2)
   - SVProgressHUD (2.2.5)
   - TABAnimated (2.1.9)
   - YYCategories (1.0.4):
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - MLeaksFinder
   - ReactiveObjC
   - SDWebImage
+  - SSZipArchive
   - SVProgressHUD
   - TABAnimated
   - YYCategories
@@ -67,6 +69,8 @@ SPEC REPOS:
     - SVProgressHUD
     - TABAnimated
     - YYCategories
+  trunk:
+    - SSZipArchive
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -80,10 +84,11 @@ SPEC CHECKSUMS:
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TABAnimated: e913a2eb5a1caf3553dcef8e4d9d3f24f0c29b31
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: d288c4571825b697c804bc1f611c48df8913db9c
+PODFILE CHECKSUM: 18807e1d16b18457b30fd4881c04d99d6c12c382
 
 COCOAPODS: 1.9.3
