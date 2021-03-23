@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MethodTest : NSObject
 @property (nonatomic,strong)id target;
+@property (nonatomic,strong)NSString * name;
+
 - (void)test;
 @end
 

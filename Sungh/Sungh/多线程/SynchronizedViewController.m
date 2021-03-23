@@ -9,6 +9,7 @@
 #import "SynchronizedViewController.h"
 #import "SsOperation.h"
 #import "GCDViewController.h"
+#import "OperationViewController.h"
 @interface SynchronizedViewController ()
 @property (nonatomic, strong) NSThread *thread;//创建一个常驻线程
 @property (nonatomic,strong)NSOperationQueue *queueOprtations;
@@ -121,8 +122,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self dispatch_semaphore_createaction];
+//       dispatch_queue_t queue = dispatch_queue_create("com.baidu.www", DISPATCH_QUEUE_SERIAL);
+//
+//       dispatch_sync(queue, ^{
+//           NSLog(@"1---%@",[NSThread currentThread]);
+//       });
+
+//    [self dispatch_semaphore_createaction];
     self.view.backgroundColor = [UIColor whiteColor];
 //    NSObject *obj = [[NSObject alloc]init];
 //    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
@@ -188,40 +194,47 @@
  DISPATCH_QUEUE_PRIORITY_LOW (-2) // 低
  DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后台
  */
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_queue_t queue = dispatch_queue_create("com.gcd-group.www", DISPATCH_QUEUE_CONCURRENT);
-    
-    dispatch_group_async(group, queue, ^{
-        for (int i = 0; i < 1000; i++) {
-            if (i == 999) {
-                NSLog(@"11111111");
-            }
-        }
-    });
-    dispatch_group_async(group, queue, ^{
-        NSLog(@"22222222");
-    });
-    dispatch_group_async(group, queue, ^{
-        NSLog(@"33333333");
-        dispatch_async(queue, ^{
-            for (int i = 0; i < 10000; i++) {
-                if (i == 999) {
-                    NSLog(@"44444444444");
-                }
-            }
-        });
-    });
-    dispatch_group_notify(group, queue, ^{
-        NSLog(@"done");
-    });
+//    dispatch_group_t group = dispatch_group_create();
+//    dispatch_queue_t queue = dispatch_queue_create("com.gcd-group.www", DISPATCH_QUEUE_CONCURRENT);
+//
+//    dispatch_group_async(group, queue, ^{
+//        for (int i = 0; i < 1000; i++) {
+//            if (i == 999) {
+//                NSLog(@"11111111");
+//            }
+//        }
+//    });
+//    dispatch_group_async(group, queue, ^{
+//        NSLog(@"22222222");
+//    });
+//    dispatch_group_async(group, queue, ^{
+//        NSLog(@"33333333");
+//        dispatch_async(queue, ^{
+//            for (int i = 0; i < 10000; i++) {
+//                if (i == 999) {
+//                    NSLog(@"44444444444");
+//                }
+//            }
+//        });
+//    });
+//    dispatch_group_notify(group, queue, ^{
+//        NSLog(@"done");
+//    });
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(show) userInfo:nil repeats:YES];
 //    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 //    NSLog(@"%@",[NSRunLoop mainRunLoop]);
-    GCDViewController *vc = [GCDViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+//    GCDViewController *vc = [GCDViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    OperationViewController *vcs = [[OperationViewController alloc]init];
+    [self.navigationController pushViewController:vcs animated:YES];
+
 }
+
+
+
 -(void)show
 {
     NSLog(@"-------");

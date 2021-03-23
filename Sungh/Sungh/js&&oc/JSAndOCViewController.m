@@ -108,6 +108,7 @@
 - (void)dealloc
 {
     
+    
     [self.kwebView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.kwebView.configuration.userContentController removeScriptMessageHandlerForName:@"Share"];
     [self.kwebView.configuration.userContentController removeScriptMessageHandlerForName:@"Camera"];

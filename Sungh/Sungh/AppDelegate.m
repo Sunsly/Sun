@@ -35,13 +35,13 @@ void UncaughtExceptionHandler(NSException *exception){
     //将崩溃信息写入沙盒里的error.txt文件
 //    [excpCnt writeToFile:errorMessageFile atomically:YES encoding:NSUTF8StringEncoding error:nil];
 
-    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
-
-    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
-
-    NSString *name = [exception name];//异常类型
-
-    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
+//    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
+//
+//    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
+//
+//    NSString *name = [exception name];//异常类型
+//
+//    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
 
     }
 @implementation AppDelegate
@@ -50,37 +50,41 @@ void UncaughtExceptionHandler(NSException *exception){
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    NSString * errorMessageFile = [NSString stringWithFormat:@"%@/error.txt",NSDOCUMENTPATH];
 
-    [UIViewController hookUIViewController];
+//    [UIViewController hookUIViewController];
+//    dispatch_async(dispatch_queue_create(0, 0), ^{
+//        for (int i = 0;i< 10000; i++) {
+//            NSLog(@" --- %d",i);
+//        }
+//
+//    });
     id<UIApplicationDelegate>service;
     for (service in [SOAComponentAppDelegate instance].services) {
         if ([service respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {
             [service application:application didFinishLaunchingWithOptions:launchOptions];
         }
     }
-    [NSURLProtocol registerClass:[CustomUrlProtocol class]];
+//    [NSURLProtocol registerClass:[CustomUrlProtocol class]];
 
-    dispatch_queue_t queue  = dispatch_queue_create("sun.com.dis", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_async(queue, ^{
-        NSLog(@"sun.com.dis");
-    });
-    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+//    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
 
     //打印main（）耗时时间
-    double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
-    NSLog(@" -- - -- - -%f",launchTime);
-    [self createUUID];
+//    double launchTime = (CFAbsoluteTimeGetCurrent() - StartTime);
+//    NSLog(@" -- - -- - -%f",launchTime);
+//    [self createUUID];
 //    [Bugly startWithAppId:@"ab85ee08dd"];
 //520dd2e8-6d87-47c1-9600-4b42f5578ddf
 //    NSArray *arr = @[];
 //    NSLog(@" -- %@",arr[2]);
     
-    [NSURLProtocol registerClass:[TravinURLProtocol class]];
+//    [NSURLProtocol registerClass:[TravinURLProtocol class]];
     
     
-    [[YZMonitorRunloop sharedInstance] startMonitor];
-    [YZMonitorRunloop sharedInstance].callbackWhenStandStill = ^{
-        NSLog(@"eagle.检测到卡顿了");
-    };
+//    [[YZMonitorRunloop sharedInstance] startMonitor];
+//    [YZMonitorRunloop sharedInstance].callbackWhenStandStill = ^{
+//        NSLog(@"eagle.检测到卡顿了");
+//    };
+    //DYLD_PRINT_STATISTICS_DETAILS   DYLD_PRINT_STATISTICS
+  
     return YES;
 }
 

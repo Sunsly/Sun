@@ -13,9 +13,9 @@
 //    NSLog(@" uiview -------------- ");
 //    return [super hitTest:point withEvent:event];
 //}
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-        NSLog(@" uiview -------------- ");
-
-    return [self hitTest:point withEvent:event];
-}
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//        NSLog(@" uiview -------------- ");
+//
+//    return [self hitTest:point withEvent:event];
+//}
 @end

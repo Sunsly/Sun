@@ -24,19 +24,30 @@
     self.title = @"事件传递";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(0,0, 400, 800)];
+    HitUIView *vc = [[HitUIView alloc]initWithFrame:CGRectMake(0,0, 400, 300)];
     vc.backgroundColor = [UIColor orangeColor];
 //    vc.layer.borderWidth = 5;
 //    vc.layer.borderColor = [UIColor blueColor].CGColor;
     [self.view addSubview:vc];
     
-    HitUIViewB *viewb  = [[HitUIViewB alloc]initWithFrame:CGRectMake(100, 300, 100, 100)];
+    HitUIViewB *viewb  = [[HitUIViewB alloc]initWithFrame:CGRectMake(100, 200, 100, 200)];
+//    viewb.userInteractionEnabled = NO;
+    viewb.layer.masksToBounds = YES;
+    viewb.layer.cornerRadius = 10;
+    viewb.clipsToBounds = YES;
     viewb.backgroundColor = [UIColor redColor];
-    [vc addSubview:viewb];
+
+//    HitUIView *vc2 = [[HitUIView alloc]initWithFrame:CGRectMake(0,0,30, 30)];
+//    vc2.backgroundColor = [UIColor orangeColor];
+////    vc.layer.borderWidth = 5;
+////    vc.layer.borderColor = [UIColor blueColor].CGColor;
+//    [viewb addSubview:vc2];
     
-    HitViewC *viewc  = [[HitViewC alloc]initWithFrame:CGRectMake(100, 500, 100, 100)];
-    viewc.backgroundColor = [UIColor purpleColor];
-    [vc addSubview:viewc];
+    [self.view addSubview:viewb];
+//    self.view.userInteractionEnabled = NO;
+//    HitViewC *viewc  = [[HitViewC alloc]initWithFrame:CGRectMake(100, 500, 100, 100)];
+//    viewc.backgroundColor = [UIColor purpleColor];
+//    [vc addSubview:viewc];
 //    vc.layer.cornerRadius = 50;/
 //    vc.clipsToBounds  = YES;
     
@@ -70,8 +81,14 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [vcm removeRadarAnimation];
-    [self performSelector:@selector(add) withObject:nil afterDelay:2];
+//    [vcm removeRadarAnimation];
+//    [self performSelector:@selector(add) withObject:nil afterDelay:2];
+    
+    
+    for (UIView *vc in self.view.subviews) {
+        NSLog(@" -----------%@",vc);
+    }
+    
 }
 - (void)add{
 //    vcm.radarColor = [UIColor redColor];

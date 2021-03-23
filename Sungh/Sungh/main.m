@@ -53,6 +53,11 @@ int main(int argc, char * argv[]) {
         testBlocks();
         blockms();
         
+        __block NSInteger macbook = 100;
+        void(^sunghBlock)(void) = ^{
+            macbook = 50;
+        };
+        
         return res;
     }
 }

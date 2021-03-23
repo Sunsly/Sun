@@ -16,6 +16,13 @@
 
 @implementation RuntimeViewController
 
+/*
+ 
+ 1.动态改变成员变量值
+ 2.动态交换方法
+ 3.动态添加方法
+ 4.属性扩展
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -25,8 +32,37 @@
 }
 - (void)test{
     MethodTest *tes = [[MethodTest alloc]init];
-    [tes test];
-    [tes performSelector:@selector(eats)];
+//    [tes test];
+////    [tes performSelector:@selector(eats)];
+    
+    unsigned count = 0;
+    
+    Ivar *ivar = class_copyIvarList([MethodTest class], &count);
+    
+    for (int i = 0; i < count; i++) {
+        
+        Ivar var = ivar[i];
+        
+        const char *ivarname = ivar_getName(var);
+        
+        NSString *name = [NSString stringWithUTF8String:ivarname];
+        
+        
+        NSLog(@" ---- %@",name);
+        
+    }
+    
+    
+    
+}
+
+- (void)addMethods{
+    MethodTest *tes = [[MethodTest alloc]init];
+// "v@:@"  v表示void  @表示id  :表示方法 SEL
+    class_addMethod([tes class], @selector(runs:), (IMP)runsMethod, "v@:@");
+}
+void runsMethod(NSString *miles)
+{
     
 }
 /*
