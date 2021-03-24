@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWorkViewController : UIViewController
+/** 注释
+    https
+ */
+@property (nonatomic, copy)NSString *https;
 
 @end
 

@@ -7,7 +7,10 @@
 //
 
 #import "JMViewController.h"
-
+#import "NSString+Hash.h"
+#import "CocoaSecurity.h"
+#import "NSString+Encryption.h"
+#import "RSA.h"
 @interface JMViewController ()
 
 @end
@@ -53,5 +56,29 @@
      
      
      */
+
+}
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+  
+    
+    [self duichengjiami];
+    
+}
+
+
+- (void)duichengjiami{
+    //DES 3DES(使用三个密钥对数据进行加密)  AES高级加密
+    
+    
+    NSString *str = @"122121";
+    
+    NSLog(@" ----- %@",[str md5Hash]);
+    
+    [RSA encryptString:str publicKey:@"999"];
+    
+    NSLog(@" ------%@",[RSA encryptString:str publicKey:@"999"]);
+    
 }
 @end

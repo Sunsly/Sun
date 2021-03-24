@@ -117,7 +117,6 @@
 		9FA573F92579E66E00682084 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573F82579E66E00682084 /* Security.framework */; };
 		9FA573FB2579E67A00682084 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573FA2579E67A00682084 /* libz.tbd */; };
 		9FA573FD2579E68A00682084 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA573FC2579E68A00682084 /* libc++.tbd */; };
-		9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA60034219DB6CE0031B90F /* NetWorkViewController.m */; };
 		9FA8B921225CA3660013B388 /* DownLoadingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */; };
 		9FA8B922225CA3660013B388 /* DownLoadingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */; };
 		9FA8B926225D8EBF0013B388 /* ArithmeticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA8B925225D8EBF0013B388 /* ArithmeticViewController.m */; };
@@ -174,6 +173,11 @@
 		9FEEFE3221354CC000736430 /* SUNLbundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3121354CC000736430 /* SUNLbundle.bundle */; };
 		9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEFE3521354DF200736430 /* BundleSdk.m */; };
 		9FF00C4A26099A3200F44DED /* NetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00C4926099A3200F44DED /* NetWorkViewController.m */; };
+		9FF00D44260B3A1400F44DED /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00D39260B3A1400F44DED /* NSString+Hash.m */; };
+		9FF00D45260B3A1400F44DED /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00D3D260B3A1400F44DED /* RSA.m */; };
+		9FF00D46260B3A1400F44DED /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00D3F260B3A1400F44DED /* Base64.m */; };
+		9FF00D47260B3A1400F44DED /* NSString+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00D41260B3A1400F44DED /* NSString+Encryption.m */; };
+		9FF00D48260B3A1400F44DED /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF00D43260B3A1400F44DED /* CocoaSecurity.m */; };
 		9FF1DB41247B8B9800AB3DA9 /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */; };
 		9FF373AA223660770012ADF1 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF373A9223660770012ADF1 /* VideoViewController.m */; };
 		A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */ = {isa = PBXBuildFile; fileRef = A423AC3F213854420028BAEC /* AppDelegate+config.m */; };
@@ -250,9 +254,6 @@
 		9F2D151325359F4B005663BD /* JMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMViewController.h; sourceTree = "<group>"; };
 		9F2D151425359F4B005663BD /* JMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMViewController.m; sourceTree = "<group>"; };
 		9F37A45825F1DC4400EE9917 /* 28215026_fOLP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 28215026_fOLP.png; sourceTree = "<group>"; };
-		9F37A45D25F1E19100EE9917 /* main1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main1.cpp; sourceTree = "<group>"; };
-		9F37A46525F212A500EE9917 /* main2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main2.cpp; sourceTree = "<group>"; };
-		9F37A46D25F215D500EE9917 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sungh-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F42E2252192BE4C003A6F38 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
 		9F42E2262192BE4C003A6F38 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
@@ -402,8 +403,6 @@
 		9FA573F82579E66E00682084 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9FA573FA2579E67A00682084 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9FA573FC2579E68A00682084 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		9FA60033219DB6CE0031B90F /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
-		9FA60034219DB6CE0031B90F /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
 		9FA8B91E225CA3660013B388 /* DownLoadingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownLoadingsViewController.h; sourceTree = "<group>"; };
 		9FA8B91F225CA3660013B388 /* DownLoadingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadingsViewController.m; sourceTree = "<group>"; };
 		9FA8B920225CA3660013B388 /* DownLoadingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownLoadingsViewController.xib; sourceTree = "<group>"; };
@@ -669,6 +668,16 @@
 		9FEEFE3521354DF200736430 /* BundleSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BundleSdk.m; sourceTree = "<group>"; };
 		9FF00C4826099A3200F44DED /* NetWorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkViewController.h; sourceTree = "<group>"; };
 		9FF00C4926099A3200F44DED /* NetWorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkViewController.m; sourceTree = "<group>"; };
+		9FF00D37260B3A1400F44DED /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		9FF00D39260B3A1400F44DED /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		9FF00D3A260B3A1400F44DED /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		9FF00D3B260B3A1400F44DED /* CocoaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSecurity.h; sourceTree = "<group>"; };
+		9FF00D3D260B3A1400F44DED /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		9FF00D3E260B3A1400F44DED /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		9FF00D3F260B3A1400F44DED /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		9FF00D41260B3A1400F44DED /* NSString+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encryption.m"; sourceTree = "<group>"; };
+		9FF00D42260B3A1400F44DED /* NSString+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encryption.h"; sourceTree = "<group>"; };
+		9FF00D43260B3A1400F44DED /* CocoaSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSecurity.m; sourceTree = "<group>"; };
 		9FF1DB3F247B8B9800AB3DA9 /* GCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDViewController.h; sourceTree = "<group>"; };
 		9FF1DB40247B8B9800AB3DA9 /* GCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDViewController.m; sourceTree = "<group>"; };
 		9FF347EB22E714FA006D5B72 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -879,16 +888,11 @@
 				9F4524FB215A32B600999B07 /* system2@2x.png */,
 				9FE7A2C02111B1FF0048776E /* File.h */,
 				9FE7A2BD2111B1B50048776E /* File.m */,
-				9FA60033219DB6CE0031B90F /* NetWorkViewController.h */,
-				9FA60034219DB6CE0031B90F /* NetWorkViewController.m */,
 				9F1DB51C20E0BE6F0014E9FC /* Main.storyboard */,
 				9F1DB51F20E0BE720014E9FC /* Assets.xcassets */,
 				9F1DB52120E0BE720014E9FC /* LaunchScreen.storyboard */,
 				9F1DB52420E0BE720014E9FC /* Info.plist */,
 				9F1DB52520E0BE720014E9FC /* main.m */,
-				9F37A45D25F1E19100EE9917 /* main1.cpp */,
-				9F37A46525F212A500EE9917 /* main2.cpp */,
-				9F37A46D25F215D500EE9917 /* main.cpp */,
 				9F3F87F82244C02800884443 /* Sungh-Bridging-Header.h */,
 			);
 			path = Sungh;
@@ -899,6 +903,7 @@
 			children = (
 				9F2D151325359F4B005663BD /* JMViewController.h */,
 				9F2D151425359F4B005663BD /* JMViewController.m */,
+				9FF00D36260B3A1400F44DED /* Encryptions */,
 			);
 			path = "加密";
 			sourceTree = "<group>";
@@ -1620,6 +1625,47 @@
 			path = "网络原理";
 			sourceTree = "<group>";
 		};
+		9FF00D36260B3A1400F44DED /* Encryptions */ = {
+			isa = PBXGroup;
+			children = (
+				9FF00D37260B3A1400F44DED /* Base64.h */,
+				9FF00D38260B3A1400F44DED /* Hash */,
+				9FF00D3B260B3A1400F44DED /* CocoaSecurity.h */,
+				9FF00D3C260B3A1400F44DED /* RSAEncrypt */,
+				9FF00D3F260B3A1400F44DED /* Base64.m */,
+				9FF00D40260B3A1400F44DED /* NSString+Encryption */,
+				9FF00D43260B3A1400F44DED /* CocoaSecurity.m */,
+			);
+			path = Encryptions;
+			sourceTree = "<group>";
+		};
+		9FF00D38260B3A1400F44DED /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				9FF00D39260B3A1400F44DED /* NSString+Hash.m */,
+				9FF00D3A260B3A1400F44DED /* NSString+Hash.h */,
+			);
+			path = Hash;
+			sourceTree = "<group>";
+		};
+		9FF00D3C260B3A1400F44DED /* RSAEncrypt */ = {
+			isa = PBXGroup;
+			children = (
+				9FF00D3D260B3A1400F44DED /* RSA.m */,
+				9FF00D3E260B3A1400F44DED /* RSA.h */,
+			);
+			path = RSAEncrypt;
+			sourceTree = "<group>";
+		};
+		9FF00D40260B3A1400F44DED /* NSString+Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				9FF00D41260B3A1400F44DED /* NSString+Encryption.m */,
+				9FF00D42260B3A1400F44DED /* NSString+Encryption.h */,
+			);
+			path = "NSString+Encryption";
+			sourceTree = "<group>";
+		};
 		9FF373A7223660490012ADF1 /* 小视频 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1850,6 +1896,7 @@
 				9F465EAB24406F4200515768 /* FirstChildViewController.m in Sources */,
 				9FC153F526009FC500D6FB67 /* MallocObject.m in Sources */,
 				9F58D4FF24455C7600B2317A /* SignView.m in Sources */,
+				9FF00D45260B3A1400F44DED /* RSA.m in Sources */,
 				9F514EE925E793C00073AD9E /* MethodTrans.m in Sources */,
 				9F58D50224455DC100B2317A /* SingTableViewCell.m in Sources */,
 				9FD36E4C2428AFD300F5917B /* UIScreenViewController.m in Sources */,
@@ -1889,6 +1936,7 @@
 				9F54C5F325E3A37B001228FE /* DemoViewController.m in Sources */,
 				9F1DB51B20E0BE6F0014E9FC /* ViewController.m in Sources */,
 				9FCF523E25C3FA2E003DBD9E /* HitViewE.m in Sources */,
+				9FF00D47260B3A1400F44DED /* NSString+Encryption.m in Sources */,
 				9FCF529225C93937003DBD9E /* YZMutexLock.m in Sources */,
 				9F1DB52620E0BE720014E9FC /* main.m in Sources */,
 				9F514F2B25ECC6330073AD9E /* FormTableViewCell.m in Sources */,
@@ -1906,9 +1954,9 @@
 				9FD36E83242B2AE300F5917B /* MallocManagerController.m in Sources */,
 				9FEEFE3621354DF200736430 /* BundleSdk.m in Sources */,
 				9FC153DD2600994F00D6FB67 /* MallocYHViewController.m in Sources */,
-				9FA60035219DB6CE0031B90F /* NetWorkViewController.m in Sources */,
 				9F5464F221ABF84A00A7BCFF /* UITextField+BXExtension.m in Sources */,
 				A423AC40213854420028BAEC /* AppDelegate+config.m in Sources */,
+				9FF00D46260B3A1400F44DED /* Base64.m in Sources */,
 				9FEBC060257E386A00555DA5 /* CustomUrlProtocol.m in Sources */,
 				9FE7A2C82112A6530048776E /* UIScrollView+UITouch.m in Sources */,
 				9FCF523825C3FA21003DBD9E /* HitViewD.m in Sources */,
@@ -1916,6 +1964,7 @@
 				9F174A2C24333E1F000AFFB1 /* MVVMViewController.m in Sources */,
 				9F0FD2CA24693BF900C1A18B /* HitUIView.m in Sources */,
 				9F91CD472301534600D1A7EB /* AppDelegate+Config.m in Sources */,
+				9FF00D48260B3A1400F44DED /* CocoaSecurity.m in Sources */,
 				9FEBC05A257E275900555DA5 /* CopyViewController.m in Sources */,
 				9FCF52C425CBF8CE003DBD9E /* SunPerment.m in Sources */,
 				9F514F0F25E7A0E20073AD9E /* DDSuperDemo+DD.m in Sources */,
@@ -1954,6 +2003,7 @@
 				9F514F1A25E8E2620073AD9E /* OnScreenViewController.m in Sources */,
 				9F4524FF215A3BC300999B07 /* UIButton+Position.m in Sources */,
 				9FE7A2C32111B66A0048776E /* SdkView.m in Sources */,
+				9FF00D44260B3A1400F44DED /* NSString+Hash.m in Sources */,
 				9F53D22D20FF0BC100D327D0 /* DBUserModel.m in Sources */,
 				9FEBC05D257E30EA00555DA5 /* PersonCopy.m in Sources */,
 				9FEBC056257DF22000555DA5 /* SUOViewController.m in Sources */,
@@ -2162,6 +2212,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Sungh/Bugly",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2198,6 +2249,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Sungh/Bugly",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Sungh/sungh.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
